@@ -1,0 +1,11 @@
+{
+  "id": "SITE_05",
+  "name": "Western Jutland",
+  "jurisdiction": "Denmark",
+  "search_area_description": "Western Jutland Danish North Sea regional search",
+  "screening_geometry": null,
+  "status": "screening_only",
+  "geometry_unverified": true,
+  "no_feasibility_claim": true,
+  "revision": 1
+}

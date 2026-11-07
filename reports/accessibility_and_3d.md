@@ -1,0 +1,35 @@
+# Offshore Wind Farm Design Studio — accessibility and 3D
+
+> **Historical milestone:** Accessibility/3D milestone; the 236-test count and factory-threshold example are historical. Current reference revision 17 inherits a saved 2.0 m Hs limit. Current behavior and validation are in [status](../docs/STATUS.md), [verification](../docs/VERIFICATION.md) and [the handover](../PROJECT_HANDOVER.md).
+
+Implemented locally in D:\Wind_Farm_Design on 2026-11-01. The app title, loading screen, sidebar, footer, API title and launch script now use the requested name. No cloud deployment is involved.
+
+## User requests implemented
+
+C56 is now **Wind turbine accessibility**, with the original supplied banner preserved byte-for-byte, and the supplied criteria diagram available in a disclosure. V = visibility, C = current, SH = significant wave height, L = daylight (user-confirmed), W = 10 m wind and R = rain. Criteria and thresholds are interactive; saving creates an immutable revision. Plots show monthly historical Hs quartiles/median/whiskers/outliers and threshold, monthly joint eligibility, joint wind–wave frequencies by selected month and a daily eligibility calendar. CSV and standalone SVG exports are available.
+
+The new **3D wind farm** sidebar entry uses Three.js 0.187.0, local procedural turbine geometry and an animated shader ocean. It offers orbit/zoom, turbine picking and labels, per-turbine wind readouts, wind-direction yaw, illustrative blade RPM, pause/resume, turbine/farm camera presets, optional wake envelopes and wave visual scales. A historical UTC hour can drive wind direction, hub wind, Hs, mean wave period and wave direction. 100 m wind is extrapolated to hub height with a declared illustrative power-law exponent α = 0.1. Manual conditions are also available. The WindTwin demo was used as an interaction reference; its models/assets were not copied.
+
+C23 computed turbine positions take priority. Otherwise the scene uses a clearly labelled conceptual arrangement based on the selected count, spacing, rotation and layout strategy. There are no claimed surveyed turbine coordinates for this regional Hornsea case. Up to 300 turbines render in 3D; the table retains all positions. Geometry/materials, renderer, controls and animation callbacks are cleaned up on unmount. Three.js is lazy-loaded only for the 3D view. WebGL failure leaves a readable fallback and layout plots/table.
+
+## Downloaded historical data
+
+Dataset **5f96b5a7-ecbf-45c6-8b11-917a7bdcf3fc**, collection job **4c6e5edc-cde4-4c5e-9478-f8b71b0f4736**, initially bound to revision 12 (**e01f5063-0aeb-4d96-a299-5833b52b5dd4**). Period **2025-10-01 to 2026-09-30**, **8,760 complete matched UTC hours**. This is the latest twelve whole available months under the seven-day source-lag rule; date fields for the separate general ERA5 adapter do not change this automatic period.
+
+Sources: [Open-Meteo archive](https://open-meteo.com/en/docs/historical-weather-api), [Open-Meteo marine](https://open-meteo.com/en/docs/marine-weather-api), with ERA5 wind/precipitation/daylight, ERA5-Ocean waves and Meteo-France SMOC currents. CC BY 4.0 and source-model attribution are preserved. Wind and wave responses both sample 54.0°N, 2.0°E, but their documented grid resolutions differ (0.25° and 0.5°). Currents sample 53.875°N, 1.875°E at approximately 8 km resolution. The existing Hornsea agreement-derived regional reference remains 53.8856337085001°N, 1.8919857048095705°E; it is not a proposed AOI.
+
+All 8,760 hours have wind, Hs, current, daylight and precipitation values. Visibility is entirely missing in the archived source and remains null. Current source km/h is divided by 3.6 to obtain m/s. R is total precipitation including snow equivalent, a conservative rain proxy; wave period is the source **mean** period, not spectral peak period. Zero wind/wave/rain/night values remain valid zeros. Independent raw-response assets and hashes are retained under data/external_raw and the dataset snapshot under data/external; they are ignored by Git rather than omitted from the local project.
+
+## Interpretation
+
+Default selected criteria are W ≤10 m/s at 10 m, SH ≤1.5 m and daylight. These are illustrative planning limits. They yield **3,019 / 8,760 eligible hours (34.4635%)**, **602 overlapping candidate 12-hour starts**, and a **17-hour longest continuous run**. This is conditional on the selected criteria, not a whole-system operating approval. Selecting visibility gives zero eligible hours: otherwise passing hours become unknown; known failures remain ineligible. Selecting a 2 m wave limit increases selected-criteria eligibility to 3,422 hours (39.0639%). Work and vessel-speed inputs provide a clearly hypothetical return-transit illustration, not a navigable route or validated cost strategy.
+
+Illustrative Jensen top-hat wakes use constant Ct = 0.8 and expansion k = 0.04, root-sum-square hub-point deficits, capped at 90%. No rotor averaging, added turbulence, atmospheric stability, blockage, CFD or farm calibration is claimed. They are not used in the existing overview energy or cost calculation. Wind FROM conventions are tested; reversing wind swaps upwind/downwind reductions. The linked layout plot compares hub wind from front to back with a **uniform regional Hs line**. No vessel-access wind credit or farm-scale wave reduction is inferred. Resolving wave shelter requires suitable bathymetry, boundary spectra, a validated wave model or local measurements. The ocean shader is a visual surface, not a hydrodynamic or vessel-motion model.
+
+The previous C07 monthly wind plots, C03–C05 interactive screening and C37 Hornsea attachment remain available. The existing five-year overview energy/cost inputs stay independent of the new one-year accessibility history. The 70-category count, 22 agent profiles, 16 formal assessment areas and original rubric weights are preserved.
+
+## Validation
+
+236 Python tests passed, covering source timeline/unit rejection, valid zero/night values, missing visibility/current handling, inclusive limits, unknown/failure logic, continuous-window counts, preference immutability, deterministic layouts, coordinate preference, meteorological wake direction, no wave/access credit, API guards and shared batch context. Frontend TypeScript/Vite production build passed. Browser QA covers the WebGL scene, animation pause/resume, yaw/conditions, selection, historical replay, wave thresholds, visibility exclusion and immutable preference saves. Browser screenshots and downloadable hourly data accompany the handover.
+
+Browser verification also saved revision 13 (`cd2731a9-a06d-42eb-94b6-e69f4cd1271b`) with the 2 m wave-limit comparison, and revision 14 (`6924e6a5-d55a-42f0-98a3-ad377252fd5a`) with a staggered layout. Both retained all 13 source bindings and the existing overview estimates. Revision 12 remains the regular-grid default-limit reference used in the exported data verification. All 98 unique raw response objects (25,538,350 bytes) and both supplied image checksums passed integrity checks.

@@ -1,0 +1,57 @@
+# Publishes the read-only GitHub Pages snapshot: the dashboard built in static mode plus the
+# exported API data in pages_snapshot/ (refresh it locally with scripts/export_pages_snapshot.py).
+# One-time repository setting: Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
+name: Deploy GitHub Pages snapshot
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - run: npm ci --prefix dashboard
+      - name: Build the dashboard in static snapshot mode
+        working-directory: dashboard
+        env:
+          VITE_STATIC_SNAPSHOT: '1'
+          VITE_REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+        run: |
+          npx tsc --noEmit
+          npx vite build --base "/${{ github.event.repository.name }}/"
+      - name: Add the exported data and the deep-link fallback
+        run: |
+          test -f pages_snapshot/manifest.json
+          cp -r pages_snapshot dashboard/dist/snapshot
+          cp dashboard/dist/index.html dashboard/dist/404.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dashboard/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

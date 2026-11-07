@@ -1,0 +1,252 @@
+[
+  {
+    "id": "A01",
+    "name": "Intake and Assessment",
+    "folder": "agents/A01_intake",
+    "categories": [
+      "C68"
+    ],
+    "instructions": "Read the three uploaded files in their original form. Extract 16 required assessment topics, rubric weights and specific AI attribution requirement. Establish project brief, named assumptions, student contributions, file/page evidence. Never grade the 2023 example retroactively for 2026 AI rule."
+  },
+  {
+    "id": "A02",
+    "name": "Critical Reviewer",
+    "folder": "agents/A02_review",
+    "categories": [
+      "C67",
+      "C68"
+    ],
+    "instructions": "Run a full page-referenced critical review of Viking. Confirm each proposed contradiction against original pages/tables and calculations, classify as error vs uncertainty vs absent extension, compute its impact, propose a correction and teaching question; produce evidence links."
+  },
+  {
+    "id": "A03",
+    "name": "Source and Data Librarian",
+    "folder": "agents/A03_data",
+    "categories": [
+      "C67"
+    ],
+    "instructions": "Find authoritative data by jurisdiction and date. Record retrieval URL, publisher, coverage, variable, spatial/temporal resolution, licensing, download method, checksum and limitations. Explicitly mark inaccessible data and prohibited scraping."
+  },
+  {
+    "id": "A04",
+    "name": "Marine Site Screening",
+    "folder": "agents/A04_site",
+    "categories": [
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C06"
+    ],
+    "instructions": "Validate project polygon and coordinate system; overlay sea plans, restrictions, distance-to-shore/ports and scored competing sites. Score weights transparently and avoid overriding legal hard exclusions."
+  },
+  {
+    "id": "A05",
+    "name": "Wind Resource",
+    "folder": "agents/A05_resource",
+    "categories": [
+      "C07",
+      "C08",
+      "C09",
+      "C10",
+      "C11",
+      "C12"
+    ],
+    "instructions": "Collect timestamped wind series, validate UTC and heights; calculate wind roses, circular sector bars, Weibull, shear, turbulence, directional energy, P50/P90 input uncertainty. Identify where measured data are absent. C08 MUST include IEA-inspired toggle/sort/drill-down interactions on a scientifically correct polar wind-direction chart plus a conventional wind rose, and identify dominant wind-from sector with period, sampling height, share and confidence; follow §16.1."
+  },
+  {
+    "id": "A06",
+    "name": "Metocean and Seabed",
+    "folder": "agents/A06_metocean",
+    "categories": [
+      "C13",
+      "C14",
+      "C15",
+      "C16",
+      "C17",
+      "C18",
+      "C19"
+    ],
+    "instructions": "Interrogate waves, currents, tides, seabed, sediment, geotechnical surveys and weather access; present site-specific versus regional evidence separately."
+  },
+  {
+    "id": "A07",
+    "name": "Turbines and Foundations",
+    "folder": "agents/A07_turbines",
+    "categories": [
+      "C20",
+      "C21",
+      "C22"
+    ],
+    "instructions": "Compare real turbine specification sources, site design class, proxy versus verified curves, hub height, rotor size, bottom-fixed/floating foundation suitability and risk."
+  },
+  {
+    "id": "A08",
+    "name": "Layout and Wake",
+    "folder": "agents/A08_layout",
+    "categories": [
+      "C23",
+      "C24",
+      "C25"
+    ],
+    "instructions": "Generate compliant turbine point candidates; calculate directional wakes including other wind farms only with justified models; assess internal spacing, array footprint, cost/ecology trade-offs and errors in supplied coordinate geometry."
+  },
+  {
+    "id": "A09",
+    "name": "Energy Yield and Uncertainty",
+    "folder": "agents/A09_energy",
+    "categories": [
+      "C26",
+      "C27",
+      "C28",
+      "C29",
+      "C30"
+    ],
+    "instructions": "Calculate gross generation from wind distribution and certified or explicitly assumed power curves; track losses exactly once and net P50/P90, hourly proxy and capacity factor."
+  },
+  {
+    "id": "A10",
+    "name": "Electrical and Grid",
+    "folder": "agents/A10_grid",
+    "categories": [
+      "C31",
+      "C32",
+      "C33",
+      "C34",
+      "C35",
+      "C36"
+    ],
+    "instructions": "Design array, offshore substation, HVAC/HVDC export, cable routes and voltage; discover feasible grid nodes and NESO constraint evidence. Never treat spare connection capacity as established from distance or TEC alone."
+  },
+  {
+    "id": "A11",
+    "name": "Nearby Wind Farms",
+    "folder": "agents/A11_nearby",
+    "categories": [
+      "C37",
+      "C38"
+    ],
+    "instructions": "Discover operating, constructing, consented and leased offshore projects; map polygon overlap and turbine distance, stage and MW, and potential cumulative wakes and ecological impacts. Never infer current operation from a lease boundary."
+  },
+  {
+    "id": "A12",
+    "name": "CO2 Storage and Reservoirs",
+    "folder": "agents/A12_ccs",
+    "categories": [
+      "C39",
+      "C40",
+      "C41",
+      "C42",
+      "C43"
+    ],
+    "instructions": "Discover depleted oil/gas fields, saline aquifers, wells and carbon licences. Evaluate sealing, pressure, injectivity, capacity uncertainty, legacy well integrity, plume migration, seismic, transport, MMV, liabilities and jurisdiction. Separate candidate vs licensed vs permitted vs technically verified."
+  },
+  {
+    "id": "A13",
+    "name": "Oil and Gas Infrastructure Reuse",
+    "folder": "agents/A13_oilgas",
+    "categories": [
+      "C44",
+      "C45",
+      "C46",
+      "C47"
+    ],
+    "instructions": "Find platforms, rig facilities, pipelines, ports and owner/decommission status; assess offshore maintenance reuse and logistics, operating safety, structural capacity, weather access and contracts; compare repurpose/electrification only as scenarios."
+  },
+  {
+    "id": "A14",
+    "name": "Environmental and Consenting",
+    "folder": "agents/A14_environment",
+    "categories": [
+      "C48",
+      "C49",
+      "C50",
+      "C51"
+    ],
+    "instructions": "Produce EIA plan not a fictional completed EIA; identify protected areas, ecological surveys, consultation, cumulative wind/oil-gas/CCS impacts, mitigation, legislation and data gaps."
+  },
+  {
+    "id": "A15",
+    "name": "Construction and Supply Chain",
+    "folder": "agents/A15_construction",
+    "categories": [
+      "C52",
+      "C53",
+      "C54"
+    ],
+    "instructions": "Compare build-out ports and vessel constraints, supplier lead times, installation sequence, export cable construction, weather delay scenarios and contingency."
+  },
+  {
+    "id": "A16",
+    "name": "O&M and Reliability",
+    "folder": "agents/A16_om",
+    "categories": [
+      "C55",
+      "C56",
+      "C57"
+    ],
+    "instructions": "Model CTV/SOV, ports, travel/weather access, component failure and repair durations, downtime and availability. Evaluate reuse of nearby platform O&M facilities quantitatively with safety and owner-permission caveats."
+  },
+  {
+    "id": "A17",
+    "name": "Finance and Hybrid Synergies",
+    "folder": "agents/A17_finance",
+    "categories": [
+      "C58",
+      "C59",
+      "C60",
+      "C61"
+    ],
+    "instructions": "Compute dated real/nominal CAPEX OPEX cash flows, discounted LCOE, NPV, IRR, price capture and uncertain scenarios. Separately compare baseline farm, shared O&M, platform power and CCS hybrid options; assign boundary/system costs correctly."
+  },
+  {
+    "id": "A18",
+    "name": "HSE, Workforce and Stakeholders",
+    "folder": "agents/A18_hse_people",
+    "categories": [
+      "C62",
+      "C63",
+      "C64"
+    ],
+    "instructions": "Compile safety hazard register, emergency response, workforce skills/FTE, fishers, shipping, CCS and oil/gas operator engagement and community plan."
+  },
+  {
+    "id": "A19",
+    "name": "Programme and End-of-Life",
+    "folder": "agents/A19_schedule",
+    "categories": [
+      "C65",
+      "C66"
+    ],
+    "instructions": "Create critical path across consent, survey, grid, procurement, installation, O&M, decommission/repower and possible oil/gas repurposing sequencing. Separate construction calendar assumptions from verified permission dates."
+  },
+  {
+    "id": "A20",
+    "name": "Dashboard and Visualization",
+    "folder": "agents/A20_dashboard",
+    "categories": [
+      "C69"
+    ],
+    "instructions": "Build accessible responsive management dashboard with maps, source/provenance drill-down, wind circular barplot and conventional rose, scenarios, costs, CCS, assets, neighbouring wind and grid risk. Every chart must have provenance, legend, unit, interactive filters and chart justification. Implement an interactive, Yanouski-inspired radial criterion-dependency explorer linking the 70 categories, displaying separate evidence-backed criterion importance, dependencies and sensitivities; provide filtering, scenario weight editing, accessible matrix mode, provenance and historical changes. Expose each tab folder, system prompt, specification, tests and changelog in a secure developer/learning view. Follow §§16–18."
+  },
+  {
+    "id": "A21",
+    "name": "Cross-Model QA and Safety",
+    "folder": "agents/A21_qa",
+    "categories": [
+      "C67",
+      "C68"
+    ],
+    "instructions": "Validate schema, formula consistency, geography, scenario lineage, capacity/energy constraints, temporal/calendar rules, licence status and representation of uncertainty. Block deployment/export of material critical failures or missing evidence."
+  },
+  {
+    "id": "A22",
+    "name": "Investor Report and Teaching Pack",
+    "folder": "agents/A22_reporting",
+    "categories": [
+      "C70"
+    ],
+    "instructions": "Produce investor-facing proposal aligned with all 16 brief areas and four rubric categories; an evidence annex with uncertainties, agents, models and student authorship; include limitations on CCS as an optional extension."
+  }
+]

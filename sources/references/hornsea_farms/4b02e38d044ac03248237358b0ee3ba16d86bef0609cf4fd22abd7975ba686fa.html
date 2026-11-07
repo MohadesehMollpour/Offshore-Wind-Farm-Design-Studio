@@ -1,0 +1,803 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Wind Farms Around Hornsea</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one instrument panel (radial chart left, site readout + chart-style map right), table and sources below; single column on phones */
+:root {
+  --paper: #edf1f2;
+  --surface: #fdfdfc;
+  --ink: #10202e;
+  --ink-2: #455463;
+  --muted: #63707b;
+  --rule: #dde3e7;
+  --rule-strong: #c3ccd3;
+  --sea: #e2ebf0;
+  --land: #ebe4d0;
+  --land-edge: #c8bc9b;
+  --z-hornsea: #2a78d6;
+  --z-dogger: #eda100;
+  --z-wash: #008300;
+  --z-norfolk: #e87ba4;
+  --track-op: .13;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b141b; --surface: #13202c; --ink: #e8eef2; --ink-2: #b2bec8; --muted: #8794a0;
+    --rule: #22323f; --rule-strong: #34485a; --sea: #0f2433; --land: #27323b; --land-edge: #3d4a55;
+    --z-hornsea: #3987e5; --z-dogger: #c98500; --z-wash: #008300; --z-norfolk: #d55181; --track-op: .17;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b141b; --surface: #13202c; --ink: #e8eef2; --ink-2: #b2bec8; --muted: #8794a0;
+  --rule: #22323f; --rule-strong: #34485a; --sea: #0f2433; --land: #27323b; --land-edge: #3d4a55;
+  --z-hornsea: #3987e5; --z-dogger: #c98500; --z-wash: #008300; --z-norfolk: #d55181; --track-op: .17;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 22px;
+}
+
+/* ---------- header ---------- */
+header { display: grid; gap: 10px; max-width: 920px; }
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-stretch: 78%;
+  font-weight: 760;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+.dek { margin: 0; max-width: 68ch; color: var(--ink-2); font-size: 16px; }
+.dek strong { color: var(--ink); font-weight: 600; }
+.tally { margin: 2px 0 0; display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; color: var(--ink-2); }
+.tally b { font-family: var(--font-display); font-stretch: 85%; font-size: 19px; color: var(--ink); font-weight: 700; margin-right: 4px; }
+
+/* ---------- instrument panel ---------- */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+}
+.panel > * { min-width: 0; }
+.chart-col { padding: 18px 20px 14px; display: grid; gap: 14px; align-content: start; }
+.side-col { border-left: 1px solid var(--rule); display: grid; align-content: start; }
+@media (max-width: 980px) {
+  .panel { grid-template-columns: minmax(0, 1fr); }
+  .side-col { border-left: 0; border-top: 1px solid var(--rule); }
+}
+
+.controls { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+.ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ctl-label { font-size: 12px; color: var(--muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .05em; }
+.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--rule-strong); border-radius: 5px; overflow: hidden; }
+.seg button {
+  font: 500 13px/1 var(--font-body);
+  color: var(--ink-2);
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--rule-strong);
+  padding: 8px 11px;
+  cursor: pointer;
+}
+.seg button:first-child { border-left: 0; }
+.seg button:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+button:focus-visible, [tabindex]:focus-visible, summary:focus-visible { outline: 2px solid var(--z-hornsea); outline-offset: 2px; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: flex-start; font-size: 12.5px; color: var(--ink-2); }
+.legend h3 { margin: 0 0 6px; font: 500 11px/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.legend ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.legend li { display: flex; align-items: center; gap: 7px; }
+.sw { width: 11px; height: 11px; border-radius: 2px; flex: none; background: var(--c); }
+.domekey { width: 18px; height: 10px; flex: none; }
+.anatomy { display: flex; gap: 8px; align-items: center; }
+.anatomy svg { width: 168px; height: auto; flex: none; }
+
+.chart-wrap { position: relative; max-width: 780px; width: 100%; margin: 0 auto; }
+#chart { display: block; width: 100%; height: auto; overflow: visible; touch-action: manipulation; }
+#chart text { font-family: var(--font-display); font-stretch: 80%; fill: var(--ink); }
+.wedge { cursor: pointer; transition: opacity .15s; outline: none; }
+.wedge .track { fill: var(--z); fill-opacity: var(--track-op); stroke: var(--surface); stroke-width: 2; }
+.wedge .fill { fill: var(--z); stroke: var(--surface); stroke-width: 2; }
+.wedge .band { fill: var(--z); fill-opacity: .4; stroke: var(--surface); stroke-width: 2; }
+.wedge .life { fill: none; stroke: var(--ink); stroke-width: 2; }
+.wedge .dome { stroke-width: 1.5; }
+.wedge .dome.operating { fill: var(--z); stroke: var(--surface); }
+.wedge .dome.construction { fill: var(--z); fill-opacity: .38; stroke: var(--z); }
+.wedge .dome.consented { fill: var(--surface); stroke: var(--z); stroke-dasharray: 3 2.5; }
+.wedge .name { font-size: 13px; font-weight: 600; dominant-baseline: central; }
+.wedge .stat { font-size: 10.5px; font-weight: 500; fill: var(--muted) !important; dominant-baseline: central; }
+.wedge .outline { fill: none; stroke: none; pointer-events: none; }
+.wedge.sel .outline { stroke: var(--ink); stroke-width: 1.5; }
+.wedges.hovering .wedge:not(.hot) { opacity: .3; }
+.wedge:focus-visible .outline { stroke: var(--z-hornsea); stroke-width: 2.5; }
+.scale circle { fill: none; stroke: var(--ink); stroke-opacity: .14; stroke-width: .8; pointer-events: none; }
+.scale circle.edge { stroke-opacity: .32; }
+.scale circle.uk { stroke-opacity: .75; stroke-width: 1.3; stroke-dasharray: 4 3; }
+.scale text { font-size: 11px; text-anchor: middle; dominant-baseline: central; fill: var(--ink-2) !important; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.scale text.uk { font-weight: 700; fill: var(--ink) !important; }
+.scale text.axis { text-anchor: start; letter-spacing: .08em; font-size: 10.5px; }
+.hub circle { fill: var(--surface); stroke: var(--rule-strong); }
+.hub .n { font-size: 22px; font-weight: 750; text-anchor: middle; }
+.hub .u { font-size: 10px; text-anchor: middle; fill: var(--ink-2) !important; letter-spacing: .06em; }
+.groups { opacity: 0; transition: opacity .25s; pointer-events: none; }
+.groups.on { opacity: 1; transition: opacity .4s .45s; }
+.groups path.line { fill: none; stroke: var(--z); stroke-width: 3; }
+.groups text { font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+.sizekey text { font-size: 11px; fill: var(--ink-2) !important; text-anchor: middle; }
+.sizekey .t { text-anchor: end; font-weight: 600; fill: var(--ink) !important; }
+.sizekey path { fill: none; stroke: var(--ink-2); stroke-width: 1; }
+
+.tip {
+  position: absolute; z-index: 3; pointer-events: none;
+  background: var(--ink); color: var(--surface);
+  border-radius: 5px; padding: 8px 10px; font-size: 12.5px; line-height: 1.4;
+  max-width: 230px; box-shadow: 0 4px 16px rgb(0 0 0 / .18);
+}
+.tip b { font-family: var(--font-display); font-stretch: 85%; font-size: 14.5px; display: block; }
+.tip span { opacity: .78; }
+
+/* ---------- site readout ---------- */
+.readout { padding: 20px 22px 18px; display: grid; gap: 14px; border-bottom: 1px solid var(--rule); }
+.site-head { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: start; }
+.site-head .bar { width: 5px; align-self: stretch; border-radius: 2px; background: var(--c); grid-row: span 2; }
+.site-head h2 { margin: 0; font-family: var(--font-display); font-stretch: 80%; font-size: 30px; line-height: 1.05; font-weight: 740; text-wrap: balance; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; grid-column: 2; }
+.chip { font-size: 12px; border: 1px solid var(--rule-strong); border-radius: 999px; padding: 2px 9px; color: var(--ink-2); white-space: nowrap; }
+.cf { display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: flex-end; }
+.cf .v { font-family: var(--font-display); font-stretch: 85%; font-weight: 750; font-size: 40px; line-height: 1; }
+.cf .v.sm { font-size: 26px; font-weight: 650; }
+.cf .k { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; }
+.cf .none { color: var(--ink-2); font-size: 14px; max-width: 34ch; }
+.vs { font-size: 13px; color: var(--ink-2); margin: -4px 0 0; }
+dl.facts { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 5px 16px; font-size: 13.5px; }
+dl.facts dt { color: var(--muted); }
+dl.facts dd { margin: 0; min-width: 0; font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-mono); font-size: 12.5px; }
+.hint { margin: 0; font-size: 12px; color: var(--muted); }
+
+/* ---------- map ---------- */
+.mapbox { padding: 16px 22px 18px; display: grid; gap: 8px; }
+.mapbox h3 { margin: 0; font: 600 13px/1.3 var(--font-body); }
+.mapbox h3 span { font-weight: 400; color: var(--muted); }
+#map { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px; background: var(--sea); }
+#map .land { fill: var(--land); stroke: var(--land-edge); stroke-width: .8; stroke-linejoin: round; }
+#map .grat { stroke: var(--ink); stroke-opacity: .1; stroke-width: .6; }
+#map text { font-family: var(--font-body); }
+#map .gl { font: 9.5px var(--font-mono); fill: var(--muted); }
+#map .town circle { fill: var(--ink-2); }
+#map .town text { font-size: 10.5px; fill: var(--ink-2); paint-order: stroke; stroke: var(--land); stroke-width: 3px; }
+#map .sea-l { font: italic 500 12px var(--font-body); letter-spacing: .3em; fill: var(--ink); fill-opacity: .35; }
+#map .ring { fill: none; stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 5 4; }
+#map .ring-l { font: 10px var(--font-mono); fill: var(--ink-2); }
+#map .site { cursor: pointer; transition: opacity .15s; stroke-linejoin: round; }
+#map .site.operating { fill: var(--z); stroke: var(--surface); stroke-width: .6; }
+#map .site.construction { fill: var(--z); fill-opacity: .4; stroke: var(--z); stroke-width: 1; }
+#map .site.consented { fill: var(--z); fill-opacity: .1; stroke: var(--z); stroke-width: 1.2; stroke-dasharray: 3 2; }
+#map .site.discontinued { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; cursor: default; }
+#map .site.sel { stroke: var(--ink); stroke-width: 2; stroke-dasharray: none; }
+#map.hovering .site:not(.hot) { opacity: .3; }
+#map .ref circle { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+#map .ref line { stroke: var(--ink); stroke-width: 1.2; }
+#map .lab { font-size: 11px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--sea); stroke-width: 3.5px; pointer-events: none; }
+#map .lab.dim { font-weight: 400; fill: var(--muted); font-size: 10px; }
+.mapnote { margin: 0; font-size: 12px; color: var(--muted); }
+
+/* ---------- table + notes ---------- */
+details.data { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+details.data summary { cursor: pointer; padding: 14px 20px; font-weight: 600; font-size: 14px; }
+.tablewrap { overflow-x: auto; padding: 0 20px 18px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th { font: 500 11px/1.3 var(--font-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+td.num, th.num { text-align: right; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+tbody tr.sel { background: color-mix(in srgb, var(--z-hornsea) 12%, transparent); }
+td .sw { display: inline-block; margin-right: 7px; vertical-align: -1px; }
+
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 18px 40px; font-size: 13.5px; color: var(--ink-2); }
+.notes h2 { margin: 0 0 6px; font: 600 13px/1.3 var(--font-body); color: var(--ink); }
+.notes p { margin: 0 0 8px; max-width: 70ch; }
+.notes ul { margin: 0; padding-left: 18px; display: grid; gap: 5px; }
+.notes a { color: var(--ink); }
+
+@media (max-width: 560px) {
+  .chart-col { padding: 14px 12px 10px; }
+  .readout, .mapbox { padding-left: 16px; padding-right: 16px; }
+  .anatomy svg { width: 140px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wedge, .groups, .groups.on, #map .site { transition: none; }
+}
+</style>
+
+<div class="page">
+  <header>
+    <p class="eyebrow">Southern North Sea · offshore wind within 150 km of Hornsea One</p>
+    <h1>Wind farms around Hornsea</h1>
+    <p class="dek" id="dek">Every offshore wind site within 150 km of Hornsea One, off the Yorkshire coast. Each wedge is one site: how hard its turbines work (capacity factor) and how big it is (installed capacity).</p>
+    <p class="tally" id="tally"></p>
+  </header>
+
+  <section class="panel" aria-label="Wind farm chart and map">
+    <div class="chart-col">
+      <div class="controls">
+        <div class="ctl">
+          <span class="ctl-label" id="lbl-show">Show</span>
+          <div class="seg" role="group" aria-labelledby="lbl-show">
+            <button type="button" id="show-operating" data-show="operating">Operating</button>
+            <button type="button" id="show-all" data-show="all">Operating + pipeline</button>
+          </div>
+        </div>
+        <div class="ctl">
+          <span class="ctl-label" id="lbl-sort">Sort by</span>
+          <div class="seg" role="group" aria-labelledby="lbl-sort">
+            <button type="button" id="sort-cf" data-sort="cf">Capacity factor</button>
+            <button type="button" id="sort-mw" data-sort="mw">Capacity</button>
+            <button type="button" id="sort-area" data-sort="area">Sea area</button>
+            <button type="button" id="sort-dir" data-sort="dir">Direction</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend" aria-label="How to read the chart">
+        <div class="anatomy">
+          <svg viewBox="0 0 168 104" aria-hidden="true" id="anatomy"></svg>
+        </div>
+        <div>
+          <h3>Sea area</h3>
+          <ul id="zone-key"></ul>
+        </div>
+        <div>
+          <h3>Status (dome)</h3>
+          <ul>
+            <li><svg class="domekey" viewBox="0 0 18 10"><path d="M1.5,9.5A7.5,7.5 0 0 1 16.5,9.5Z" style="fill:var(--ink-2)"/></svg>Operating</li>
+            <li><svg class="domekey" viewBox="0 0 18 10"><path d="M1.5,9.5A7.5,7.5 0 0 1 16.5,9.5Z" style="fill:var(--ink-2);fill-opacity:.38;stroke:var(--ink-2);stroke-width:1.2"/></svg>Under construction</li>
+            <li><svg class="domekey" viewBox="0 0 18 10"><path d="M1.5,9.5A7.5,7.5 0 0 1 16.5,9.5Z" style="fill:none;stroke:var(--ink-2);stroke-width:1.2;stroke-dasharray:2.5 2"/></svg>Consented</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chart-wrap" id="chart-wrap">
+        <svg id="chart" viewBox="0 0 820 820" role="group" aria-label="Radial chart of wind farms around Hornsea. Each wedge is one site."></svg>
+        <div class="tip" id="tip" hidden></div>
+      </div>
+    </div>
+
+    <div class="side-col">
+      <section class="readout" id="site" aria-live="polite"></section>
+      <section class="mapbox" aria-label="Map of site boundaries">
+        <h3>Site boundaries <span>· dashed ring is 150 km from Hornsea One</span></h3>
+        <svg id="map" role="img" aria-label="Map of the southern North Sea showing wind farm site boundaries near Hornsea"></svg>
+        <p class="mapnote">Solid: operating. Tinted: under construction. Outlined: consented. Grey dotted outline: Hornsea Four, discontinued in 2025.</p>
+      </section>
+    </div>
+  </section>
+
+  <details class="data">
+    <summary id="table-summary">Data table</summary>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Site</th><th>Sea area</th><th>Status</th><th class="num">MW</th><th class="num">Turbines</th>
+            <th class="num">CF last 12 mo</th><th class="num">CF lifetime</th><th>In service</th>
+            <th class="num">km from Hornsea One</th><th>Bearing</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </details>
+
+  <section class="notes">
+    <div>
+      <h2>Reading the chart</h2>
+      <p><b>Capacity factor</b> is the electricity a farm actually delivered divided by what it would have delivered running flat out all year. The solid fill is the rolling 12 months to the end of <span class="asof"></span>. The dark line is the average since the farm was fully commissioned. A pale band means the last year fell short of that average.</p>
+      <p>The dashed ring marks the UK offshore fleet over the same 12 months. Dome area is proportional to installed capacity.</p>
+      <p>Wedges for projects that are still being built or are only consented have no generation record, so their cones are empty. No rolling 12-month figure is published for Lynn, Inner Dowsing or Scroby Sands, so only their lifetime average is drawn.</p>
+    </div>
+    <div>
+      <h2>Which sites are included</h2>
+      <p>Every UK site whose boundary centre lies within 150 km of the centre of Hornsea One (<span class="mono" id="refpos"></span>). East Anglia Three, about 154 km away, falls just outside. Hornsea Four was discontinued by Ørsted in 2025 and appears on the map only. Dogger Bank D has no published boundary and is not shown.</p>
+      <p>Sea areas group neighbouring sites: the Hornsea zone, the Dogger Bank zone, the inshore Humber and Greater Wash sites, and the East Norfolk sites.</p>
+    </div>
+    <div>
+      <h2>Sources</h2>
+      <ul>
+        <li>Capacity factors, capacity and generation: <a href="https://energynumbers.info/uk-offshore-wind-capacity-factors" target="_blank" rel="noopener">EnergyNumbers.info, UK offshore wind capacity factors</a> (A. ZP Smith), to the end of <span class="asof"></span>. Raw data from Ofgem and Elexon; contains BMRS data © Elexon Limited copyright and database right 2026.</li>
+        <li>Site boundaries, area and distance to coast: <a href="https://emodnet.ec.europa.eu/en/human-activities" target="_blank" rel="noopener">EMODnet Human Activities, wind farms (polygons)</a>.</li>
+        <li>Turbines, owners, dates and pipeline capacities: <a href="https://en.wikipedia.org/wiki/List_of_offshore_wind_farms_in_the_United_Kingdom" target="_blank" rel="noopener">Wikipedia, List of offshore wind farms in the United Kingdom</a>, read 31 October 2026.</li>
+        <li>Coastline: Natural Earth 1:10m land.</li>
+        <li>Chart form adapted from the IEA data tool <a href="https://www.iea.org/data-and-statistics/data-tools/reliance-on-middle-east-oil-and-gas-supplies-by-country" target="_blank" rel="noopener">Reliance on Middle East Oil and Gas Supplies by Country</a>.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+const D = {"ref":{"name":"Hornsea One","lat":53.8833,"lon":1.9219,"radiusKm":150,"mapXY":[281.4,251.3],"radiusPx":[220.3,221.8]},"energyNumbersAsOf":"October 2026","ukOffshore":{"cf12":35.2,"cflife":38.2,"mw":16076.0},"map":{"w":520,"h":491,"land":"M522.0,-2.0L522.0,493.0L522.0,-2.0ZM-2.0,493.0L-2.0,132.6L0.8,134.5L20.5,140.6L42.0,154.1L44.8,156.9L45.9,159.1L46.2,163.5L51.7,168.5L53.1,171.2L54.9,175.1L55.9,179.2L56.3,183.7L57.6,185.6L58.7,185.9L58.0,188.1L60.8,191.7L61.5,192.5L65.3,193.6L67.3,195.5L69.8,196.6L71.2,203.3L73.9,206.0L85.7,210.7L89.2,213.8L80.5,218.5L77.4,222.0L75.3,228.4L77.4,233.1L80.2,243.9L81.9,248.6L109.3,290.5L110.7,296.0L109.6,301.3L106.9,303.8L108.9,298.5L109.3,295.8L101.7,290.8L99.6,290.0L94.0,293.0L92.0,293.3L89.5,293.3L85.4,291.3L83.6,290.0L74.6,278.1L71.2,275.3L67.0,274.8L54.9,278.9L47.2,278.9L43.8,279.8L40.7,276.7L35.1,275.9L33.0,276.7L26.4,281.1L29.6,283.3L30.9,280.9L33.7,279.5L36.5,279.2L38.9,280.0L45.2,285.0L49.3,282.2L66.7,278.9L69.4,280.0L78.1,294.4L82.3,296.6L85.4,300.2L87.1,301.3L92.0,302.4L96.5,308.2L105.5,315.9L111.0,317.9L112.4,319.8L113.1,324.2L117.3,327.2L116.6,328.3L118.3,329.5L120.0,331.7L129.4,358.7L130.4,364.8L130.8,372.0L128.7,380.5L128.0,381.6L123.5,383.6L114.8,392.4L111.7,394.3L104.1,405.7L102.0,407.9L98.5,410.1L97.2,412.3L97.2,414.2L100.3,414.5L105.1,413.4L106.5,413.7L112.8,418.4L120.0,429.1L121.8,427.7L123.9,427.5L127.7,428.0L129.1,428.9L131.8,432.7L133.2,433.5L132.9,430.0L134.6,426.9L137.4,423.9L138.4,421.7L140.2,413.4L142.9,406.5L146.4,402.9L151.2,400.7L156.4,399.6L161.0,399.9L160.3,398.8L162.3,397.9L168.6,399.9L176.9,399.9L180.7,401.0L184.9,403.2L189.7,404.3L193.9,402.3L191.8,401.0L189.4,401.0L189.4,399.9L219.2,407.3L230.6,413.4L254.6,432.4L259.8,439.6L261.5,447.3L264.6,457.0L263.9,460.6L264.6,463.1L264.6,472.2L266.7,479.7L266.3,481.3L265.3,482.7L262.9,491.3L262.8,493.0Z","bbox":{"lon0":-1.0,"lon1":4.4,"lat0":52.42,"lat1":55.42},"kx":0.5889142797872386,"scale":163.51496236614597},"farms":[{"id":"h1","name":"Hornsea One","zone":"hornsea","status":"operating","lat":53.8833,"lon":1.9219,"distKm":0.0,"bearing":0.0,"areaKm2":407.2,"coastKm":102.2,"path":"M298.7,239.3L311.3,259.0L307.5,261.5L290.8,259.7L291.3,257.5L289.7,252.5L295.4,250.4L291.4,245.0L292.5,244.8L290.9,242.4L297.0,241.0L296.2,239.8L298.7,239.3ZM264.1,235.7L269.3,243.7L270.7,243.4L268.9,245.9L270.1,247.8L268.9,249.8L269.2,253.5L271.4,255.4L269.7,256.1L269.1,259.3L255.1,259.2L256.6,245.4L258.4,242.9L262.8,241.7L259.6,236.8L264.1,235.7ZM276.0,242.1L277.5,244.4L278.7,244.1L282.8,245.4L287.8,244.2L288.5,245.7L291.4,245.0L295.4,250.4L289.7,252.5L291.3,257.5L290.8,259.7L269.1,259.3L269.7,256.1L271.4,255.4L269.2,253.5L268.9,249.8L270.1,247.8L268.9,245.9L270.7,243.4L276.0,242.1Z","mapXY":[281.4,251.3],"turbines":174,"year":"2020","owner":"Ørsted, Global Infrastructure Partners","model":"Siemens SWT-7.0-154","mw":1218.0,"cf12":44.7,"cflife":45.2,"ageY":6.8,"gwh":33403.0},{"id":"h2","name":"Hornsea Two","zone":"hornsea","status":"operating","lat":53.9402,"lon":1.6877,"distKm":16.6,"bearing":292.5,"areaKm2":462.2,"coastKm":89.5,"path":"M254.6,231.4L294.9,233.2L298.7,239.3L296.2,239.8L297.0,241.0L290.9,242.4L292.5,244.8L288.5,245.7L287.8,244.2L282.8,245.4L278.7,244.1L277.5,244.4L276.0,242.1L269.3,243.7L264.1,235.7L259.6,236.8L262.8,241.7L258.4,242.9L256.6,245.4L255.1,259.2L235.9,259.1L234.9,230.8L254.6,231.4Z","mapXY":[258.8,242.0],"turbines":165,"year":"2022","owner":"Ørsted, Global Infrastructure Partners","model":"Siemens Gamesa SG 8.0-167 DD","mw":1386.0,"cf12":44.1,"cflife":41.9,"ageY":4.3,"gwh":22094.0},{"id":"wr","name":"Westermost Rough","zone":"wash","status":"operating","lat":53.8059,"lon":0.1498,"distKm":116.6,"bearing":266.5,"areaKm2":34.9,"coastKm":8.0,"path":"M116.7,264.9L109.7,270.0L104.7,262.9L111.7,257.9L116.7,264.9Z","mapXY":[110.7,263.9],"turbines":35,"year":"2015","owner":"Ørsted, Marubeni, GIB","model":"Siemens SWT-6.0-154","mw":210.0,"cf12":45.5,"cflife":45.8,"ageY":11.4,"gwh":9705.0},{"id":"hg","name":"Humber Gateway","zone":"wash","status":"operating","lat":53.6443,"lon":0.2931,"distKm":110.3,"bearing":256.7,"areaKm2":26.5,"coastKm":8.0,"path":"M122.4,297.7L122.4,295.5L120.4,287.6L128.2,285.2L128.2,291.7L126.8,292.5L122.4,297.7Z","mapXY":[124.5,290.4],"turbines":73,"year":"2015","owner":"E.ON","model":"Vestas V112 3.0 MW","mw":219.0,"cf12":40.2,"cflife":41.9,"ageY":11.4,"gwh":9258.0},{"id":"tk","name":"Triton Knoll","zone":"wash","status":"operating","lat":53.4785,"lon":0.8386,"distKm":84.4,"bearing":238.2,"areaKm2":149.5,"coastKm":32.3,"path":"M180.7,326.0L162.8,316.2L165.3,309.1L179.3,307.7L192.2,328.9L185.9,328.9L180.7,326.0Z","mapXY":[177.0,317.5],"turbines":90,"year":"2022","owner":"RWE","model":"Vestas V164-9.5 MW","mw":857.0,"cf12":38.1,"cflife":37.1,"ageY":4.6,"gwh":13020.0},{"id":"rb","name":"Race Bank","zone":"wash","status":"operating","lat":53.2766,"lon":0.8414,"distKm":98.2,"bearing":227.0,"areaKm2":62.4,"coastKm":26.6,"path":"M186.2,352.9L182.6,359.7L174.6,355.3L174.7,352.1L172.8,349.9L171.4,349.9L171.0,347.9L170.4,347.5L170.6,340.9L175.3,340.7L177.1,347.9L186.2,352.9Z","mapXY":[177.3,350.5],"turbines":91,"year":"2018","owner":"Ørsted","model":"Siemens SWT-6.0-154","mw":573.0,"cf12":40.4,"cflife":41.8,"ageY":8.7,"gwh":18389.0},{"id":"li","name":"Lincs","zone":"wash","status":"operating","lat":53.1905,"lon":0.4916,"distKm":121.9,"bearing":231.4,"areaKm2":38.3,"coastKm":6.3,"path":"M146.3,371.0L143.3,375.2L141.8,375.3L141.9,373.2L142.6,372.4L142.6,371.6L141.9,371.6L142.1,363.1L140.4,356.2L144.6,355.1L146.3,362.0L146.3,371.0ZM140.7,363.0L139.6,363.0L139.6,360.8L140.7,360.8L140.7,363.0Z","mapXY":[143.6,364.6],"turbines":75,"year":"2013","owner":"Centrica, Siemens, Ørsted","model":"Siemens SWT-3.6-120","mw":270.0,"cf12":40.1,"cflife":41.4,"ageY":13.1,"gwh":12891.0},{"id":"ly","name":"Lynn","zone":"wash","status":"operating","lat":53.1367,"lon":0.4522,"distKm":127.8,"bearing":230.1,"areaKm2":7.9,"coastKm":5.3,"path":"M141.8,375.3L137.5,375.3L137.6,371.6L142.6,371.6L141.8,375.3Z","mapXY":[139.8,373.4],"turbines":27,"year":"2009","owner":"Centrica, TCW","model":"Siemens SWT-3.6-107","mw":97.0,"cf12":null,"cflife":34.7,"ageY":17.6,"gwh":5155.0},{"id":"id","name":"Inner Dowsing","zone":"wash","status":"operating","lat":53.1891,"lon":0.4453,"distKm":124.4,"bearing":232.2,"areaKm2":8.8,"coastKm":5.1,"path":"M139.6,361.9L139.6,363.0L140.7,363.0L140.7,368.1L137.9,368.1L137.8,360.8L139.6,360.8L139.6,361.9Z","mapXY":[139.2,364.8],"turbines":27,"year":"2009","owner":"Centrica, TCW","model":"Siemens SWT-3.6-107","mw":97.0,"cf12":null,"cflife":35.3,"ageY":17.6,"gwh":5209.0},{"id":"du","name":"Dudgeon","zone":"wash","status":"operating","lat":53.2654,"lon":1.3807,"distKm":77.4,"bearing":207.7,"areaKm2":55.2,"coastKm":32.1,"path":"M225.6,344.1L235.6,351.9L235.4,356.7L234.2,355.7L233.9,361.4L223.2,352.9L223.6,345.6L225.6,344.1Z","mapXY":[229.3,352.3],"turbines":67,"year":"2017","owner":"Equinor, Statkraft","model":"Siemens SWT-6.0-154","mw":402.0,"cf12":44.8,"cflife":45.9,"ageY":9.1,"gwh":14682.0},{"id":"ss","name":"Sheringham Shoal","zone":"wash","status":"operating","lat":53.1356,"lon":1.1475,"distKm":97.6,"bearing":211.9,"areaKm2":35.0,"coastKm":16.8,"path":"M210.2,371.2L213.5,379.9L203.4,375.8L200.1,367.1L210.2,371.2Z","mapXY":[206.8,373.5],"turbines":88,"year":"2012","owner":"Equinor, Statkraft","model":"Siemens SWT-3.6-107","mw":317.0,"cf12":34.6,"cflife":38.2,"ageY":13.1,"gwh":13979.0},{"id":"sc","name":"Scroby Sands","zone":"norfolk","status":"operating","lat":52.6446,"lon":1.7903,"distKm":138.0,"bearing":183.7,"areaKm2":8.9,"coastKm":1.9,"path":"M270.3,451.0L270.3,456.7L267.1,456.7L267.1,450.9L270.3,451.0Z","mapXY":[268.7,453.8],"turbines":30,"year":"2004","owner":"E.ON","model":"Vestas V80-2 MW","mw":60.0,"cf12":null,"cflife":31.2,"ageY":21.9,"gwh":3533.0},{"id":"h3","name":"Hornsea Three","zone":"hornsea","status":"construction","lat":53.873,"lon":2.5372,"distKm":40.3,"bearing":91.4,"areaKm2":696.4,"coastKm":121.1,"path":"M360.9,262.3L365.3,283.0L328.6,263.8L327.0,263.7L307.9,233.9L341.4,235.7L354.5,232.0L360.9,262.3Z","mapXY":[340.6,253.0],"turbines":197,"year":"2028","owner":"Ørsted","model":"Siemens Gamesa SG 14-236 DD","mw":2852},{"id":"dba","name":"Dogger Bank A","zone":"dogger","status":"construction","lat":54.7695,"lon":1.909,"distKm":98.5,"bearing":359.5,"areaKm2":515.6,"coastKm":131.0,"path":"M286.7,124.4L253.5,110.9L253.6,95.6L305.7,95.1L310.8,100.0L286.7,124.4Z","mapXY":[280.1,106.4],"turbines":95,"year":"2026","owner":"SSE Renewables, Equinor","model":"GE Haliade-X 13 MW","mw":1235},{"id":"dbb","name":"Dogger Bank B","zone":"dogger","status":"construction","lat":54.9774,"lon":1.6797,"distKm":122.7,"bearing":352.8,"areaKm2":599.3,"coastKm":131.0,"path":"M274.9,52.0L275.6,91.7L238.2,89.8L241.3,56.5L246.3,55.9L257.4,52.3L274.9,52.0Z","mapXY":[258.0,72.4],"turbines":95,"year":"2027","owner":"SSE Renewables, Equinor","model":"GE Haliade-X 13 MW","mw":1235},{"id":"dbc","name":"Dogger Bank C","zone":"dogger","status":"construction","lat":55.0397,"lon":2.8227,"distKm":141.2,"bearing":24.0,"areaKm2":560.6,"coastKm":195.8,"path":"M388.5,75.0L388.3,76.1L344.4,75.2L344.3,49.4L394.7,49.3L388.5,75.0Z","mapXY":[368.1,62.2],"turbines":87,"year":"2027","owner":"SSE Renewables, Equinor","model":"GE Haliade-X 14 MW","mw":1218},{"id":"so","name":"Sofia","zone":"dogger","status":"construction","lat":54.9899,"lon":2.2285,"distKm":124.6,"bearing":9.0,"areaKm2":593.7,"coastKm":164.9,"path":"M315.6,95.1L314.2,95.1L284.5,66.9L302.9,48.3L309.9,47.4L337.2,73.5L315.6,95.1Z","mapXY":[310.9,70.3],"turbines":100,"year":"2026","owner":"RWE","model":"Siemens Gamesa SG 14-222 DD","mw":1400},{"id":"dbsw","name":"Dogger Bank South West","zone":"dogger","status":"consented","lat":54.6249,"lon":1.4786,"distKm":87.3,"bearing":340.9,"areaKm2":495.2,"coastKm":99.5,"path":"M222.4,110.7L264.1,127.2L257.4,147.7L213.7,135.3L222.4,110.7Z","mapXY":[238.7,130.0],"year":"2030/31","owner":"RWE","mw":1500},{"id":"dbse","name":"Dogger Bank South East","zone":"dogger","status":"consented","lat":54.5007,"lon":1.9038,"distKm":68.7,"bearing":359.0,"areaKm2":493.9,"coastKm":122.2,"path":"M264.1,127.2L288.8,137.1L301.9,165.9L279.2,173.3L267.7,150.6L257.4,147.7L264.1,127.2Z","mapXY":[279.6,150.3],"year":"2030/31","owner":"RWE","mw":1500},{"id":"od","name":"Outer Dowsing","zone":"wash","status":"consented","lat":53.5684,"lon":1.2848,"distKm":54.6,"bearing":230.4,"areaKm2":499.9,"coastKm":53.3,"path":"M192.4,307.7L202.8,297.3L204.8,294.1L237.5,285.2L245.2,308.3L210.1,318.2L207.1,315.0L202.3,315.0L197.6,316.1L192.4,307.7Z","mapXY":[220.0,302.8],"turbines":100,"year":"2030","owner":"Corio Generation, TotalEnergies","mw":1500},{"id":"sep","name":"Sheringham Shoal Ext.","zone":"wash","status":"consented","lat":53.1674,"lon":1.1618,"distKm":94.1,"bearing":212.6,"areaKm2":92.6,"coastKm":15.9,"path":"M217.7,381.7L213.5,379.9L210.2,371.2L195.8,365.5L201.4,355.5L220.1,375.7L217.7,381.7Z","mapXY":[208.2,368.3],"owner":"Equinor","mw":317},{"id":"dep","name":"Dudgeon Ext.","zone":"wash","status":"consented","lat":53.279,"lon":1.3731,"distKm":76.3,"bearing":208.6,"areaKm2":103.5,"coastKm":26.9,"path":"M231.1,338.7L231.3,342.3L234.5,348.7L230.1,345.1L228.3,346.2L225.6,344.1L223.6,345.6L223.4,350.3L220.3,342.7L218.2,339.7L212.4,343.8L208.9,338.1L220.7,338.0L221.7,339.1L223.0,337.7L230.2,335.8L231.1,338.7ZM244.1,366.7L238.1,370.8L236.5,370.3L233.6,368.2L234.1,357.3L236.6,358.2L244.1,366.7Z","mapXY":[228.5,350.1],"owner":"Equinor","mw":402},{"id":"nb","name":"Norfolk Boreas","zone":"norfolk","status":"consented","lat":53.0876,"lon":2.9291,"distKm":110.8,"bearing":142.6,"areaKm2":452.0,"coastKm":73.2,"path":"M390.8,356.2L396.0,387.1L363.5,402.7L363.5,416.4L362.0,416.9L362.1,385.4L367.0,372.6L390.8,356.2Z","mapXY":[378.4,381.4],"year":"2027","owner":"RWE","model":"Vestas","mw":1380},{"id":"nvw","name":"Norfolk Vanguard West","zone":"norfolk","status":"consented","lat":52.9121,"lon":2.4734,"distKm":114.0,"bearing":161.1,"areaKm2":295.2,"coastKm":47.5,"path":"M343.9,423.9L342.6,426.3L331.6,428.3L318.7,406.2L343.9,388.6L343.9,423.9Z","mapXY":[334.5,410.1],"turbines":92,"year":"2028/29","owner":"RWE","model":"Vestas V236-15","mw":1545},{"id":"nve","name":"Norfolk Vanguard East","zone":"norfolk","status":"consented","lat":52.8902,"lon":2.9428,"distKm":129.5,"bearing":148.1,"areaKm2":578.2,"coastKm":69.9,"path":"M372.5,415.3L372.1,413.9L363.5,416.4L363.5,402.7L396.0,387.1L399.1,405.9L382.4,410.9L382.8,412.2L392.7,409.3L393.8,423.2L388.8,433.0L362.0,436.1L362.0,418.3L372.5,415.3Z","mapXY":[379.7,413.7],"turbines":92,"year":"2028/29","owner":"RWE","model":"Vestas V236-15","mw":1545}],"mapOnly":[{"id":"h4","name":"Hornsea Four","zone":"hornsea","status":"discontinued","lat":54.0386,"lon":1.2711,"distKm":45.9,"bearing":292.3,"areaKm2":846.4,"coastKm":65.4,"path":"M212.3,198.7L254.6,231.4L234.9,230.8L235.9,259.1L212.8,259.5L213.2,231.1L191.5,211.1L184.1,197.6L212.3,198.7Z","mapXY":[218.7,225.9],"note":"Discontinued by Ørsted in 2025","mw":2400}]};
+const NS = "http://www.w3.org/2000/svg";
+
+const ZONES = [
+  { id: "dogger", label: "Dogger Bank" },
+  { id: "hornsea", label: "Hornsea" },
+  { id: "norfolk", label: "East Norfolk" },
+  { id: "wash", label: "Humber & Greater Wash" },
+];
+const ZONE = Object.fromEntries(ZONES.map((z, i) => [z.id, { ...z, order: i }]));
+const STATUS = { operating: "Operating", construction: "Under construction", consented: "Consented", discontinued: "Discontinued" };
+const SHORT = { dbsw: "Dogger Bank SW", dbse: "Dogger Bank SE", nvw: "Norfolk Vanguard W", nve: "Norfolk Vanguard E", sep: "Sheringham Ext.", dep: "Dudgeon Ext." };
+const POINTS = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+
+const farms = D.farms.map(f => ({ ...f, short: SHORT[f.id] || f.name }));
+const byId = new Map(farms.map(f => [f.id, f]));
+const nf = new Intl.NumberFormat("en-GB");
+const pct = v => (v == null ? "–" : v.toFixed(1) + "%");
+const compass = b => POINTS[Math.round(b / 22.5) % 16];
+const zoneColor = z => `var(--z-${z})`;
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function el(tag, attrs = {}, parent) {
+  const n = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+
+/* ---------- header text from the data ---------- */
+(() => {
+  const op = farms.filter(f => f.status === "operating");
+  const pipe = farms.filter(f => f.status !== "operating");
+  const gw = list => (list.reduce((s, f) => s + f.mw, 0) / 1000).toFixed(1);
+  document.getElementById("tally").innerHTML =
+    `<span><b>${op.length}</b>farms generating, ${gw(op)} GW</span>` +
+    `<span><b>${pipe.length}</b>under construction or consented, ${gw(pipe)} GW</span>` +
+    `<span><b>${D.ukOffshore.cf12.toFixed(1)}%</b>UK offshore capacity factor, last 12 months</span>`;
+  const top = op.filter(f => f.cf12 != null).sort((a, b) => b.cf12 - a.cf12).slice(0, 3);
+  const list = top.map(f => `${f.name} (${pct(f.cf12)})`);
+  document.getElementById("dek").innerHTML +=
+    ` Over the last 12 months <strong>${list[0]}, ${list[1]} and ${list[2]}</strong> ran well above the UK offshore average.`;
+  document.querySelectorAll(".asof").forEach(n => (n.textContent = D.energyNumbersAsOf));
+  document.getElementById("refpos").textContent = `${D.ref.lat.toFixed(2)}°N ${D.ref.lon.toFixed(2)}°E`;
+  document.getElementById("zone-key").innerHTML = ZONES.map(z =>
+    `<li><span class="sw" style="--c:${zoneColor(z.id)}"></span>${z.label}</li>`).join("");
+})();
+
+/* ---------- radial chart geometry ---------- */
+const C = 410, R0 = 34, RMAX = 210, RLAB = 330, CFMAX = 50, GAP = 20, GROUP_GAP = 3;
+const DOME_MAX = 34;
+const DOME_K = DOME_MAX / Math.sqrt(Math.max(...farms.map(f => f.mw)));
+const rCF = v => R0 + (v / CFMAX) * (RMAX - R0);
+const rad = d => (d * Math.PI) / 180;
+const pt = (r, a) => [C + r * Math.sin(rad(a)), C - r * Math.cos(rad(a))];
+const q = n => n.toFixed(1);
+
+function sector(r1, r2, a0, a1) {
+  const lg = a1 - a0 > 180 ? 1 : 0;
+  const [x0, y0] = pt(r1, a0), [x1, y1] = pt(r2, a0), [x2, y2] = pt(r2, a1), [x3, y3] = pt(r1, a1);
+  return `M${q(x0)},${q(y0)}L${q(x1)},${q(y1)}A${r2},${r2} 0 ${lg} 1 ${q(x2)},${q(y2)}L${q(x3)},${q(y3)}A${r1},${r1} 0 ${lg} 0 ${q(x0)},${q(y0)}Z`;
+}
+function arcPath(r, a0, a1, reverse = false) {
+  const lg = a1 - a0 > 180 ? 1 : 0;
+  const [x0, y0] = pt(r, a0), [x1, y1] = pt(r, a1);
+  return reverse
+    ? `M${q(x1)},${q(y1)}A${r},${r} 0 ${lg} 0 ${q(x0)},${q(y0)}`
+    : `M${q(x0)},${q(y0)}A${r},${r} 0 ${lg} 1 ${q(x1)},${q(y1)}`;
+}
+function domePath(rBase, am, rd) {
+  const [cx, cy] = pt(rBase, am);
+  const tx = Math.cos(rad(am)) * rd, ty = Math.sin(rad(am)) * rd;
+  return `M${q(cx - tx)},${q(cy - ty)}A${q(rd)},${q(rd)} 0 0 1 ${q(cx + tx)},${q(cy + ty)}Z`;
+}
+function radialText(node, r, am) {
+  const [x, y] = pt(r, am);
+  const right = am < 180;
+  node.setAttribute("transform", `translate(${q(x)},${q(y)}) rotate(${q(right ? am - 90 : am + 90)})`);
+  node.setAttribute("text-anchor", right ? "start" : "end");
+}
+
+const svg = document.getElementById("chart");
+const gWedges = el("g", { class: "wedges" }, svg);
+const gGroups = el("g", { class: "groups" }, svg);
+const gScale = el("g", { class: "scale" }, svg);
+const gHub = el("g", { class: "hub" }, svg);
+const gSize = el("g", { class: "sizekey", "aria-hidden": "true" }, svg);
+
+// capacity-factor rings, drawn over the cones; labels sit in the gap at 12 o'clock
+for (const v of [10, 20, 30, 40, 50]) el("circle", { cx: C, cy: C, r: rCF(v), class: v === 50 ? "edge" : "" }, gScale);
+el("circle", { cx: C, cy: C, r: rCF(D.ukOffshore.cf12), class: "uk" }, gScale);
+for (const v of [10, 20, 30, 40, 50]) el("text", { x: C, y: C - rCF(v) }, gScale).textContent = v === 50 ? "50%" : v;
+el("text", { x: C, y: C - rCF(D.ukOffshore.cf12), class: "uk" }, gScale).textContent = `UK ${D.ukOffshore.cf12.toFixed(1)}%`;
+const axisT = el("text", { class: "axis", transform: `translate(${C},${C - RMAX - 12}) rotate(-90)` }, gScale);
+axisT.textContent = "CAPACITY FACTOR";
+
+el("circle", { cx: C, cy: C, r: R0 - 3 }, gHub);
+const hubN = el("text", { x: C, y: C - 3, class: "n", "dominant-baseline": "central" }, gHub);
+const hubU = el("text", { x: C, y: C + 14, class: "u", "dominant-baseline": "central" }, gHub);
+hubU.textContent = "SITES";
+
+// dome size key, bottom-right corner
+(() => {
+  const base = 798, items = [[100, 664], [1000, 712], [2500, 772]];
+  el("text", { x: 808, y: 742, class: "t" }, gSize).textContent = "Installed capacity";
+  for (const [mw, x] of items) {
+    const rd = DOME_K * Math.sqrt(mw);
+    el("path", { d: `M${q(x - rd)},${base}A${q(rd)},${q(rd)} 0 0 1 ${q(x + rd)},${base}Z` }, gSize);
+    el("text", { x, y: base + 13 }, gSize).textContent = nf.format(mw) + " MW";
+  }
+})();
+
+// one group of shapes per site, created once and re-laid-out on every change
+const W = new Map();
+for (const f of farms) {
+  const g = el("g", { class: "wedge", tabindex: "0", role: "button", "data-id": f.id, style: `--z:${zoneColor(f.zone)}` }, gWedges);
+  g.setAttribute("aria-label", ariaFor(f));
+  const w = { f, g };
+  w.track = el("path", { class: "track" }, g);
+  if (f.cf12 != null) w.fill = el("path", { class: "fill" }, g);
+  if (f.cf12 != null && f.cflife != null && f.cflife > f.cf12) w.band = el("path", { class: "band" }, g);
+  if (f.cflife != null) w.life = el("path", { class: "life" }, g);
+  w.dome = el("path", { class: `dome ${f.status}` }, g);
+  w.name = el("text", { class: "name" }, g);
+  w.name.textContent = f.short;
+  if (f.status !== "operating") {
+    w.stat = el("text", { class: "stat" }, g);
+    w.stat.textContent = (f.status === "construction" ? "Building" : "Consented") + (f.year ? ` · ${f.year}` : "");
+  }
+  w.outline = el("path", { class: "outline" }, g);
+  W.set(f.id, w);
+}
+
+function ariaFor(f) {
+  const parts = [f.name, ZONE[f.zone].label, STATUS[f.status], `${nf.format(f.mw)} megawatts`];
+  if (f.cf12 != null) parts.push(`capacity factor last 12 months ${pct(f.cf12)}`);
+  if (f.cflife != null) parts.push(`lifetime ${pct(f.cflife)}`);
+  return parts.join(", ");
+}
+
+function drawWedge(w, a0, a1) {
+  const f = w.f, span = a1 - a0;
+  if (span < 0.2) { w.g.setAttribute("display", "none"); return; }
+  w.g.removeAttribute("display");
+  const am = (a0 + a1) / 2;
+  w.track.setAttribute("d", sector(R0, RLAB, a0, a1));
+  if (w.fill) w.fill.setAttribute("d", sector(R0, rCF(f.cf12), a0, a1));
+  if (w.band) w.band.setAttribute("d", sector(rCF(f.cf12), rCF(f.cflife), a0, a1));
+  if (w.life) {
+    const r = rCF(f.cflife), ins = (1.5 / r) * 180 / Math.PI;
+    w.life.setAttribute("d", arcPath(r, a0 + ins, a1 - ins));
+  }
+  const room = (RLAB * rad(span)) / 2 - 2;
+  w.dome.setAttribute("d", domePath(RLAB, am, Math.max(0, Math.min(DOME_K * Math.sqrt(f.mw), room))));
+  const labels = span > 3.5 ? null : "none";
+  radialText(w.name, RMAX + 10, am);
+  labels ? w.name.setAttribute("display", labels) : w.name.removeAttribute("display");
+  if (w.stat) {
+    radialText(w.stat, R0 + 12, am);
+    labels ? w.stat.setAttribute("display", labels) : w.stat.removeAttribute("display");
+  }
+  w.outline.setAttribute("d", sector(R0, RLAB, a0, a1));
+}
+
+/* ---------- sea-area labels around the rim (sea-area sort only) ---------- */
+const defs = el("defs", {}, svg);
+const G = new Map();
+for (const z of ZONES) {
+  const id = `garc-${z.id}`;
+  const p = el("path", { id }, defs);
+  const line = el("path", { class: "line", style: `--z:${zoneColor(z.id)}` }, gGroups);
+  const t = el("text", {}, gGroups);
+  const tp = el("textPath", { href: `#${id}`, startOffset: "50%", "text-anchor": "middle" }, t);
+  tp.textContent = z.label.toUpperCase();
+  G.set(z.id, { p, line, t });
+}
+function drawGroups(angles) {
+  for (const z of ZONES) {
+    const ids = [...angles.entries()].filter(([id]) => byId.get(id).zone === z.id).map(([, v]) => v);
+    const g = G.get(z.id);
+    if (!ids.length) { g.line.setAttribute("d", ""); g.p.setAttribute("d", ""); continue; }
+    const a0 = Math.min(...ids.map(v => v[0])) + 0.6, a1 = Math.max(...ids.map(v => v[1])) - 0.6;
+    const mid = (a0 + a1) / 2, lower = mid > 90 && mid < 270;
+    g.line.setAttribute("d", arcPath(371, a0, a1));
+    g.p.setAttribute("d", lower ? arcPath(393, a0, a1, true) : arcPath(382, a0, a1));
+  }
+}
+
+/* ---------- layout + animation ---------- */
+const SORTS = {
+  cf: (a, b) => tier(a) - tier(b) || (b.cf12 ?? b.cflife ?? 0) - (a.cf12 ?? a.cflife ?? 0) || b.mw - a.mw,
+  mw: (a, b) => b.mw - a.mw,
+  area: (a, b) => ZONE[a.zone].order - ZONE[b.zone].order || b.mw - a.mw,
+  dir: (a, b) => a.bearing - b.bearing || a.distKm - b.distKm,
+};
+function tier(f) { return f.cf12 != null ? 0 : f.cflife != null ? 1 : 2; }
+
+function layout(list, sortKey) {
+  const sorted = [...list].sort(SORTS[sortKey]);
+  let gaps = 0;
+  if (sortKey === "area") sorted.forEach((f, i) => { if (i && f.zone !== sorted[i - 1].zone) gaps++; });
+  const step = (360 - GAP - gaps * GROUP_GAP) / sorted.length;
+  const out = new Map();
+  let a = GAP / 2;
+  sorted.forEach((f, i) => {
+    if (sortKey === "area" && i && f.zone !== sorted[i - 1].zone) a += GROUP_GAP;
+    out.set(f.id, [a, a + step]);
+    a += step;
+  });
+  return out;
+}
+
+let cur = new Map(), raf = 0;
+function transition(target, instant) {
+  const ids = new Set([...cur.keys(), ...target.keys()]);
+  const from = new Map(), to = new Map();
+  for (const id of ids) {
+    const c = cur.get(id), t = target.get(id);
+    if (c && t) { from.set(id, c); to.set(id, t); }
+    else if (t) { const m = (t[0] + t[1]) / 2; from.set(id, [m, m]); to.set(id, t); }
+    else { const m = (c[0] + c[1]) / 2; from.set(id, c); to.set(id, [m, m]); }
+  }
+  for (const w of W.values()) if (!ids.has(w.f.id)) w.g.setAttribute("display", "none");
+  const dur = instant || reduceMotion ? 0 : 720;
+  const t0 = performance.now();
+  cancelAnimationFrame(raf);
+  const frame = now => {
+    const k = dur ? Math.min(1, (now - t0) / dur) : 1;
+    const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    const live = new Map();
+    for (const id of ids) {
+      const [a, b] = from.get(id), [c, d] = to.get(id);
+      const v = [a + (c - a) * e, b + (d - b) * e];
+      if (v[1] - v[0] > 0.01) live.set(id, v);
+      drawWedge(W.get(id), v[0], v[1]);
+    }
+    cur = k < 1 ? live : target;
+    if (k < 1) raf = requestAnimationFrame(frame);
+  };
+  if (dur) raf = requestAnimationFrame(frame); else frame(t0);
+}
+
+/* ---------- state ---------- */
+const state = { show: "all", sort: "area", pinned: "h1", hot: null };
+const visible = () => farms.filter(f => state.show === "all" || f.status === "operating");
+
+function update(instant) {
+  const list = visible();
+  if (!list.some(f => f.id === state.pinned)) state.pinned = "h1";
+  const target = layout(list, state.sort);
+  transition(target, instant);
+  drawGroups(target);
+  gGroups.classList.toggle("on", state.sort === "area");
+  hubN.textContent = list.length;
+  for (const b of document.querySelectorAll("[data-show]")) b.setAttribute("aria-pressed", b.dataset.show === state.show);
+  for (const b of document.querySelectorAll("[data-sort]")) b.setAttribute("aria-pressed", b.dataset.sort === state.sort);
+  for (const s of mapSites.values()) s.style.display = s.dataset.status === "operating" || state.show === "all" ? "" : "none";
+  for (const tr of rowsEl.children) tr.hidden = !(state.show === "all" || byId.get(tr.dataset.id).status === "operating");
+  document.getElementById("table-summary").textContent = `Data table · ${list.length} sites`;
+  highlight();
+}
+
+function highlight() {
+  const focus = state.hot || state.pinned;
+  gWedges.classList.toggle("hovering", !!state.hot);
+  mapSvg.classList.toggle("hovering", !!state.hot);
+  for (const [id, w] of W) { w.g.classList.toggle("hot", id === state.hot); w.g.classList.toggle("sel", id === state.pinned); }
+  for (const [id, s] of mapSites) { s.classList.toggle("hot", id === state.hot); s.classList.toggle("sel", id === state.pinned); }
+  for (const tr of rowsEl.children) tr.classList.toggle("sel", tr.dataset.id === state.pinned);
+  renderSite(byId.get(focus));
+  placeMapLabel(byId.get(focus));
+}
+
+/* ---------- site readout ---------- */
+const siteEl = document.getElementById("site");
+function renderSite(f) {
+  const z = ZONE[f.zone];
+  let cf;
+  if (f.cf12 != null) {
+    const diff = f.cf12 - D.ukOffshore.cf12;
+    cf = `<div class="cf"><div><span class="v">${pct(f.cf12)}</span><span class="k">capacity factor, last 12 months</span></div>
+      <div><span class="v sm">${pct(f.cflife)}</span><span class="k">lifetime average</span></div></div>
+      <p class="vs">${Math.abs(diff).toFixed(1)} points ${diff >= 0 ? "above" : "below"} the UK offshore fleet (${pct(D.ukOffshore.cf12)}) over the same 12 months.</p>`;
+  } else if (f.cflife != null) {
+    cf = `<div class="cf"><div><span class="v sm">${pct(f.cflife)}</span><span class="k">lifetime average capacity factor</span></div>
+      <p class="none">No rolling 12-month figure is published for this farm.</p></div>`;
+  } else {
+    cf = `<div class="cf"><p class="none">No generation record yet. ${f.status === "construction" ? "Under construction" : "Consented"}${f.year ? `, expected in service ${f.year}` : ""}.</p></div>`;
+  }
+  const rows = [
+    ["Capacity", `${nf.format(f.mw)} MW`],
+    ["Turbines", f.turbines ? nf.format(f.turbines) : "–"],
+    ["Turbine model", f.model || "–"],
+    [f.status === "operating" ? "In service since" : "Expected", f.year || "–"],
+    ["Owner", f.owner || "–"],
+    f.gwh != null ? ["Generated to date", `${nf.format(f.gwh)} GWh over ${f.ageY.toFixed(1)} years`] : null,
+    ["From Hornsea One", f.id === "h1" ? "Reference site" : `${f.distKm.toFixed(0)} km ${compass(f.bearing)}`],
+    ["Nearest coast", `${f.coastKm.toFixed(0)} km`],
+    ["Site area", `${nf.format(Math.round(f.areaKm2))} km²`],
+    ["Position", `<span class="mono">${f.lat.toFixed(2)}°N ${Math.abs(f.lon).toFixed(2)}°${f.lon < 0 ? "W" : "E"}</span>`],
+  ].filter(Boolean);
+  siteEl.innerHTML = `
+    <div class="site-head"><span class="bar" style="--c:${zoneColor(f.zone)}"></span>
+      <h2>${f.name}</h2>
+      <div class="chips"><span class="chip">${z.label}</span><span class="chip">${STATUS[f.status]}</span></div>
+    </div>
+    ${cf}
+    <dl class="facts">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+    <p class="hint">Hover or tap a wedge, a site on the map or a table row. Tap again elsewhere to change the selection.</p>`;
+}
+
+/* ---------- map ---------- */
+const M = D.map;
+const mapSvg = document.getElementById("map");
+mapSvg.setAttribute("viewBox", `0 0 ${M.w} ${M.h}`);
+const P = (lon, lat) => [(lon - M.bbox.lon0) * M.kx * M.scale, (M.bbox.lat1 - lat) * M.scale];
+const gm = el("g", {}, mapSvg);
+for (let lon = -1; lon <= 4; lon++) {
+  const [x] = P(lon, 0);
+  el("line", { x1: q(x), x2: q(x), y1: 0, y2: M.h, class: "grat" }, gm);
+  el("text", { x: q(x + 3), y: M.h - 5, class: "gl" }, gm).textContent = lon === 0 ? "0°" : `${Math.abs(lon)}°${lon < 0 ? "W" : "E"}`;
+}
+for (let lat = 53; lat <= 55; lat++) {
+  const [, y] = P(0, lat);
+  el("line", { x1: 0, x2: M.w, y1: q(y), y2: q(y), class: "grat" }, gm);
+  el("text", { x: M.w - 4, y: q(y - 4), class: "gl", "text-anchor": "end" }, gm).textContent = `${lat}°N`;
+}
+el("path", { d: M.land, class: "land" }, gm);
+el("text", { x: 440, y: 40, class: "sea-l", "text-anchor": "middle" }, gm).textContent = "NORTH SEA";
+
+const mapSites = new Map();
+const gSites = el("g", {}, mapSvg);
+const rank = { discontinued: 0, consented: 1, construction: 2, operating: 3 };
+for (const f of [...D.mapOnly, ...farms].sort((a, b) => rank[a.status] - rank[b.status] || b.areaKm2 - a.areaKm2)) {
+  const s = el("path", { d: f.path, class: `site ${f.status}`, style: `--z:${zoneColor(f.zone)}`, "data-status": f.status }, gSites);
+  if (f.status === "discontinued") {
+    const [x, y] = f.mapXY;
+    el("text", { x: q(x), y: q(y), class: "lab dim", "text-anchor": "middle" }, mapSvg).textContent = "Hornsea Four (discontinued)";
+    continue;
+  }
+  s.dataset.id = f.id;
+  mapSites.set(f.id, s);
+}
+
+const [rx, ry] = D.ref.mapXY;
+el("ellipse", { cx: rx, cy: ry, rx: D.ref.radiusPx[0], ry: D.ref.radiusPx[1], class: "ring" }, mapSvg);
+el("text", { x: q(rx + D.ref.radiusPx[0] * 0.72 + 4), y: q(ry - D.ref.radiusPx[1] * 0.70 - 4), class: "ring-l" }, mapSvg).textContent = "150 km";
+const gRef = el("g", { class: "ref" }, mapSvg);
+el("circle", { cx: rx, cy: ry, r: 5 }, gRef);
+el("line", { x1: rx - 9, x2: rx + 9, y1: ry, y2: ry }, gRef);
+el("line", { x1: rx, x2: rx, y1: ry - 9, y2: ry + 9 }, gRef);
+
+const TOWNS = [["Scarborough", 54.28, -0.404, "start"], ["Hull", 53.746, -0.337, "end"], ["Skegness", 53.144, 0.336, "end"],
+  ["Cromer", 52.931, 1.299, "end"], ["Great Yarmouth", 52.608, 1.730, "end"]];
+for (const [name, lat, lon, anchor] of TOWNS) {
+  const [x, y] = P(lon, lat);
+  const g = el("g", { class: "town" }, mapSvg);
+  el("circle", { cx: q(x), cy: q(y), r: 2.2 }, g);
+  el("text", { x: q(anchor === "end" ? x - 5 : x + 5), y: q(y + 3.5), "text-anchor": anchor }, g).textContent = name;
+}
+// scale bar: 50 km at the map's mid-latitude
+(() => {
+  const px = (50 / 111.32) * M.scale, x0 = 14, y0 = M.h - 26;
+  const g = el("g", {}, mapSvg);
+  el("path", { d: `M${x0},${y0 - 4}V${y0}H${q(x0 + px)}V${y0 - 4}`, fill: "none", style: "stroke:var(--ink-2)", "stroke-width": 1.2 }, g);
+  el("text", { x: q(x0 + px / 2), y: y0 - 7, class: "gl", "text-anchor": "middle" }, g).textContent = "50 km";
+})();
+const mapLabel = el("text", { class: "lab", "text-anchor": "middle" }, mapSvg);
+function placeMapLabel(f) {
+  const [x, y] = f.mapXY;
+  const xx = Math.min(M.w - 50, Math.max(50, x));
+  mapLabel.setAttribute("x", q(xx));
+  mapLabel.setAttribute("y", q(y > 30 ? y - 12 : y + 20));
+  mapLabel.textContent = f.short;
+}
+
+/* ---------- table ---------- */
+const rowsEl = document.getElementById("rows");
+rowsEl.innerHTML = [...farms].sort((a, b) => a.distKm - b.distKm).map(f => `
+  <tr data-id="${f.id}" tabindex="0">
+    <td><span class="sw" style="--c:${zoneColor(f.zone)}"></span>${f.name}</td>
+    <td>${ZONE[f.zone].label}</td><td>${STATUS[f.status]}</td>
+    <td class="num">${nf.format(f.mw)}</td><td class="num">${f.turbines ? nf.format(f.turbines) : "–"}</td>
+    <td class="num">${pct(f.cf12)}</td><td class="num">${pct(f.cflife)}</td><td>${f.year || "–"}</td>
+    <td class="num">${f.distKm.toFixed(0)}</td><td>${f.id === "h1" ? "–" : `${Math.round(f.bearing)}° ${compass(f.bearing)}`}</td>
+  </tr>`).join("");
+
+/* ---------- interaction ---------- */
+const tip = document.getElementById("tip");
+const wrap = document.getElementById("chart-wrap");
+function showTip(f, evt) {
+  const cfLine = f.cf12 != null ? `Last 12 months ${pct(f.cf12)} · lifetime ${pct(f.cflife)}`
+    : f.cflife != null ? `Lifetime ${pct(f.cflife)}` : `${STATUS[f.status]}${f.year ? ` · ${f.year}` : ""}`;
+  tip.innerHTML = `<b>${f.name}</b>${nf.format(f.mw)} MW · ${ZONE[f.zone].label}<br><span>${cfLine}</span>`;
+  tip.hidden = false;
+  const box = wrap.getBoundingClientRect();
+  let x = evt.clientX - box.left + 14, y = evt.clientY - box.top + 14;
+  if (x + tip.offsetWidth > box.width) x = evt.clientX - box.left - tip.offsetWidth - 14;
+  if (y + tip.offsetHeight > box.height) y = evt.clientY - box.top - tip.offsetHeight - 14;
+  tip.style.left = Math.max(0, x) + "px";
+  tip.style.top = Math.max(0, y) + "px";
+}
+function setHot(id) { if (state.hot !== id) { state.hot = id; highlight(); } }
+function pin(id) { state.pinned = id; highlight(); }
+
+for (const [id, w] of W) {
+  w.g.addEventListener("pointermove", e => { if (e.pointerType === "mouse") { setHot(id); showTip(w.f, e); } });
+  w.g.addEventListener("pointerleave", () => { tip.hidden = true; setHot(null); });
+  w.g.addEventListener("click", () => pin(id));
+  w.g.addEventListener("focus", () => setHot(id));
+  w.g.addEventListener("blur", () => setHot(null));
+  w.g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pin(id); } });
+}
+for (const [id, s] of mapSites) {
+  s.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") setHot(id); });
+  s.addEventListener("pointerleave", () => setHot(null));
+  s.addEventListener("click", () => pin(id));
+}
+rowsEl.addEventListener("click", e => { const tr = e.target.closest("tr"); if (tr) pin(tr.dataset.id); });
+rowsEl.addEventListener("keydown", e => { const tr = e.target.closest("tr"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); pin(tr.dataset.id); } });
+for (const b of document.querySelectorAll("[data-show]")) b.addEventListener("click", () => { state.show = b.dataset.show; update(); });
+for (const b of document.querySelectorAll("[data-sort]")) b.addEventListener("click", () => { state.sort = b.dataset.sort; update(); });
+
+/* ---------- legend: anatomy of one cone ---------- */
+(() => {
+  const a = document.getElementById("anatomy");
+  const ox = 44, oy = 100, r0 = 4, r1 = 66, rl = 84, half = 15;
+  const P2 = (r, d) => [ox + r * Math.sin(rad(d)), oy - r * Math.cos(rad(d))];
+  const sec = (ra, rb) => { const [x0, y0] = P2(ra, -half), [x1, y1] = P2(rb, -half), [x2, y2] = P2(rb, half), [x3, y3] = P2(ra, half);
+    return `M${q(x0)},${q(y0)}L${q(x1)},${q(y1)}A${rb},${rb} 0 0 1 ${q(x2)},${q(y2)}L${q(x3)},${q(y3)}A${ra},${ra} 0 0 0 ${q(x0)},${q(y0)}Z`; };
+  el("path", { d: sec(r0, rl), style: "fill:var(--ink-2);fill-opacity:.14" }, a);
+  el("path", { d: sec(r0, 40), style: "fill:var(--ink-2)" }, a);
+  el("path", { d: sec(40, 50), style: "fill:var(--ink-2);fill-opacity:.4" }, a);
+  const [lx0, ly0] = P2(50, -half + 1), [lx1, ly1] = P2(50, half - 1);
+  el("path", { d: `M${q(lx0)},${q(ly0)}A50,50 0 0 1 ${q(lx1)},${q(ly1)}`, style: "fill:none;stroke:var(--ink);stroke-width:2" }, a);
+  el("path", { d: `M${ox - 13},${oy - rl}A13,13 0 0 1 ${ox + 13},${oy - rl}Z`, style: "fill:var(--ink-2)" }, a);
+  const note = (y, txt, yy) => {
+    el("line", { x1: ox + 18, x2: 82, y1: y, y2: yy, style: "stroke:var(--muted)", "stroke-width": .8 }, a);
+    const t = el("text", { x: 85, y: yy + 3.5, style: "fill:var(--ink-2);font:11px var(--font-body)" }, a);
+    t.textContent = txt;
+  };
+  note(oy - rl - 6, "Capacity (area)", 10);
+  note(oy - 50, "Lifetime average", 44);
+  note(oy - 30, "Last 12 months", 72);
+})();
+
+update(true);
+</script>
+
+</body></html>

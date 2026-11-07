@@ -1,0 +1,57 @@
+[
+  {
+    "id": "SITE_01",
+    "name": "East Yorkshire / Hornsea",
+    "jurisdiction": "UK — England",
+    "search_area_description": "East Yorkshire and Hornsea offshore cluster",
+    "screening_geometry": null,
+    "status": "screening_only",
+    "geometry_unverified": true,
+    "no_feasibility_claim": true,
+    "revision": 1
+  },
+  {
+    "id": "SITE_02",
+    "name": "Dogger Bank",
+    "jurisdiction": "UK — England",
+    "search_area_description": "Dogger Bank regional search",
+    "screening_geometry": null,
+    "status": "screening_only",
+    "geometry_unverified": true,
+    "no_feasibility_claim": true,
+    "revision": 1
+  },
+  {
+    "id": "SITE_03",
+    "name": "Norfolk / East Anglia",
+    "jurisdiction": "UK — England",
+    "search_area_description": "East Anglia offshore regional search",
+    "screening_geometry": null,
+    "status": "screening_only",
+    "geometry_unverified": true,
+    "no_feasibility_claim": true,
+    "revision": 1
+  },
+  {
+    "id": "SITE_04",
+    "name": "Eastern Scotland / Aberdeen–Moray",
+    "jurisdiction": "UK — Scotland",
+    "search_area_description": "Aberdeen–Moray North Sea regional search",
+    "screening_geometry": null,
+    "status": "screening_only",
+    "geometry_unverified": true,
+    "no_feasibility_claim": true,
+    "revision": 1
+  },
+  {
+    "id": "SITE_05",
+    "name": "Western Jutland",
+    "jurisdiction": "Denmark",
+    "search_area_description": "Western Jutland Danish North Sea regional search",
+    "screening_geometry": null,
+    "status": "screening_only",
+    "geometry_unverified": true,
+    "no_feasibility_claim": true,
+    "revision": 1
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "category_id": "C57",
+  "status": "needs-review",
+  "gaps": [
+    "SCADA/proxy",
+    "condition signals"
+  ]
+}

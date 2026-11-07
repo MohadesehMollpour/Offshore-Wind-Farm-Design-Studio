@@ -1,0 +1,8 @@
+{
+  "id": "LAYOUT_01",
+  "name": "Regular rectangular grid",
+  "revision": 1,
+  "status": "strategy_only",
+  "implemented": true,
+  "limitations": "Preliminary geometry; exclusions must be supplied; no suitability approval"
+}

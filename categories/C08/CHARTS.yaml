@@ -1,0 +1,30 @@
+{
+  "category_id": "C08",
+  "contract_version": "0.2.0",
+  "charts": [
+    {
+      "id": "C08-1",
+      "required_title": "Interactive circular sector bar / dominant wind-from direction, IEA-inspired controls",
+      "data_paths": [
+        "data.sectors",
+        "data.calm_pct"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C08-2",
+      "required_title": "Conventional stacked wind rose and direction-specific energy contribution",
+      "data_paths": [
+        "data.sectors[*].speed_bins_pct",
+        "data.directional_proxy_energy"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ],
+  "external_sources": "Scenario inputs.data_bindings; see docs/DATA_CONNECTORS.md",
+  "screening_only": true
+}

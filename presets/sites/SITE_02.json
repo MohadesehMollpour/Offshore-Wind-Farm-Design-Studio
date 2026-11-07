@@ -1,0 +1,11 @@
+{
+  "id": "SITE_02",
+  "name": "Dogger Bank",
+  "jurisdiction": "UK — England",
+  "search_area_description": "Dogger Bank regional search",
+  "screening_geometry": null,
+  "status": "screening_only",
+  "geometry_unverified": true,
+  "no_feasibility_claim": true,
+  "revision": 1
+}

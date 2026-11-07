@@ -1,0 +1,30 @@
+{
+  "category_id": "C03",
+  "contract_version": "0.2.1",
+  "charts": [
+    {
+      "id": "C03-1",
+      "required_title": "Multi-criteria ranking bars",
+      "data_paths": [
+        "data.benchmarks",
+        "data.preferences.weights",
+        "data.preferences.year"
+      ],
+      "status": "interactive_regional_reference_screening",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "Interactive published-agreement reference comparison with three adjustable weights, normalized rank bars, sensitivity curves, parallel coordinates, selected-reference metrics and CSV export. Preferences can be pinned in a new immutable revision. Existing agreements remain ineligible as new sites; these three metrics are not a complete suitability assessment."
+    },
+    {
+      "id": "C03-2",
+      "required_title": "Sensitivity / parallel-coordinates plot",
+      "data_paths": [
+        "data.benchmarks",
+        "data.preferences.weights",
+        "data.preferences.year"
+      ],
+      "status": "interactive_regional_reference_screening",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "Interactive published-agreement reference comparison with three adjustable weights, normalized rank bars, sensitivity curves, parallel coordinates, selected-reference metrics and CSV export. Preferences can be pinned in a new immutable revision. Existing agreements remain ineligible as new sites; these three metrics are not a complete suitability assessment."
+    }
+  ]
+}

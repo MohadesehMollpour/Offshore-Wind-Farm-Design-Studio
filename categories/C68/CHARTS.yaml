@@ -1,0 +1,22 @@
+{
+  "category_id": "C68",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C68-1",
+      "required_title": "Per-section AI disclosure matrix",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C68-2",
+      "required_title": "Human contributions and source traceability chart",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

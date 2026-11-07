@@ -1,0 +1,22 @@
+{
+  "category_id": "C14",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C14-1",
+      "required_title": "Tide and water-level time series",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C14-2",
+      "required_title": "Current direction rose",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

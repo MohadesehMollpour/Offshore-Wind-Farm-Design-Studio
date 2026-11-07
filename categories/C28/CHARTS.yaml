@@ -1,0 +1,28 @@
+{
+  "category_id": "C28",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C28-1",
+      "required_title": "P50/P75/P90 energy exceedance plot",
+      "data_paths": [
+        "data.p50_mwh",
+        "data.p75_mwh",
+        "data.p90_mwh"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C28-2",
+      "required_title": "Uncertainty contributions tornado plot",
+      "data_paths": [
+        "scenario.inputs.uncertainty_fraction"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

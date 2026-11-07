@@ -1,0 +1,3 @@
+A11: Nearby Wind Farms
+Discover operating, constructing, consented and leased offshore projects; map polygon overlap and turbine distance, stage and MW, and potential cumulative wakes and ecological impacts. Never infer current operation from a lease boundary.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

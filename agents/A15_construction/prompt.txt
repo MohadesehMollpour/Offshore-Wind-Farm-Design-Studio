@@ -1,0 +1,3 @@
+A15: Construction and Supply Chain
+Compare build-out ports and vessel constraints, supplier lead times, installation sequence, export cable construction, weather delay scenarios and contingency.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

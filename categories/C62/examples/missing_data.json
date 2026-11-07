@@ -1,0 +1,9 @@
+{
+  "category_id": "C62",
+  "status": "needs-review",
+  "gaps": [
+    "HAZID",
+    "activities",
+    "operators"
+  ]
+}

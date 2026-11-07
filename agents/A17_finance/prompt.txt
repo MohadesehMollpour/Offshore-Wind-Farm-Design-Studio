@@ -1,0 +1,3 @@
+A17: Finance and Hybrid Synergies
+Compute dated real/nominal CAPEX OPEX cash flows, discounted LCOE, NPV, IRR, price capture and uncertain scenarios. Separately compare baseline farm, shared O&M, platform power and CCS hybrid options; assign boundary/system costs correctly.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

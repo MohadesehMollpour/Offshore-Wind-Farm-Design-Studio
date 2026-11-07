@@ -1,0 +1,28 @@
+{
+  "category_id": "C67",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C67-1",
+      "required_title": "Cross-agent dependency graph",
+      "data_paths": [
+        "data.succeeded",
+        "data.needs_review",
+        "data.not_run"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C67-2",
+      "required_title": "Data validation and inconsistency issue queue",
+      "data_paths": [
+        "data.checks"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

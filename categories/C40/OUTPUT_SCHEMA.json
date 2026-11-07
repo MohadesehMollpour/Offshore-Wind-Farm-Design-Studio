@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "category_id",
+    "scenario_id",
+    "status",
+    "gaps",
+    "data",
+    "provenance",
+    "method_version"
+  ],
+  "properties": {
+    "category_id": {
+      "const": "C40"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "succeeded",
+        "needs-review",
+        "failed",
+        "outdated",
+        "not_run"
+      ]
+    },
+    "gaps": {
+      "type": "array"
+    },
+    "data": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "array"
+    },
+    "method_version": {
+      "type": "string"
+    }
+  }
+}

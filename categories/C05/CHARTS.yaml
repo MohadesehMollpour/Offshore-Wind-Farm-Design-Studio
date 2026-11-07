@@ -1,0 +1,31 @@
+{
+  "category_id": "C05",
+  "contract_version": "0.2.1",
+  "charts": [
+    {
+      "id": "C05-1",
+      "required_title": "Shipping and aviation density overlay",
+      "data_paths": [
+        "data.samples",
+        "data.wms_url",
+        "data.wms_layer",
+        "data.preferences.year"
+      ],
+      "status": "interactive_regional_reference_screening",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "Interactive EMODnet AIS WMS overlay with explicit vintage, opacity, 25 preserved point samples, adjustable density threshold and linked zone-exposure bars. Missing samples stay missing. Aviation coverage remains unavailable. Exposure is a percentage of valid point samples, not AOI area or collision risk. The 2024 vintage has reduced satellite coverage from June; 2023 is the default."
+    },
+    {
+      "id": "C05-2",
+      "required_title": "Constraint exposure by zone",
+      "data_paths": [
+        "data.samples",
+        "data.preferences.year",
+        "data.preferences.density_threshold"
+      ],
+      "status": "interactive_regional_reference_screening",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "Interactive EMODnet AIS WMS overlay with explicit vintage, opacity, 25 preserved point samples, adjustable density threshold and linked zone-exposure bars. Missing samples stay missing. Aviation coverage remains unavailable. Exposure is a percentage of valid point samples, not AOI area or collision risk. The 2024 vintage has reduced satellite coverage from June; 2023 is the default."
+    }
+  ]
+}

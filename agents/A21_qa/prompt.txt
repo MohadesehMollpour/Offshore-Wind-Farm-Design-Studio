@@ -1,0 +1,3 @@
+A21: Cross-Model QA and Safety
+Validate schema, formula consistency, geography, scenario lineage, capacity/energy constraints, temporal/calendar rules, licence status and representation of uncertainty. Block deployment/export of material critical failures or missing evidence.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

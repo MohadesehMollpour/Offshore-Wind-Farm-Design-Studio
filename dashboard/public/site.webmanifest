@@ -1,0 +1,16 @@
+{
+  "name": "Offshore Wind Farm Design Studio",
+  "short_name": "Wind Studio",
+  "description": "Evidence-led UK offshore wind planning aid: compare screening regions and layouts, explore a 3D digital twin and trace public-data sources.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f3",
+  "theme_color": "#102b2b",
+  "categories": ["education", "productivity", "utilities"],
+  "icons": [
+    {"src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
+  ]
+}

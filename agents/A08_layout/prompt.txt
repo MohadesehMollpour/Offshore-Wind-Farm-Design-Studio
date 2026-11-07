@@ -1,0 +1,3 @@
+A08: Layout and Wake
+Generate compliant turbine point candidates; calculate directional wakes including other wind farms only with justified models; assess internal spacing, array footprint, cost/ecology trade-offs and errors in supplied coordinate geometry.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

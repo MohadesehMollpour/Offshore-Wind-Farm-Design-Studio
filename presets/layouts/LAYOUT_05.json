@@ -1,0 +1,8 @@
+{
+  "id": "LAYOUT_05",
+  "name": "Clustered / multi-block array",
+  "revision": 1,
+  "status": "strategy_only",
+  "implemented": true,
+  "limitations": "Preliminary geometry; exclusions must be supplied; no suitability approval"
+}

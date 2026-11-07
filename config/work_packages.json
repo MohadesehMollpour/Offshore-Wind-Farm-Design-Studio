@@ -1,0 +1,2400 @@
+{
+  "C02": {
+    "id": "C02",
+    "title": "Marine spatial zoning and lease rights",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C02-E1",
+        "requirement": "AOI",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C02-E2",
+        "requirement": "marine plan",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "plan intersections",
+      "rights/status",
+      "no-go layer"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C03": {
+    "id": "C03",
+    "title": "Site suitability and multi-criteria comparison",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C03-E1",
+        "requirement": "site candidates",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C03-E2",
+        "requirement": "weight ranges",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "score matrix",
+      "Pareto options",
+      "weight sensitivity"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C04": {
+    "id": "C04",
+    "title": "Distance to coast, ports and substations",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C04-E1",
+        "requirement": "AOI",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C04-E2",
+        "requirement": "route graph",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "geodesic and navigable route distance separately"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C05": {
+    "id": "C05",
+    "title": "Navigation, shipping and aviation constraints",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C05-E1",
+        "requirement": "AIS/routes",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C05-E2",
+        "requirement": "AOI",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "traffic density",
+      "corridors",
+      "aviation restrictions"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C06": {
+    "id": "C06",
+    "title": "Fisheries and socioeconomic spatial conflicts",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C06-E1",
+        "requirement": "fisheries layers",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C06-E2",
+        "requirement": "AOI",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "fishing intensity proxy",
+      "stakeholder conflict zones"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C09": {
+    "id": "C09",
+    "title": "Wind seasonal, diurnal, extreme behaviour",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C09-E1",
+        "requirement": "wind series",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "season-hour matrices",
+      "gust and maxima"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C10": {
+    "id": "C10",
+    "title": "Weibull distribution and alternatives",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C10-E1",
+        "requirement": "site wind series",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "fit k,scale",
+      "QQ and goodness-of-fit"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C11": {
+    "id": "C11",
+    "title": "Vertical shear and stability",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C11-E1",
+        "requirement": "multiheight wind",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "hub-height extrapolation",
+      "uncertainty"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C12": {
+    "id": "C12",
+    "title": "Turbulence and extreme wind design",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C12-E1",
+        "requirement": "turbulence",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C12-E2",
+        "requirement": "IEC site class",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "TI by wind bin",
+      "extremes",
+      "class match"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C13": {
+    "id": "C13",
+    "title": "Wave conditions and vessel weather windows",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C13-E1",
+        "requirement": "wave time series",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C13-E2",
+        "requirement": "limits",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "Hs/Tp/direction and access probability"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C14": {
+    "id": "C14",
+    "title": "Tides, currents and water levels",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C14-E1",
+        "requirement": "marine hydrodynamic layers",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "direction rose",
+      "extreme water levels"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C15": {
+    "id": "C15",
+    "title": "Climate change and storm scenarios",
+    "settings": [
+      {
+        "key": "wind_change_pct",
+        "label": "Wind-speed change",
+        "unit": "%",
+        "default": 0,
+        "min": -30,
+        "max": 30,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "wave_change_m",
+        "label": "Change in significant wave height",
+        "unit": "m",
+        "default": 0,
+        "min": -2,
+        "max": 5,
+        "step": 0.1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C15-E1",
+        "requirement": "climate projections",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "scenario delta",
+      "storm exposure"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C16": {
+    "id": "C16",
+    "title": "Bathymetry and seabed slope",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C16-E1",
+        "requirement": "bathymetry",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C16-E2",
+        "requirement": "AoI",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "depth distribution",
+      "slope",
+      "engineering constraints"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C17": {
+    "id": "C17",
+    "title": "Sediment geology and geohazards",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C17-E1",
+        "requirement": "geology/geomorphology",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "soil units",
+      "mobile sand",
+      "boulders",
+      "hazards"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C18": {
+    "id": "C18",
+    "title": "Geotechnical survey and foundations feasibility",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C18-E1",
+        "requirement": "CPT",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C18-E2",
+        "requirement": "boreholes",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C18-E3",
+        "requirement": "loads",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "evidence maturity",
+      "survey plan",
+      "preliminary foundation choice"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C19": {
+    "id": "C19",
+    "title": "Scour, seabed mobility and cable burial",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C19-E1",
+        "requirement": "waves",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C19-E2",
+        "requirement": "soil",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C19-E3",
+        "requirement": "currents",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "scour risk, cable burial feasibility"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C22": {
+    "id": "C22",
+    "title": "Support structures and fatigue",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C22-E1",
+        "requirement": "site depth",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C22-E2",
+        "requirement": "soil",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C22-E3",
+        "requirement": "loads",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "monopile/jacket/floating screen",
+      "design maturity"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C24": {
+    "id": "C24",
+    "title": "Wake interaction and neighbouring farm wakes",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C24-E1",
+        "requirement": "layout",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C24-E2",
+        "requirement": "wind distribution",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C24-E3",
+        "requirement": "adjacent turbines",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "internal and external wakes separated"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C25": {
+    "id": "C25",
+    "title": "Multiple-objective optimisation",
+    "settings": [
+      {
+        "key": "wind_from_deg",
+        "label": "Comparison wind FROM",
+        "unit": "degrees",
+        "default": 270,
+        "min": 0,
+        "max": 360,
+        "step": 5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "wind_ms",
+        "label": "Comparison ambient hub wind",
+        "unit": "m/s",
+        "default": 10,
+        "min": 0,
+        "max": 60,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C25-E1",
+        "requirement": "layout cases",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C25-E2",
+        "requirement": "environment",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C25-E3",
+        "requirement": "cost",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "AEP/LCOE/ecology trade-off Pareto frontier"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C28": {
+    "id": "C28",
+    "title": "P50/P75/P90 yield and uncertainty",
+    "settings": [
+      {
+        "key": "uncertainty_pct",
+        "label": "Aggregate standard energy uncertainty",
+        "unit": "%",
+        "default": null,
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C28-E1",
+        "requirement": "uncertainty sources",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "exceedance yield distribution",
+      "assumptions"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C29": {
+    "id": "C29",
+    "title": "Monthly production and hourly generation proxy",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C29-E1",
+        "requirement": "wind hourly and turbine curve",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "8760/8784 hourly simulation",
+      "seasons"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C30": {
+    "id": "C30",
+    "title": "Energy price capture and curtailment exposure",
+    "settings": [
+      {
+        "key": "price",
+        "label": "Assumed baseload price",
+        "unit": "GBP/MWh",
+        "default": null,
+        "min": -1000,
+        "max": 2000,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "capture_ratio",
+        "label": "Capture ratio",
+        "unit": "fraction",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "extra_curtailment_pct",
+        "label": "Additional curtailment for this sensitivity",
+        "unit": "%",
+        "default": 0,
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C30-E1",
+        "requirement": "production",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C30-E2",
+        "requirement": "market data",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C30-E3",
+        "requirement": "grid restrictions",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "captured price proxy",
+      "curtailment cases"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C31": {
+    "id": "C31",
+    "title": "Inter-array cables and string topology",
+    "settings": [
+      {
+        "key": "string_size",
+        "label": "Maximum turbines per conceptual string",
+        "unit": "turbines",
+        "default": 6,
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "voltage_kv",
+        "label": "Assumed array voltage",
+        "unit": "kV",
+        "default": 66,
+        "min": 1,
+        "max": 500,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "power_factor",
+        "label": "Assumed power factor",
+        "unit": "fraction",
+        "default": 0.95,
+        "min": 0.5,
+        "max": 1,
+        "step": 0.01,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C31-E1",
+        "requirement": "layout",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C31-E2",
+        "requirement": "WTG current/cable ratings",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "topology",
+      "kV",
+      "length",
+      "N-1 rationale"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C32": {
+    "id": "C32",
+    "title": "Offshore substation and protection design",
+    "settings": [
+      {
+        "key": "voltage_kv",
+        "label": "Assumed export voltage",
+        "unit": "kV",
+        "default": 220,
+        "min": 10,
+        "max": 800,
+        "step": 10,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "power_factor",
+        "label": "Assumed power factor",
+        "unit": "fraction",
+        "default": 0.95,
+        "min": 0.5,
+        "max": 1,
+        "step": 0.01,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "transformers",
+        "label": "Transformer count",
+        "unit": "units",
+        "default": 2,
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "transformer_mva",
+        "label": "Rating per transformer",
+        "unit": "MVA",
+        "default": 600,
+        "min": 1,
+        "max": 3000,
+        "step": 10,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C32-E1",
+        "requirement": "capacity",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C32-E2",
+        "requirement": "voltage",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C32-E3",
+        "requirement": "export options",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "AC/DC selection",
+      "conversion losses",
+      "single-line"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C33": {
+    "id": "C33",
+    "title": "Export route and onshore landfall",
+    "settings": [
+      {
+        "key": "length_km",
+        "label": "Assumed one-way export cable length",
+        "unit": "km",
+        "default": null,
+        "min": 0,
+        "max": 1000,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "voltage_kv",
+        "label": "Assumed AC voltage",
+        "unit": "kV",
+        "default": 220,
+        "min": 10,
+        "max": 800,
+        "step": 10,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "circuits",
+        "label": "Parallel AC circuits",
+        "unit": "circuits",
+        "default": 2,
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "power_factor",
+        "label": "Assumed power factor",
+        "unit": "fraction",
+        "default": 0.95,
+        "min": 0.5,
+        "max": 1,
+        "step": 0.01,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "resistance",
+        "label": "Resistance per phase conductor",
+        "unit": "ohm/km",
+        "default": 0.03,
+        "min": 0.0001,
+        "max": 1,
+        "step": 0.001,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C33-E1",
+        "requirement": "seabed exclusions",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C33-E2",
+        "requirement": "onshore corridors",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "route GeoJSON",
+      "route length",
+      "crossings"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C34": {
+    "id": "C34",
+    "title": "Candidate grid substations and connection status",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C34-E1",
+        "requirement": "operator geography",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C34-E2",
+        "requirement": "TEC",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C34-E3",
+        "requirement": "network data",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "candidate nodes",
+      "voltage",
+      "contracted status"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C35": {
+    "id": "C35",
+    "title": "Transmission boundaries and constraint risk",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C35-E1",
+        "requirement": "NESO boundaries",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C35-E2",
+        "requirement": "limits",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C35-E3",
+        "requirement": "costs",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "boundary overlap",
+      "published limits",
+      "congestion risk"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C36": {
+    "id": "C36",
+    "title": "Grid reinforcement costs/timeline uncertainty",
+    "settings": [
+      {
+        "key": "connection_months",
+        "label": "Assumed connection lead time",
+        "unit": "months",
+        "default": null,
+        "min": 0,
+        "max": 240,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "reinforcement_gbp",
+        "label": "Assumed reinforcement budget",
+        "unit": "real GBP",
+        "default": null,
+        "min": 0,
+        "max": 10000000000.0,
+        "step": 1000000,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C36-E1",
+        "requirement": "connection quotes",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C36-E2",
+        "requirement": "planning documents",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "cost/connection date as known or unknown",
+      "sensitivity"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C37": {
+    "id": "C37",
+    "title": "Existing, consented and planned wind farms",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C37-E1",
+        "requirement": "leases",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C37-E2",
+        "requirement": "project databases",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "names",
+      "polygons",
+      "status",
+      "MW",
+      "distance",
+      "citations"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C38": {
+    "id": "C38",
+    "title": "Cumulative wake and seabird impacts",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C38-E1",
+        "requirement": "neighbour footprints",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C38-E2",
+        "requirement": "wind",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C38-E3",
+        "requirement": "habitats",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "shared impacts, cumulative study scope"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C39": {
+    "id": "C39",
+    "title": "Oil/gas field and depleted reservoir discovery",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C39-E1",
+        "requirement": "NSTA fields",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C39-E2",
+        "requirement": "wells",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C39-E3",
+        "requirement": "cessation status",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "fields within radius",
+      "status",
+      "geology evidence gaps"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C40": {
+    "id": "C40",
+    "title": "CO2 storage reservoir suitability screening",
+    "settings": [
+      {
+        "key": "pore_volume_km3",
+        "label": "User-supplied connected pore volume",
+        "unit": "km³",
+        "default": null,
+        "min": 0,
+        "max": 1000,
+        "step": 0.01,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "efficiency",
+        "label": "User-supplied storage efficiency",
+        "unit": "fraction",
+        "default": null,
+        "min": 0,
+        "max": 1,
+        "step": 0.001,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "density",
+        "label": "Reservoir CO₂ density",
+        "unit": "kg/m³",
+        "default": null,
+        "min": 0,
+        "max": 1500,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C40-E1",
+        "requirement": "field geophysics",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C40-E2",
+        "requirement": "pressure",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C40-E3",
+        "requirement": "seal/wells",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "capacity uncertainty",
+      "containment",
+      "injectivity",
+      "ranking"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C41": {
+    "id": "C41",
+    "title": "Carbon licence, ownership and permitted rights",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C41-E1",
+        "requirement": "storage licences",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C41-E2",
+        "requirement": "marine leases",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "licence boundaries/status",
+      "permissions pathway"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C42": {
+    "id": "C42",
+    "title": "CO2 transport infrastructure and emission sources",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C42-E1",
+        "requirement": "sources",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C42-E2",
+        "requirement": "pipelines",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C42-E3",
+        "requirement": "shipping",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C42-E4",
+        "requirement": "storage candidates",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "distance from emitter",
+      "route/cost scenarios"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C43": {
+    "id": "C43",
+    "title": "Storage operation, monitoring, liabilities",
+    "settings": [
+      {
+        "key": "injected_mt",
+        "label": "User-asserted injected inventory",
+        "unit": "Mt CO₂",
+        "default": null,
+        "min": 0,
+        "max": 10000,
+        "step": 0.1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "annual_mt",
+        "label": "User-asserted annual injection",
+        "unit": "Mt CO₂/year",
+        "default": null,
+        "min": 0,
+        "max": 1000,
+        "step": 0.1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C43-E1",
+        "requirement": "MMV",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C43-E2",
+        "requirement": "well integrity",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C43-E3",
+        "requirement": "regulatory",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "MMV plan",
+      "monitoring costs and risk register"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C44": {
+    "id": "C44",
+    "title": "Offshore platform and rig inventory",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C44-E1",
+        "requirement": "platform status",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C44-E2",
+        "requirement": "ownership",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C44-E3",
+        "requirement": "locations",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "name/type,owner,operation/decommission status,distances"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C45": {
+    "id": "C45",
+    "title": "Reuse of offshore platform O&M facilities",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C45-E1",
+        "requirement": "platform equipment",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C45-E2",
+        "requirement": "people",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C45-E3",
+        "requirement": "access",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "technical/safety/logistics compatibility score"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C46": {
+    "id": "C46",
+    "title": "Shared helicopters, vessels, ports and spares",
+    "settings": [
+      {
+        "key": "separate_days",
+        "label": "Separate vessel mobilisation/use",
+        "unit": "vessel-days/year",
+        "default": 120,
+        "min": 0,
+        "max": 3660,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "shared_days",
+        "label": "Shared vessel mobilisation/use",
+        "unit": "vessel-days/year",
+        "default": 90,
+        "min": 0,
+        "max": 3660,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "day_rate",
+        "label": "Assumed vessel day rate",
+        "unit": "real GBP/day",
+        "default": 25000,
+        "min": 0,
+        "max": 1000000,
+        "step": 1000,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "coordination_cost",
+        "label": "Additional coordination cost",
+        "unit": "real GBP/year",
+        "default": 0,
+        "min": 0,
+        "max": 100000000,
+        "step": 10000,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C46-E1",
+        "requirement": "access windows",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C46-E2",
+        "requirement": "contractors",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "asset sharing calendar",
+      "time/cost savings scenario"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C47": {
+    "id": "C47",
+    "title": "Oil/gas electrification or shared energy hub",
+    "settings": [
+      {
+        "key": "demand_mw",
+        "label": "User-supplied platform electrical demand",
+        "unit": "MW",
+        "default": null,
+        "min": 0,
+        "max": 1000,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "hours",
+        "label": "Assumed demand hours",
+        "unit": "hours/year",
+        "default": 8760,
+        "min": 0,
+        "max": 8784,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C47-E1",
+        "requirement": "electric demand",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C47-E2",
+        "requirement": "platform consent",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "electrification pathways and constraints"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C48": {
+    "id": "C48",
+    "title": "Protected areas, habitats and ecology baselines",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C48-E1",
+        "requirement": "Natura/MPA",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C48-E2",
+        "requirement": "EMODnet",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C48-E3",
+        "requirement": "local data",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "constraints and gaps",
+      "impact register"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C49": {
+    "id": "C49",
+    "title": "Birds, bats and marine mammals",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C49-E1",
+        "requirement": "survey/track data",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "collision/displacement/underwater noise plan"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C50": {
+    "id": "C50",
+    "title": "Cumulative impact and mitigation plan",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C50-E1",
+        "requirement": "local projects",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C50-E2",
+        "requirement": "EIA plans",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "monitoring actions, owners and schedule"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C51": {
+    "id": "C51",
+    "title": "Emissions, materials and lifecycle carbon",
+    "settings": [
+      {
+        "key": "embodied_mt",
+        "label": "User-supplied life-cycle embodied emissions",
+        "unit": "Mt CO₂e",
+        "default": null,
+        "min": 0,
+        "max": 1000,
+        "step": 0.1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "displaced_g_kwh",
+        "label": "Assumed displaced-grid intensity",
+        "unit": "g CO₂e/kWh",
+        "default": null,
+        "min": 0,
+        "max": 2000,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C51-E1",
+        "requirement": "materials",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C51-E2",
+        "requirement": "construction/O&M fuel",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "lifecycle carbon inventory and uncertainty"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C52": {
+    "id": "C52",
+    "title": "Construction port, staging and vessel choices",
+    "settings": [
+      {
+        "key": "vessel_speed",
+        "label": "Assumed transit speed",
+        "unit": "knots",
+        "default": 12,
+        "min": 1,
+        "max": 60,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C52-E1",
+        "requirement": "port constraints",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C52-E2",
+        "requirement": "WTG dimensions",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "port ranking",
+      "equipment and mobilisation"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C53": {
+    "id": "C53",
+    "title": "Foundation, cable, turbine installation sequence",
+    "settings": [
+      {
+        "key": "foundation_days",
+        "label": "Foundation installation",
+        "unit": "working days/turbine",
+        "default": 3,
+        "min": 0,
+        "max": 30,
+        "step": 0.25,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "turbine_days",
+        "label": "Turbine erection",
+        "unit": "working days/turbine",
+        "default": 2,
+        "min": 0,
+        "max": 30,
+        "step": 0.25,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "cable_days",
+        "label": "Cable work",
+        "unit": "working days/turbine",
+        "default": 1,
+        "min": 0,
+        "max": 30,
+        "step": 0.25,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "weather_fraction",
+        "label": "Assumed workable installation fraction",
+        "unit": "fraction",
+        "default": 0.7,
+        "min": 0.05,
+        "max": 1,
+        "step": 0.05,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C53-E1",
+        "requirement": "design and weather windows",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "installation method statement and sequencing"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C54": {
+    "id": "C54",
+    "title": "Supply chain, lead times and procurement",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C54-E1",
+        "requirement": "vendors",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C54-E2",
+        "requirement": "durations",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "procurement critical items and cost ranges"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C55": {
+    "id": "C55",
+    "title": "Availability, reliability, maintenance strategy",
+    "settings": [
+      {
+        "key": "mtbf_h",
+        "label": "Assumed mean time between failures",
+        "unit": "hours",
+        "default": 2000,
+        "min": 1,
+        "max": 100000,
+        "step": 100,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "repair_h",
+        "label": "Assumed active repair time",
+        "unit": "hours",
+        "default": 48,
+        "min": 0,
+        "max": 10000,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "wait_h",
+        "label": "Assumed logistics/weather wait",
+        "unit": "hours",
+        "default": 24,
+        "min": 0,
+        "max": 10000,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C55-E1",
+        "requirement": "failure rates",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C55-E2",
+        "requirement": "repairs",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C55-E3",
+        "requirement": "access",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "annual availability",
+      "scheduled/unscheduled repairs"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C57": {
+    "id": "C57",
+    "title": "Condition monitoring and digital operation",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C57-E1",
+        "requirement": "SCADA/proxy",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C57-E2",
+        "requirement": "condition signals",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "monitoring concept and trigger thresholds"
+    ],
+    "kind": "evidence_register",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C61": {
+    "id": "C61",
+    "title": "Price, discount, wake and schedule sensitivity",
+    "settings": [
+      {
+        "key": "price",
+        "label": "Assumed captured electricity price",
+        "unit": "real GBP/MWh",
+        "default": null,
+        "min": -1000,
+        "max": 2000,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "variation_pct",
+        "label": "Cost and price sensitivity range",
+        "unit": "± %",
+        "default": 20,
+        "min": 1,
+        "max": 80,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "rate_delta_pct",
+        "label": "Discount-rate sensitivity range",
+        "unit": "± percentage points",
+        "default": 2,
+        "min": 0,
+        "max": 20,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "wake_delta_pct",
+        "label": "Wake-loss sensitivity range",
+        "unit": "± percentage points",
+        "default": 3,
+        "min": 0,
+        "max": 20,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "delay_years",
+        "label": "Maximum commissioning delay",
+        "unit": "whole years",
+        "default": 2,
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C61-E1",
+        "requirement": "probability/ranges",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "scenario results",
+      "Monte Carlo if justified"
+    ],
+    "kind": "financial_sensitivity",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C62": {
+    "id": "C62",
+    "title": "Construction/operations HSE and emergency response",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C62-E1",
+        "requirement": "HAZID",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C62-E2",
+        "requirement": "activities",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C62-E3",
+        "requirement": "operators",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "risk log",
+      "ALARP decisions",
+      "emergency plan"
+    ],
+    "kind": "risk_register",
+    "method_version": "work-packages-1.0.0",
+    "sources": [
+      {
+        "title": "HSE: managing risks and risk assessment",
+        "url": "https://www.hse.gov.uk/simple-health-safety/risk/steps-needed-to-manage-risk.htm"
+      },
+      {
+        "title": "G+ offshore wind good-practice guidelines",
+        "url": "https://gplusoffshorewind.com/work-programme/workstreams/guidelines"
+      },
+      {
+        "title": "MCA: OREI navigation and emergency-response assessment",
+        "url": "https://www.gov.uk/guidance/offshore-renewable-energy-installations-impact-on-shipping"
+      }
+    ],
+    "risks": [
+      {
+        "id": "H01",
+        "hazard": "Vessel transfer / person overboard",
+        "likelihood": null,
+        "severity": null,
+        "residual_likelihood": null,
+        "residual_severity": null,
+        "controls": "",
+        "owner": "",
+        "status": "unassessed",
+        "evidence": ""
+      },
+      {
+        "id": "H02",
+        "hazard": "Work at height / dropped objects",
+        "likelihood": null,
+        "severity": null,
+        "residual_likelihood": null,
+        "residual_severity": null,
+        "controls": "",
+        "owner": "",
+        "status": "unassessed",
+        "evidence": ""
+      },
+      {
+        "id": "H03",
+        "hazard": "Electrical energisation / isolation",
+        "likelihood": null,
+        "severity": null,
+        "residual_likelihood": null,
+        "residual_severity": null,
+        "controls": "",
+        "owner": "",
+        "status": "unassessed",
+        "evidence": ""
+      },
+      {
+        "id": "H04",
+        "hazard": "Heavy lifting / simultaneous operations",
+        "likelihood": null,
+        "severity": null,
+        "residual_likelihood": null,
+        "residual_severity": null,
+        "controls": "",
+        "owner": "",
+        "status": "unassessed",
+        "evidence": ""
+      },
+      {
+        "id": "H05",
+        "hazard": "Fire, evacuation and medical response",
+        "likelihood": null,
+        "severity": null,
+        "residual_likelihood": null,
+        "residual_severity": null,
+        "controls": "",
+        "owner": "",
+        "status": "unassessed",
+        "evidence": ""
+      },
+      {
+        "id": "H06",
+        "hazard": "Moving blades and vessel clearance",
+        "likelihood": null,
+        "severity": null,
+        "residual_likelihood": null,
+        "residual_severity": null,
+        "controls": "",
+        "owner": "",
+        "status": "unassessed",
+        "evidence": ""
+      }
+    ]
+  },
+  "C63": {
+    "id": "C63",
+    "title": "Staffing, labour demand and skills",
+    "settings": [
+      {
+        "key": "visits",
+        "label": "Planned visits per turbine",
+        "unit": "visits/year",
+        "default": 4,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "visit_hours",
+        "label": "Active time per visit",
+        "unit": "hours",
+        "default": 8,
+        "min": 0,
+        "max": 100,
+        "step": 0.5,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "crew",
+        "label": "Technicians per visit",
+        "unit": "people",
+        "default": 2,
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "annual_hours",
+        "label": "Paid hours per technician",
+        "unit": "hours/year",
+        "default": 1600,
+        "min": 1,
+        "max": 3000,
+        "step": 10,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "productive_fraction",
+        "label": "Fraction available for these tasks",
+        "unit": "fraction",
+        "default": 0.7,
+        "min": 0.05,
+        "max": 1,
+        "step": 0.05,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C63-E1",
+        "requirement": "schedule and scope",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "phase FTE profile and skills shortages"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  },
+  "C64": {
+    "id": "C64",
+    "title": "Stakeholders and community engagement",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C64-E1",
+        "requirement": "local actors",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C64-E2",
+        "requirement": "authorities",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "stakeholder map",
+      "consultation plan"
+    ],
+    "kind": "stakeholder_register",
+    "method_version": "work-packages-1.0.0",
+    "stakeholders": [
+      {
+        "id": "S01",
+        "group": "Marine regulators and consent bodies",
+        "influence": null,
+        "interest": null,
+        "owner": "",
+        "status": "not_contacted",
+        "evidence": ""
+      },
+      {
+        "id": "S02",
+        "group": "Fisheries representatives",
+        "influence": null,
+        "interest": null,
+        "owner": "",
+        "status": "not_contacted",
+        "evidence": ""
+      },
+      {
+        "id": "S03",
+        "group": "Ports and marine service providers",
+        "influence": null,
+        "interest": null,
+        "owner": "",
+        "status": "not_contacted",
+        "evidence": ""
+      },
+      {
+        "id": "S04",
+        "group": "Grid connection and transmission bodies",
+        "influence": null,
+        "interest": null,
+        "owner": "",
+        "status": "not_contacted",
+        "evidence": ""
+      },
+      {
+        "id": "S05",
+        "group": "Coastal communities",
+        "influence": null,
+        "interest": null,
+        "owner": "",
+        "status": "not_contacted",
+        "evidence": ""
+      },
+      {
+        "id": "S06",
+        "group": "Nature conservation and navigation interests",
+        "influence": null,
+        "interest": null,
+        "owner": "",
+        "status": "not_contacted",
+        "evidence": ""
+      }
+    ]
+  },
+  "C65": {
+    "id": "C65",
+    "title": "Life cycle, consents and critical path",
+    "settings": [],
+    "requirements": [
+      {
+        "id": "C65-E1",
+        "requirement": "all agent durations",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "milestone and dependency graph"
+    ],
+    "kind": "programme",
+    "method_version": "work-packages-1.0.0",
+    "tasks": [
+      {
+        "id": "consent",
+        "name": "Consents and surveys",
+        "duration_months": 36,
+        "depends_on": [],
+        "owner": "",
+        "evidence": ""
+      },
+      {
+        "id": "grid",
+        "name": "Grid connection works",
+        "duration_months": 48,
+        "depends_on": [],
+        "owner": "",
+        "evidence": ""
+      },
+      {
+        "id": "procurement",
+        "name": "Equipment procurement",
+        "duration_months": 24,
+        "depends_on": [
+          "consent"
+        ],
+        "owner": "",
+        "evidence": ""
+      },
+      {
+        "id": "installation",
+        "name": "Offshore installation",
+        "duration_months": 18,
+        "depends_on": [
+          "grid",
+          "procurement"
+        ],
+        "owner": "",
+        "evidence": ""
+      },
+      {
+        "id": "commissioning",
+        "name": "Commissioning",
+        "duration_months": 3,
+        "depends_on": [
+          "installation"
+        ],
+        "owner": "",
+        "evidence": ""
+      }
+    ]
+  },
+  "C66": {
+    "id": "C66",
+    "title": "Repowering, reuse and decommissioning",
+    "settings": [
+      {
+        "key": "contingency_pct",
+        "label": "Additional contingency above declared cost basis",
+        "unit": "%",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "salvage_gbp",
+        "label": "Assumed recovered salvage value",
+        "unit": "real GBP",
+        "default": 0,
+        "min": 0,
+        "max": 10000000000.0,
+        "step": 1000000,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      },
+      {
+        "key": "removal_months",
+        "label": "Assumed removal campaign",
+        "unit": "months",
+        "default": 24,
+        "min": 1,
+        "max": 120,
+        "step": 1,
+        "basis": "Editable planning assumption; not a measured or supplier-approved value"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "C66-E1",
+        "requirement": "asset inventory",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      },
+      {
+        "id": "C66-E2",
+        "requirement": "permit conditions",
+        "status": "missing",
+        "source": "",
+        "owner": "",
+        "note": ""
+      }
+    ],
+    "outputs": [
+      "end-of-life options and restoration plan"
+    ],
+    "kind": "screening_calculation",
+    "method_version": "work-packages-1.0.0"
+  }
+}

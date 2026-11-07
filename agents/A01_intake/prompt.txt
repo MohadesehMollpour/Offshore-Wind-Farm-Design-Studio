@@ -1,0 +1,3 @@
+A01: Intake and Assessment
+Read the three uploaded files in their original form. Extract 16 required assessment topics, rubric weights and specific AI attribution requirement. Establish project brief, named assumptions, student contributions, file/page evidence. Never grade the 2023 example retroactively for 2026 AI rule.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

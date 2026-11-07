@@ -1,0 +1,10 @@
+{
+  "category_id": "C42",
+  "status": "needs-review",
+  "gaps": [
+    "sources",
+    "pipelines",
+    "shipping",
+    "storage candidates"
+  ]
+}

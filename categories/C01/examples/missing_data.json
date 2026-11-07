@@ -1,0 +1,9 @@
+{
+  "category_id": "C01",
+  "status": "needs-review",
+  "gaps": [
+    "polygon",
+    "CRS",
+    "shoreline"
+  ]
+}

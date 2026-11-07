@@ -1,0 +1,8 @@
+{
+  "id": "LAYOUT_02",
+  "name": "Staggered / offset rows",
+  "revision": 1,
+  "status": "strategy_only",
+  "implemented": true,
+  "limitations": "Preliminary geometry; exclusions must be supplied; no suitability approval"
+}

@@ -1,0 +1,22 @@
+{
+  "category_id": "C15",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C15-1",
+      "required_title": "Climate scenario band chart",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C15-2",
+      "required_title": "Storm threshold exceedance chart",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

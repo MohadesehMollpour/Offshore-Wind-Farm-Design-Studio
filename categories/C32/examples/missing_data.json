@@ -1,0 +1,9 @@
+{
+  "category_id": "C32",
+  "status": "needs-review",
+  "gaps": [
+    "capacity",
+    "voltage",
+    "export options"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "category_id": "C07",
+  "status": "needs-review",
+  "gaps": [
+    "GWA",
+    "ERA5",
+    "site"
+  ]
+}

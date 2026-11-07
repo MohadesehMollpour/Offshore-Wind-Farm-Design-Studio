@@ -1,0 +1,22 @@
+{
+  "category_id": "C40",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C40-1",
+      "required_title": "Reservoir candidates GIS map",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C40-2",
+      "required_title": "Geological screening comparison plot",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "site_id",
+    "layout_id",
+    "inputs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "layout_id": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "object"
+    }
+  },
+  "description": "AIS/routes; AOI"
+}

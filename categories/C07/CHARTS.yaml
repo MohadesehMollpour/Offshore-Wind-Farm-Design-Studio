@@ -1,0 +1,39 @@
+{
+  "category_id": "C07",
+  "contract_version": "0.2.3",
+  "charts": [
+    {
+      "id": "C07-1",
+      "required_title": "Hub-height wind speed time series",
+      "data_paths": [
+        "data.series"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C07-2",
+      "required_title": "Wind speed by height plot",
+      "data_paths": [
+        "data.mean_speed_ms",
+        "data.hub_height_m"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ],
+  "external_sources": "Scenario inputs.data_bindings; see docs/DATA_CONNECTORS.md",
+  "screening_only": true,
+  "additional_views": [
+    {
+      "title": "Monthly wind speed box plots",
+      "data_paths": [
+        "data.boxplot_sets",
+        "data.wind_plot_preferences"
+      ],
+      "method": "Linear-interpolation quartiles, observed 1.5\u00d7IQR whiskers, outliers; explicit wind-only threshold reference height."
+    }
+  ]
+}

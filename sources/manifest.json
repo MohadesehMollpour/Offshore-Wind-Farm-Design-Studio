@@ -1,0 +1,32 @@
+[
+  {
+    "id": "provided-1",
+    "filename": "Offshore_Wind_Multi_Agent_Master_Prompt_v2_2_Dynamic_Site_Layout_Scenario_Engine.md",
+    "sha256": "1624fc991f230dc0ac1f13c50e9b1d585d6bd95979b4c2d08d762307ad3fb0ca",
+    "role": "proposed_product_specification",
+    "relative_path": "sources/provided/Offshore_Wind_Multi_Agent_Master_Prompt_v2_2_Dynamic_Site_Layout_Scenario_Engine.md"
+  },
+  {
+    "id": "provided-2",
+    "filename": "Assessment Brief.pdf",
+    "sha256": "79238e63bbd31d48117997aa0990ff107fd227584e6a6c38ec5042199c5c22a6",
+    "role": "official_assessment_brief",
+    "relative_path": "sources/provided/Assessment Brief.pdf",
+    "pages": 2
+  },
+  {
+    "id": "provided-3",
+    "filename": "Assessment Criteria.xlsx",
+    "sha256": "db6a87ce32d2e14b2d667d129a2eaf1c2b91569c7da69d92923597112070bea4",
+    "role": "official_rubric",
+    "relative_path": "sources/provided/Assessment Criteria.xlsx"
+  },
+  {
+    "id": "provided-4",
+    "filename": "1. Offshore wind assignment 3.pdf",
+    "sha256": "57913eef516a4c6fe5401e8ce67f90544b511ce1aa9ae75576f3fb7cd9dc2f16",
+    "role": "historical_example_2023",
+    "relative_path": "sources/provided/1. Offshore wind assignment 3.pdf",
+    "pages": 233
+  }
+]

@@ -1,0 +1,3 @@
+A04: Marine Site Screening
+Validate project polygon and coordinate system; overlay sea plans, restrictions, distance-to-shore/ports and scored competing sites. Score weights transparently and avoid overriding legal hard exclusions.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

@@ -1,0 +1,3 @@
+A07: Turbines and Foundations
+Compare real turbine specification sources, site design class, proxy versus verified curves, hub height, rotor size, bottom-fixed/floating foundation suitability and risk.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

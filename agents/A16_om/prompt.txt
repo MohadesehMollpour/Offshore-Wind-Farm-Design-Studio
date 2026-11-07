@@ -1,0 +1,3 @@
+A16: O&M and Reliability
+Model CTV/SOV, ports, travel/weather access, component failure and repair durations, downtime and availability. Evaluate reuse of nearby platform O&M facilities quantitatively with safety and owner-permission caveats.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

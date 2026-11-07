@@ -1,0 +1,10 @@
+{
+  "category_id": "C23",
+  "status": "needs-review",
+  "gaps": [
+    "polygon",
+    "exclusions",
+    "D",
+    "wind rose"
+  ]
+}

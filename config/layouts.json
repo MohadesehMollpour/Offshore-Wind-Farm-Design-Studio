@@ -1,0 +1,43 @@
+[
+  {
+    "id": "LAYOUT_01",
+    "name": "Regular rectangular grid",
+    "revision": 1,
+    "status": "strategy_only",
+    "implemented": true,
+    "limitations": "Preliminary geometry; exclusions must be supplied; no suitability approval"
+  },
+  {
+    "id": "LAYOUT_02",
+    "name": "Staggered / offset rows",
+    "revision": 1,
+    "status": "strategy_only",
+    "implemented": true,
+    "limitations": "Preliminary geometry; exclusions must be supplied; no suitability approval"
+  },
+  {
+    "id": "LAYOUT_03",
+    "name": "Wind-informed orientation",
+    "revision": 1,
+    "status": "strategy_only",
+    "implemented": true,
+    "limitations": "Preliminary geometry; exclusions must be supplied; no suitability approval"
+  },
+  {
+    "id": "LAYOUT_04",
+    "name": "Constraint-aware irregular search",
+    "revision": 1,
+    "status": "strategy_only",
+    "implemented": true,
+    "limitations": "Seeded feasible-point search with rotor/exclusion envelopes and minimum spacing. Energy/LCOE optimization is not implemented.",
+    "energy_cost_optimized": false
+  },
+  {
+    "id": "LAYOUT_05",
+    "name": "Clustered / multi-block array",
+    "revision": 1,
+    "status": "strategy_only",
+    "implemented": true,
+    "limitations": "Preliminary geometry; exclusions must be supplied; no suitability approval"
+  }
+]

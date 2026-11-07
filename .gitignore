@@ -1,0 +1,23 @@
+.venv/
+**/__pycache__/
+.pytest_cache/
+dashboard/node_modules/
+dashboard/dist/
+data/studio.sqlite*
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/external/
+data/external_raw/
+data/http_cache/
+data/library/
+work/
+logs/*
+!logs/.gitkeep
+.env
+
+/outputs/
+
+# Course materials (assignment, brief, criteria, master prompt) stay private; sources/manifest.json keeps their checksums.
+/sources/provided/

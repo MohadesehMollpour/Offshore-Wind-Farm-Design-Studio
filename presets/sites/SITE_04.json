@@ -1,0 +1,11 @@
+{
+  "id": "SITE_04",
+  "name": "Eastern Scotland / Aberdeen–Moray",
+  "jurisdiction": "UK — Scotland",
+  "search_area_description": "Aberdeen–Moray North Sea regional search",
+  "screening_geometry": null,
+  "status": "screening_only",
+  "geometry_unverified": true,
+  "no_feasibility_claim": true,
+  "revision": 1
+}

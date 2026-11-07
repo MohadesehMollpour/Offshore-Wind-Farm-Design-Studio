@@ -1,0 +1,6 @@
+# Offshore Wind Farm Design Studio
+# Pages may be crawled; the JSON API and file exports under /api/ may not.
+# TODO(deploy): add "Sitemap: https://<public-domain>/sitemap.xml" once a real public domain exists.
+User-agent: *
+Allow: /
+Disallow: /api/

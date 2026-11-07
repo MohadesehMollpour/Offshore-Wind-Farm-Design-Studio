@@ -1,0 +1,11 @@
+{
+  "id": "SITE_01",
+  "name": "East Yorkshire / Hornsea",
+  "jurisdiction": "UK — England",
+  "search_area_description": "East Yorkshire and Hornsea offshore cluster",
+  "screening_geometry": null,
+  "status": "screening_only",
+  "geometry_unverified": true,
+  "no_feasibility_claim": true,
+  "revision": 1
+}

@@ -1,0 +1,8 @@
+import {useEffect,useState} from 'react';
+import {ThreeFarmScene} from './ThreeFarmScene';
+type Obj=Record<string,any>;
+export function TwinPreview({scenario,onOpen}:{scenario:Obj,onOpen:()=>void}){
+ const [data,setData]=useState<Obj|null>(null),[error,setError]=useState(''),[selected,setSelected]=useState('T001');
+ useEffect(()=>{const abort=new AbortController();fetch(`/api/scenarios/${scenario.id}/farm-preview`,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}',signal:abort.signal}).then(async r=>{const d=await r.json();if(!r.ok)throw Error(d.detail||'Preview failed');return d;}).then(d=>{setData(d);setSelected(d.turbines[0]?.id);}).catch(e=>{if(e.name!=='AbortError')setError(e.message);});return()=>abort.abort();},[scenario.id]);
+ return <section className="panel overview-twin"><div className="section-heading"><div><span className="eyebrow">LINKED TO THE SELECTED DESIGN · REVISION {scenario.revision}</span><h2>Wind Farm Digital Twin (3D View)</h2><p>{data?.site_name||scenario.site_id} · {data?.layout_name||scenario.layout_id} · {data?.count??'…'} turbines</p></div><button className="primary" onClick={onOpen}>Open Digital Twin →</button></div>{error?<p className="error">{error}</p>:data?<ThreeFarmScene data={data} selected={selected} onSelect={setSelected} paused={false} view="farm" showWakes={false}/>:<p>Loading selected farm and layout…</p>}<p className="micro">{data?.conceptual?'Conceptual arrangement from the selected scenario parameters. Regional presets with identical turbine settings can share the same geometry.':'Computed C23 geometry for this exact revision.'} Selecting a different region or layout above updates this preview and the full digital twin together.</p></section>;
+}

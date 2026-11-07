@@ -1,0 +1,3 @@
+A13: Oil and Gas Infrastructure Reuse
+Find platforms, rig facilities, pipelines, ports and owner/decommission status; assess offshore maintenance reuse and logistics, operating safety, structural capacity, weather access and contracts; compare repurpose/electrification only as scenarios.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

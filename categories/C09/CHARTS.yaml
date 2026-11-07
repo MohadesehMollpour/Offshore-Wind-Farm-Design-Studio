@@ -1,0 +1,24 @@
+{
+  "category_id": "C09",
+  "contract_version": "0.2.0",
+  "charts": [
+    {
+      "id": "C09-1",
+      "required_title": "Season \u00d7 hour wind heatmap",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C09-2",
+      "required_title": "Extreme wind return-period plot",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ],
+  "external_sources": "Scenario inputs.data_bindings; see docs/DATA_CONNECTORS.md",
+  "screening_only": true
+}

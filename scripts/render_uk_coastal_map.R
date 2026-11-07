@@ -1,0 +1,57 @@
+args <- commandArgs(trailingOnly=TRUE)
+script <- grep("^--file=",commandArgs(),value=TRUE)
+root <- dirname(dirname(normalizePath(sub("^--file=","",script[[1]]),winslash="/")))
+.libPaths(c(file.path(root,"work/rayshader/library"),.Library),include.site=FALSE)
+d <- jsonlite::fromJSON(args[1],simplifyVector=FALSE)
+u <- d$uk_context
+xy <- function(ring) matrix(as.numeric(unlist(ring)),ncol=2,byrow=TRUE)
+feature <- function(g,col,border,lwd=1,lty=1) {
+ if (!g$type %in% c("Polygon","MultiPolygon")) return(invisible(NULL))
+ polys <- if(g$type=="Polygon") list(g$coordinates) else g$coordinates
+ for(poly in polys){coords <- do.call(rbind,lapply(poly,function(r) rbind(xy(r),c(NA,NA))))
+  coords<-coords[-nrow(coords),,drop=FALSE];graphics::polypath(coords[,1],coords[,2],col=col,border=border,lwd=lwd,lty=lty,rule="evenodd")}
+}
+grDevices::png(args[2],width=1650,height=1100,res=140,type="cairo")
+par(bg="#f7faf7",fg="#2d4d43",col.axis="#668174",col.lab="#49695d",family="sans")
+par(fig=c(0,.8,0,1),mar=c(6.5,5,6,1))
+plot(NA,xlim=c(-2.45,4.35),ylim=c(52.15,55.65),asp=1/cos(54*pi/180),xlab="Longitude (degrees east)",ylab="Latitude (degrees north)",bty="n",axes=FALSE)
+usr <- par("usr");rect(usr[1],usr[3],usr[2],usr[4],col="#dcebf0",border=NA)
+axis(1,at=seq(-2,4,1),labels=paste0(seq(-2,4,1)," deg"));axis(2,at=seq(52,56,1),las=1,labels=paste0(seq(52,56,1)," deg"))
+abline(v=seq(-3,5,1),h=seq(52,56,1),col="#ffffff88",lwd=.8)
+for(f in u$land$features)feature(f$geometry,if(f$properties$code=="GBR") "#d8e5c9" else "#e8e9df",if(f$properties$code=="GBR") "#527751" else "#b0b9a6",1.3)
+feature(u$coastal_band$geometry,"#5bbe8e35","#3b9c78",1.6,2)
+colors <- c(SAC="#159fb2",SPA="#e2ac35",MCZ="#8a9d35")
+for(f in d$geojson$features)feature(f$geometry,adjustcolor(colors[f$properties$designation],alpha.f=.12),adjustcolor(colors[f$properties$designation],alpha.f=.8),.9)
+for(f in d$coastline$features){g<-f$geometry;if(g$type=="LineString")lines(xy(g$coordinates),col="#365e43",lwd=1.6);if(g$type=="MultiLineString")for(r in g$coordinates)lines(xy(r),col="#365e43",lwd=1.6)}
+for(b in u$benchmarks){feature(b$geometry,NA,"#48647e",1.1,3);points(b$lon,b$lat,pch=21,bg=if(b$within_distance_preference)"#43876b" else "#f6f7ef",col="#48647e",cex=.7)}
+p<-d$reference_point;c<-u$coast
+segments(p$lon,p$lat,c$lon,c$lat,col="#aa7728",lty=2,lwd=2)
+points(p$lon,p$lat,pch=21,bg="#ffc866",col="#77531f",cex=1.6,lwd=1.6)
+text(p$lon+.11,p$lat+.18,"Hornsea 1 reference",adj=0,cex=.95,font=2,col="#785624")
+text(p$lon+.11,p$lat+.04,"114.1 km from UK coast",adj=0,cex=.85,col="#785624")
+text(-1.35,54.55,"UNITED KINGDOM",cex=1.12,font=2,col="#3c6746")
+text(-.9,54.25,"East Yorkshire",cex=.9,col="#4d7052")
+text(.48,52.64,"Norfolk",cex=.9,col="#4d7052")
+text(3.2,54.65,"NORTH SEA",cex=1.05,col="#578997",font=2)
+for(k in c(1,3,4)){port<-u$ports[[k]];points(port$lon,port$lat,pch=21,bg="white",col="#385d70",cex=.8);text(port$lon,port$lat,port$name,pos=if(k==1)1 else if(k==3)3 else 4,offset=.8,cex=.75,col="#385d70")}
+b<-u$benchmarks[[4]];text(b$lon-.06,b$lat+.07,"Hornsea 4 | 87.6 km",pos=2,cex=.78,col="#28654d",font=2)
+# 50 km scale at 53 N (approximate cartographic scale).
+x0<--1.9;y0<-52.35;dx<-50/(111.32*cos(53*pi/180));segments(x0,y0,x0+dx,y0,lwd=3,col="#4b685e");segments(c(x0,x0+dx),y0-.025,c(x0,x0+dx),y0+.025,col="#4b685e");text(x0+dx/2,y0+.08,"50 km",cex=.8)
+legend("bottomright",legend=c("Approximate 100 km UK coastal band","SAC | habitats","SPA | birds","MCZ | conservation zones","Existing wind agreements"),fill=c("#5bbe8e55",adjustcolor(colors,alpha.f=.25),NA),border=c("#3b9c78",colors,"#48647e"),bty="n",cex=.75,bg="#f8fbf5")
+mtext("UK coastal design screening",side=3,line=3.4,adj=0,font=2,cex=1.7)
+mtext("Hornsea / East Yorkshire | actual land outlines, ports and protected areas",side=3,line=1.7,adj=0,cex=.95)
+mtext("100 km is your design preference. The current reference lies outside it.",side=1,line=5.1,adj=0,cex=.82,col="#8f642c")
+par(fig=c(.8,.99,.48,.93),mar=c(0,0,1,0),new=TRUE)
+plot(NA,xlim=c(-9,3),ylim=c(49.6,61),asp=1/cos(55*pi/180),axes=FALSE,xlab="",ylab="",bty="n")
+for(f in u$land$features)if(f$properties$code %in% c("GBR","IRL"))feature(f$geometry,if(f$properties$code=="GBR")"#799b74" else "#dce4d4","#f8faf5",.6)
+rect(-2.45,52.15,4.35,55.65,col="#d8aa3c22",border="#b18c38",lty=2)
+points(p$lon,p$lat,pch=21,bg="#ffc866",col="#77531f",cex=.9)
+mtext("UK LOCATOR",side=3,line=.3,font=2,cex=.85)
+par(fig=c(.8,.99,.05,.46),mar=c(0,0,0,0),new=TRUE)
+plot.new();text(0,1,"DESIGN PREFERENCE",adj=c(0,1),cex=.88,font=2,col="#3c6746")
+text(0,.88,"UK coast <= 100 km",adj=0,cex=1.1,font=2)
+text(0,.72,"Current reference: 114.1 km\nOutside preference",adj=0,cex=.95,col="#986328")
+text(0,.52,"22 protected sites\n127 declared interests",adj=0,cex=.95,col="#43695e")
+text(0,.27,"Hornsea 4 is an existing\nagreement benchmark,\nnot an available site.",adj=0,cex=.8,col="#657b6f")
+text(0,.06,"Sources: JNCC / Natural England\nNatural Earth | EMODnet ports\nTCE published agreements\nGeneralized geography; no AOI.",adj=0,cex=.66,col="#73877c")
+invisible(dev.off())

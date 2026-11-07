@@ -1,0 +1,15 @@
+* text=auto
+*.py text eol=lf
+*.tsx text eol=lf
+*.ts text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.ps1 text eol=crlf
+*.pdf binary
+*.xlsx binary
+sources/references/lattice_supply/*.original.html binary
+dashboard/public/assets/lattice/** -text whitespace=cr-at-eol
+
+sources/references/uk_cartography/*.geojson -text
+pages_snapshot/files/** binary

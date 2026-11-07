@@ -1,0 +1,22 @@
+{
+  "category_id": "C19",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C19-1",
+      "required_title": "Scour-risk spatial overlay",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C19-2",
+      "required_title": "Burial-depth sensitivity plot",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

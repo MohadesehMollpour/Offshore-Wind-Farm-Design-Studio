@@ -1,0 +1,32 @@
+{
+  "category_id": "C37",
+  "contract_version": "0.2.3",
+  "charts": [
+    {
+      "id": "C37-1",
+      "required_title": "Nearby offshore wind farms geospatial map",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C37-2",
+      "required_title": "Project lifecycle-status timeline",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ],
+  "external_sources": "Scenario inputs.data_bindings; see docs/DATA_CONNECTORS.md",
+  "screening_only": true,
+  "additional_views": [
+    {
+      "title": "Attached Hornsea farm comparison",
+      "source": "/api/references/hornsea-farms",
+      "classification": "user_supplied_reference_snapshot",
+      "method": "Contextual radial chart, schematic map and linked table; no computational adoption."
+    }
+  ]
+}

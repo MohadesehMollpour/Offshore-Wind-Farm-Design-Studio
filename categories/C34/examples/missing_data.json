@@ -1,0 +1,9 @@
+{
+  "category_id": "C34",
+  "status": "needs-review",
+  "gaps": [
+    "operator geography",
+    "TEC",
+    "network data"
+  ]
+}

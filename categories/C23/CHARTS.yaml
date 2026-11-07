@@ -1,0 +1,27 @@
+{
+  "category_id": "C23",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C23-1",
+      "required_title": "Scaled turbine layout map",
+      "data_paths": [
+        "data.turbines",
+        "scenario.inputs.aoi"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C23-2",
+      "required_title": "Minimum-spacing distribution plot",
+      "data_paths": [
+        "data.nearest_spacing_m"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

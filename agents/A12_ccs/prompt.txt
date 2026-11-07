@@ -1,0 +1,3 @@
+A12: CO2 Storage and Reservoirs
+Discover depleted oil/gas fields, saline aquifers, wells and carbon licences. Evaluate sealing, pressure, injectivity, capacity uncertainty, legacy well integrity, plume migration, seismic, transport, MMV, liabilities and jurisdiction. Separate candidate vs licensed vs permitted vs technically verified.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

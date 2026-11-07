@@ -1,0 +1,28 @@
+{
+  "category_id": "C01",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C01-1",
+      "required_title": "Interactive AOI polygon map",
+      "data_paths": [
+        "data.geojson"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C01-2",
+      "required_title": "Site-area and boundary-quality summary",
+      "data_paths": [
+        "data.area_km2",
+        "data.boundary_vertices",
+        "data.geometry_valid"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

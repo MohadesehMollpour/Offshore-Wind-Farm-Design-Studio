@@ -1,0 +1,22 @@
+{
+  "category_id": "C31",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C31-1",
+      "required_title": "Array cable network map",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C31-2",
+      "required_title": "Electrical loading per string chart",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

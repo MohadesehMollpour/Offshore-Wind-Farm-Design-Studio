@@ -1,0 +1,22 @@
+{
+  "category_id": "C53",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C53-1",
+      "required_title": "Installation sequencing Gantt",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C53-2",
+      "required_title": "Marine weather-delay risk chart",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

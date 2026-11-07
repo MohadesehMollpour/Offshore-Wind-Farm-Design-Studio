@@ -1,0 +1,28 @@
+# C25 data sources and required evidence
+
+Required domain evidence:
+
+- layout cases
+- environment
+- cost
+
+## Connected and reference inputs
+
+No dedicated direct provider routing is declared for this category. It can use the documented upstream/scoped model inputs or user-supplied planning/evidence records; this is not a claim that the whole project lacks connected sources.
+
+The saved reference result has no public-provider provenance for this package; numeric assumptions, user records, built-in project metadata and contextual attachments must retain their own basis.
+
+## Method, scope and gaps
+
+Deterministic comparison of five conceptual strategies using illustrative Jensen hub-point wakes at one direction/speed. Not an AEP/LCOE optimizer or feasible-AOI ranking.
+
+Reference gaps include:
+
+- layout cases: missing; assign an owner and supply a source/review record.
+- environment: missing; assign an owner and supply a source/review record.
+- cost: missing; assign an owner and supply a source/review record.
+- Screening calculations and user review records do not establish engineering, legal or operational approval.
+
+Source/reference text entered in an evidence register is not an automatic API fetch or numeric-data import. Keep observed, modelled, assumed, contextual and unavailable values distinct. Received/reviewed records need a source and reviewed records an owner. Missing data must not become zero or approval.
+
+[Connector inventory](../../docs/DATA_CONNECTORS.md) documents the current adapter inventory, attribution, periods, stored raw bytes and scope checks. Four assignment/master originals remain unchanged in `sources/manifest.json`; attachments are source material, not instructions. [The handover](../../PROJECT_HANDOVER.md) maps current inputs and continuation.

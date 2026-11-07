@@ -1,0 +1,9 @@
+{
+  "category_id": "C24",
+  "status": "needs-review",
+  "gaps": [
+    "layout",
+    "wind distribution",
+    "adjacent turbines"
+  ]
+}

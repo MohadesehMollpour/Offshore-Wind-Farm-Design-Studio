@@ -1,0 +1,22 @@
+{
+  "category_id": "C57",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C57-1",
+      "required_title": "Condition monitoring KPI timeline",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C57-2",
+      "required_title": "Alarm severity and root-cause matrix",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

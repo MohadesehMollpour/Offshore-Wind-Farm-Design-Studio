@@ -1,0 +1,24 @@
+{
+  "category_id": "C39",
+  "contract_version": "0.2.0",
+  "charts": [
+    {
+      "id": "C39-1",
+      "required_title": "Oil and gas fields plus wells map",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C39-2",
+      "required_title": "Asset/depletion evidence status matrix",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ],
+  "external_sources": "Scenario inputs.data_bindings; see docs/DATA_CONNECTORS.md",
+  "screening_only": true
+}

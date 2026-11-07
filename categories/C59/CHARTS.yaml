@@ -1,0 +1,39 @@
+{
+  "category_id": "C59",
+  "contract_version": "0.2.2",
+  "charts": [
+    {
+      "id": "C59-1",
+      "required_title": "OPEX and decommissioning lifecycle line",
+      "data_paths": [
+        "data.annual_opex_gbp"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md.",
+      "regional_reference_view": {
+        "data_paths": [
+          "data.benchmark"
+        ],
+        "status": "implemented_preliminary_bars_or_curve",
+        "note": "The explicit regional_screening_case plus scope-checked overview_inputs and era5_wind bindings enable a regional reference estimate. Published IEA turbine data, DESNZ 2024-real cost benchmarks, Arup loss benchmarks and declared electrical/curtailment/shear assumptions remain distinguishable. No proposed AOI or feasible layout is invented. Regional results do not supply P90, NPV, IRR or payback. See reports/management_overview_data.md and backend/overview_data.py."
+      }
+    },
+    {
+      "id": "C59-2",
+      "required_title": "Cost uncertainty ranges",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md.",
+      "regional_reference_view": {
+        "data_paths": [
+          "data.annual_opex_gbp",
+          "data.decommission_gbp"
+        ],
+        "status": "implemented_preliminary_bars_or_curve",
+        "note": "The explicit regional_screening_case plus scope-checked overview_inputs and era5_wind bindings enable a regional reference estimate. Published IEA turbine data, DESNZ 2024-real cost benchmarks, Arup loss benchmarks and declared electrical/curtailment/shear assumptions remain distinguishable. No proposed AOI or feasible layout is invented. Regional results do not supply P90, NPV, IRR or payback. See reports/management_overview_data.md and backend/overview_data.py."
+      }
+    }
+  ]
+}

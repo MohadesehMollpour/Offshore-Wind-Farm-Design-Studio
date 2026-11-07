@@ -1,0 +1,41 @@
+{
+  "category_id": "C26",
+  "contract_version": "0.2.2",
+  "charts": [
+    {
+      "id": "C26-1",
+      "required_title": "Gross AEP by turbine bar plot",
+      "data_paths": [
+        "data.per_turbine_mwh"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md.",
+      "regional_reference_view": {
+        "data_paths": [
+          "data.gross_aep_mwh",
+          "data.net_aep_mwh"
+        ],
+        "status": "implemented_preliminary_bars_or_curve",
+        "note": "The explicit regional_screening_case plus scope-checked overview_inputs and era5_wind bindings enable a regional reference estimate. Published IEA turbine data, DESNZ 2024-real cost benchmarks, Arup loss benchmarks and declared electrical/curtailment/shear assumptions remain distinguishable. No proposed AOI or feasible layout is invented. Regional results do not supply P90, NPV, IRR or payback. See reports/management_overview_data.md and backend/overview_data.py."
+      }
+    },
+    {
+      "id": "C26-2",
+      "required_title": "Monthly/annual gross yield chart",
+      "data_paths": [
+        "data.gross_aep_mwh"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md.",
+      "regional_reference_view": {
+        "data_paths": [
+          "data.losses"
+        ],
+        "status": "implemented_preliminary_bars_or_curve",
+        "note": "The explicit regional_screening_case plus scope-checked overview_inputs and era5_wind bindings enable a regional reference estimate. Published IEA turbine data, DESNZ 2024-real cost benchmarks, Arup loss benchmarks and declared electrical/curtailment/shear assumptions remain distinguishable. No proposed AOI or feasible layout is invented. Regional results do not supply P90, NPV, IRR or payback. See reports/management_overview_data.md and backend/overview_data.py."
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "category_id": "C42",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C42-1",
+      "required_title": "CO2 transport network map",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C42-2",
+      "required_title": "Source-to-storage distance/cost scenario plot",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

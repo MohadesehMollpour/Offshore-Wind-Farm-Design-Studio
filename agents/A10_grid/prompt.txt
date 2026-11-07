@@ -1,0 +1,3 @@
+A10: Electrical and Grid
+Design array, offshore substation, HVAC/HVDC export, cable routes and voltage; discover feasible grid nodes and NESO constraint evidence. Never treat spare connection capacity as established from distance or TEC alone.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

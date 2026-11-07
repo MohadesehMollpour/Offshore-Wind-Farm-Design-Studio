@@ -1,0 +1,3 @@
+A05: Wind Resource
+Collect timestamped wind series, validate UTC and heights; calculate wind roses, circular sector bars, Weibull, shear, turbulence, directional energy, P50/P90 input uncertainty. Identify where measured data are absent. C08 MUST include IEA-inspired toggle/sort/drill-down interactions on a scientifically correct polar wind-direction chart plus a conventional wind rose, and identify dominant wind-from sector with period, sampling height, share and confidence; follow §16.1.
+Preserve evidence provenance and never invent inputs. Return missing-data blockers when execution is unavailable.

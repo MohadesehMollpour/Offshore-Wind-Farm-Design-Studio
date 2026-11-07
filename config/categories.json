@@ -1,0 +1,1887 @@
+[
+  {
+    "id": "C01",
+    "title": "Candidate AOI polygon and coordinates",
+    "domain": "site",
+    "charts": [
+      "Interactive AOI polygon map",
+      "Site-area and boundary-quality summary"
+    ],
+    "inputs": [
+      "polygon",
+      "CRS",
+      "shoreline"
+    ],
+    "outputs": [
+      "valid polygon",
+      "centroid",
+      "area km2",
+      "data bounds"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C01 — Candidate AOI polygon and coordinates  _(domain: site)_\n\n- **Mandatory inputs:**\n  - polygon\n  - CRS\n  - shoreline\n- **Expected results:**\n  - valid polygon\n  - centroid\n  - area km2\n  - data bounds\n- **Visualization:** GIS map\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A04"
+    ],
+    "dependencies": [],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C02",
+    "title": "Marine spatial zoning and lease rights",
+    "domain": "site",
+    "charts": [
+      "Lease and marine-zoning overlay",
+      "Consent status timeline"
+    ],
+    "inputs": [
+      "AOI",
+      "marine plan"
+    ],
+    "outputs": [
+      "plan intersections",
+      "rights/status",
+      "no-go layer"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C02 — Marine spatial zoning and lease rights  _(domain: site)_\n\n- **Mandatory inputs:**\n  - AOI\n  - marine plan\n- **Expected results:**\n  - plan intersections\n  - rights/status\n  - no-go layer\n- **Visualization:** layered permit map\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A04"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C03",
+    "title": "Site suitability and multi-criteria comparison",
+    "domain": "site",
+    "charts": [
+      "Multi-criteria ranking bars",
+      "Sensitivity / parallel-coordinates plot"
+    ],
+    "inputs": [
+      "site candidates",
+      "weight ranges"
+    ],
+    "outputs": [
+      "score matrix",
+      "Pareto options",
+      "weight sensitivity"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C03 — Site suitability and multi-criteria comparison  _(domain: site)_\n\n- **Mandatory inputs:**\n  - site candidates\n  - weight ranges\n- **Expected results:**\n  - score matrix\n  - Pareto options\n  - weight sensitivity\n- **Visualization:** parallel-coordinates + rank bars\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A04"
+    ],
+    "dependencies": [
+      "C02",
+      "C04",
+      "C05",
+      "C06",
+      "C48"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C04",
+    "title": "Distance to coast, ports and substations",
+    "domain": "site",
+    "charts": [
+      "Coast/port/grid distance map",
+      "Travel-distance comparison bars"
+    ],
+    "inputs": [
+      "AOI",
+      "route graph"
+    ],
+    "outputs": [
+      "geodesic and navigable route distance separately"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C04 — Distance to coast, ports and substations  _(domain: site)_\n\n- **Mandatory inputs:**\n  - AOI\n  - route graph\n- **Expected results:**\n  - geodesic and navigable route distance separately\n- **Visualization:** distance network map\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A04"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C05",
+    "title": "Navigation, shipping and aviation constraints",
+    "domain": "site",
+    "charts": [
+      "Shipping and aviation density overlay",
+      "Constraint exposure by zone"
+    ],
+    "inputs": [
+      "AIS/routes",
+      "AOI"
+    ],
+    "outputs": [
+      "traffic density",
+      "corridors",
+      "aviation restrictions"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C05 — Navigation, shipping and aviation constraints  _(domain: site)_\n\n- **Mandatory inputs:**\n  - AIS/routes\n  - AOI\n- **Expected results:**\n  - traffic density\n  - corridors\n  - aviation restrictions\n- **Visualization:** traffic heatmap\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A04"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C06",
+    "title": "Fisheries and socioeconomic spatial conflicts",
+    "domain": "site",
+    "charts": [
+      "Fishing activity heatmap",
+      "Socioeconomic impact matrix"
+    ],
+    "inputs": [
+      "fisheries layers",
+      "AOI"
+    ],
+    "outputs": [
+      "fishing intensity proxy",
+      "stakeholder conflict zones"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C06 — Fisheries and socioeconomic spatial conflicts  _(domain: site)_\n\n- **Mandatory inputs:**\n  - fisheries layers\n  - AOI\n- **Expected results:**\n  - fishing intensity proxy\n  - stakeholder conflict zones\n- **Visualization:** bivariate risk map\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A04"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C07",
+    "title": "Historical wind speed at several hub heights",
+    "domain": "resource",
+    "charts": [
+      "Hub-height wind speed time series",
+      "Wind speed by height plot"
+    ],
+    "inputs": [
+      "GWA",
+      "ERA5",
+      "site"
+    ],
+    "outputs": [
+      "time series",
+      "means",
+      "speed ranges",
+      "missingness"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C07 — Historical wind speed at several hub heights  _(domain: resource)_\n\n- **Mandatory inputs:**\n  - GWA\n  - ERA5\n  - site\n- **Expected results:**\n  - time series\n  - means\n  - speed ranges\n  - missingness\n- **Visualization:** time-series bands\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A05"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C08",
+    "title": "Wind direction and sector frequency",
+    "domain": "resource",
+    "charts": [
+      "Interactive circular sector bar / dominant wind-from direction, IEA-inspired controls",
+      "Conventional stacked wind rose and direction-specific energy contribution"
+    ],
+    "inputs": [
+      "wind U",
+      "V",
+      "time"
+    ],
+    "outputs": [
+      "direction sector frequency and wind-energy-weighted frequency"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C08 — Wind direction and sector frequency  _(domain: resource)_\n\n- **Mandatory inputs:**\n  - wind U\n  - V\n  - time\n- **Expected results:**\n  - direction sector frequency and wind-energy-weighted frequency\n- **Visualization:** circular barplot + conventional wind rose\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A05"
+    ],
+    "dependencies": [
+      "C07"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C09",
+    "title": "Wind seasonal, diurnal, extreme behaviour",
+    "domain": "resource",
+    "charts": [
+      "Season × hour wind heatmap",
+      "Extreme wind return-period plot"
+    ],
+    "inputs": [
+      "wind series"
+    ],
+    "outputs": [
+      "season-hour matrices",
+      "gust and maxima"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C09 — Wind seasonal, diurnal, extreme behaviour  _(domain: resource)_\n\n- **Mandatory inputs:**\n  - wind series\n- **Expected results:**\n  - season-hour matrices\n  - gust and maxima\n- **Visualization:** calendar heatmap + boxplots\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A05"
+    ],
+    "dependencies": [
+      "C07"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C10",
+    "title": "Weibull distribution and alternatives",
+    "domain": "resource",
+    "charts": [
+      "Wind-speed histogram with Weibull fit",
+      "Empirical-vs-fitted quantile plot"
+    ],
+    "inputs": [
+      "site wind series"
+    ],
+    "outputs": [
+      "fit k,scale",
+      "QQ and goodness-of-fit"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C10 — Weibull distribution and alternatives  _(domain: resource)_\n\n- **Mandatory inputs:**\n  - site wind series\n- **Expected results:**\n  - fit k,scale\n  - QQ and goodness-of-fit\n- **Visualization:** histogram + PDF + QQ plot\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A05"
+    ],
+    "dependencies": [
+      "C07"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C11",
+    "title": "Vertical shear and stability",
+    "domain": "resource",
+    "charts": [
+      "Wind shear vertical profile",
+      "Stability and shear comparisons"
+    ],
+    "inputs": [
+      "multiheight wind"
+    ],
+    "outputs": [
+      "hub-height extrapolation",
+      "uncertainty"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C11 — Vertical shear and stability  _(domain: resource)_\n\n- **Mandatory inputs:**\n  - multiheight wind\n- **Expected results:**\n  - hub-height extrapolation\n  - uncertainty\n- **Visualization:** height profile curves\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A05"
+    ],
+    "dependencies": [
+      "C07"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C12",
+    "title": "Turbulence and extreme wind design",
+    "domain": "resource",
+    "charts": [
+      "Turbulence vs wind speed scatter",
+      "Design wind extremes plot"
+    ],
+    "inputs": [
+      "turbulence",
+      "IEC site class"
+    ],
+    "outputs": [
+      "TI by wind bin",
+      "extremes",
+      "class match"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C12 — Turbulence and extreme wind design  _(domain: resource)_\n\n- **Mandatory inputs:**\n  - turbulence\n  - IEC site class\n- **Expected results:**\n  - TI by wind bin\n  - extremes\n  - class match\n- **Visualization:** scatter + exceedance curve\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A05"
+    ],
+    "dependencies": [
+      "C07"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C13",
+    "title": "Wave conditions and vessel weather windows",
+    "domain": "metocean",
+    "charts": [
+      "Wave height and period joint distribution",
+      "Monthly marine access weather-window heatmap"
+    ],
+    "inputs": [
+      "wave time series",
+      "limits"
+    ],
+    "outputs": [
+      "Hs/Tp/direction and access probability"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C13 — Wave conditions and vessel weather windows  _(domain: metocean)_\n\n- **Mandatory inputs:**\n  - wave time series\n  - limits\n- **Expected results:**\n  - Hs/Tp/direction and access probability\n- **Visualization:** wave rose + weather-window heatmap\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A06"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C14",
+    "title": "Tides, currents and water levels",
+    "domain": "metocean",
+    "charts": [
+      "Tide and water-level time series",
+      "Current direction rose"
+    ],
+    "inputs": [
+      "marine hydrodynamic layers"
+    ],
+    "outputs": [
+      "direction rose",
+      "extreme water levels"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C14 — Tides, currents and water levels  _(domain: metocean)_\n\n- **Mandatory inputs:**\n  - marine hydrodynamic layers\n- **Expected results:**\n  - direction rose\n  - extreme water levels\n- **Visualization:** current rose + exceedance\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A06"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C15",
+    "title": "Climate change and storm scenarios",
+    "domain": "metocean",
+    "charts": [
+      "Climate scenario band chart",
+      "Storm threshold exceedance chart"
+    ],
+    "inputs": [
+      "climate projections"
+    ],
+    "outputs": [
+      "scenario delta",
+      "storm exposure"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C15 — Climate change and storm scenarios  _(domain: metocean)_\n\n- **Mandatory inputs:**\n  - climate projections\n- **Expected results:**\n  - scenario delta\n  - storm exposure\n- **Visualization:** uncertainty fan chart\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A06"
+    ],
+    "dependencies": [
+      "C09",
+      "C13"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C16",
+    "title": "Bathymetry and seabed slope",
+    "domain": "seabed",
+    "charts": [
+      "Bathymetry map with contours",
+      "Cross-section seabed profile"
+    ],
+    "inputs": [
+      "bathymetry",
+      "AoI"
+    ],
+    "outputs": [
+      "depth distribution",
+      "slope",
+      "engineering constraints"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C16 — Bathymetry and seabed slope  _(domain: seabed)_\n\n- **Mandatory inputs:**\n  - bathymetry\n  - AoI\n- **Expected results:**\n  - depth distribution\n  - slope\n  - engineering constraints\n- **Visualization:** bathymetric map + depth profile\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A06"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C17",
+    "title": "Sediment geology and geohazards",
+    "domain": "seabed",
+    "charts": [
+      "Sediment-class geospatial map",
+      "Geohazard probability matrix"
+    ],
+    "inputs": [
+      "geology/geomorphology"
+    ],
+    "outputs": [
+      "soil units",
+      "mobile sand",
+      "boulders",
+      "hazards"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C17 — Sediment geology and geohazards  _(domain: seabed)_\n\n- **Mandatory inputs:**\n  - geology/geomorphology\n- **Expected results:**\n  - soil units\n  - mobile sand\n  - boulders\n  - hazards\n- **Visualization:** stratigraphic cross-section\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A06"
+    ],
+    "dependencies": [
+      "C16"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C18",
+    "title": "Geotechnical survey and foundations feasibility",
+    "domain": "seabed",
+    "charts": [
+      "Geotechnical sampling map",
+      "Foundation feasibility comparison"
+    ],
+    "inputs": [
+      "CPT",
+      "boreholes",
+      "loads"
+    ],
+    "outputs": [
+      "evidence maturity",
+      "survey plan",
+      "preliminary foundation choice"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C18 — Geotechnical survey and foundations feasibility  _(domain: seabed)_\n\n- **Mandatory inputs:**\n  - CPT\n  - boreholes\n  - loads\n- **Expected results:**\n  - evidence maturity\n  - survey plan\n  - preliminary foundation choice\n- **Visualization:** option decision matrix\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A06"
+    ],
+    "dependencies": [
+      "C17"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C19",
+    "title": "Scour, seabed mobility and cable burial",
+    "domain": "seabed",
+    "charts": [
+      "Scour-risk spatial overlay",
+      "Burial-depth sensitivity plot"
+    ],
+    "inputs": [
+      "waves",
+      "soil",
+      "currents"
+    ],
+    "outputs": [
+      "scour risk, cable burial feasibility"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C19 — Scour, seabed mobility and cable burial  _(domain: seabed)_\n\n- **Mandatory inputs:**\n  - waves\n  - soil\n  - currents\n- **Expected results:**\n  - scour risk, cable burial feasibility\n- **Visualization:** risk raster + section schematic\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A06"
+    ],
+    "dependencies": [
+      "C18",
+      "C14"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C20",
+    "title": "Candidate turbine technology comparison",
+    "domain": "turbine",
+    "charts": [
+      "Technology comparison radar or bars",
+      "Turbine specification table"
+    ],
+    "inputs": [
+      "datasheets",
+      "site wind"
+    ],
+    "outputs": [
+      "rated MW",
+      "D",
+      "hub height",
+      "IEC class",
+      "maturity"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C20 — Candidate turbine technology comparison  _(domain: turbine)_\n\n- **Mandatory inputs:**\n  - datasheets\n  - site wind\n- **Expected results:**\n  - rated MW\n  - D\n  - hub height\n  - IEC class\n  - maturity\n- **Visualization:** comparison matrix\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A07"
+    ],
+    "dependencies": [],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C21",
+    "title": "Power curve, cut-in, cut-out and rated output",
+    "domain": "turbine",
+    "charts": [
+      "Power curve with rated operating bands",
+      "Energy contribution by wind-speed bin"
+    ],
+    "inputs": [
+      "verified/manufacturer power curves"
+    ],
+    "outputs": [
+      "power curve provenance",
+      "annual production inputs"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C21 — Power curve, cut-in, cut-out and rated output  _(domain: turbine)_\n\n- **Mandatory inputs:**\n  - verified/manufacturer power curves\n- **Expected results:**\n  - power curve provenance\n  - annual production inputs\n- **Visualization:** power curve + density overlay\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A07"
+    ],
+    "dependencies": [
+      "C20"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C22",
+    "title": "Support structures and fatigue",
+    "domain": "turbine",
+    "charts": [
+      "Support-structure choice matrix",
+      "Fatigue loading sensitivity chart"
+    ],
+    "inputs": [
+      "site depth",
+      "soil",
+      "loads"
+    ],
+    "outputs": [
+      "monopile/jacket/floating screen",
+      "design maturity"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C22 — Support structures and fatigue  _(domain: turbine)_\n\n- **Mandatory inputs:**\n  - site depth\n  - soil\n  - loads\n- **Expected results:**\n  - monopile/jacket/floating screen\n  - design maturity\n- **Visualization:** trade-off plot\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A07"
+    ],
+    "dependencies": [
+      "C12",
+      "C18",
+      "C20"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C23",
+    "title": "Turbine placement and spacing",
+    "domain": "layout",
+    "charts": [
+      "Scaled turbine layout map",
+      "Minimum-spacing distribution plot"
+    ],
+    "inputs": [
+      "polygon",
+      "exclusions",
+      "D",
+      "wind rose"
+    ],
+    "outputs": [
+      "turbine point geometries",
+      "spacing",
+      "density"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C23 — Turbine placement and spacing  _(domain: layout)_\n\n- **Mandatory inputs:**\n  - polygon\n  - exclusions\n  - D\n  - wind rose\n- **Expected results:**\n  - turbine point geometries\n  - spacing\n  - density\n- **Visualization:** interactive turbine map\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A08"
+    ],
+    "dependencies": [
+      "C01",
+      "C02",
+      "C08",
+      "C20"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C24",
+    "title": "Wake interaction and neighbouring farm wakes",
+    "domain": "layout",
+    "charts": [
+      "Wake-deficit map with nearby assets",
+      "Directional wake-loss plot"
+    ],
+    "inputs": [
+      "layout",
+      "wind distribution",
+      "adjacent turbines"
+    ],
+    "outputs": [
+      "internal and external wakes separated"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C24 — Wake interaction and neighbouring farm wakes  _(domain: layout)_\n\n- **Mandatory inputs:**\n  - layout\n  - wind distribution\n  - adjacent turbines\n- **Expected results:**\n  - internal and external wakes separated\n- **Visualization:** sector wake-loss polar plot\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A08"
+    ],
+    "dependencies": [
+      "C23",
+      "C08",
+      "C21"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C25",
+    "title": "Multiple-objective optimisation",
+    "domain": "layout",
+    "charts": [
+      "Energy-cost-environment Pareto scatter",
+      "Trade-off comparison parallel coordinates"
+    ],
+    "inputs": [
+      "layout cases",
+      "environment",
+      "cost"
+    ],
+    "outputs": [
+      "AEP/LCOE/ecology trade-off Pareto frontier"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C25 — Multiple-objective optimisation  _(domain: layout)_\n\n- **Mandatory inputs:**\n  - layout cases\n  - environment\n  - cost\n- **Expected results:**\n  - AEP/LCOE/ecology trade-off Pareto frontier\n- **Visualization:** Pareto scatter\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A08"
+    ],
+    "dependencies": [
+      "C24",
+      "C03"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C26",
+    "title": "Gross annual energy calculation",
+    "domain": "energy",
+    "charts": [
+      "Gross AEP by turbine bar plot",
+      "Monthly/annual gross yield chart"
+    ],
+    "inputs": [
+      "wind probabilities",
+      "power curve"
+    ],
+    "outputs": [
+      "gross MWh/yr and capacity factor"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C26 — Gross annual energy calculation  _(domain: energy)_\n\n- **Mandatory inputs:**\n  - wind probabilities\n  - power curve\n- **Expected results:**\n  - gross MWh/yr and capacity factor\n- **Visualization:** AEP bridge\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A09"
+    ],
+    "dependencies": [
+      "C07",
+      "C21",
+      "C23"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C27",
+    "title": "Losses and net energy calculation",
+    "domain": "energy",
+    "charts": [
+      "Gross-to-net energy Sankey",
+      "Loss categories stacked bars"
+    ],
+    "inputs": [
+      "gross AEP",
+      "wake/electric/O&M losses"
+    ],
+    "outputs": [
+      "net MWh/yr",
+      "loss stack",
+      "no double counts"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C27 — Losses and net energy calculation  _(domain: energy)_\n\n- **Mandatory inputs:**\n  - gross AEP\n  - wake/electric/O&M losses\n- **Expected results:**\n  - net MWh/yr\n  - loss stack\n  - no double counts\n- **Visualization:** Sankey flow\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A09"
+    ],
+    "dependencies": [
+      "C26",
+      "C24"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C28",
+    "title": "P50/P75/P90 yield and uncertainty",
+    "domain": "energy",
+    "charts": [
+      "P50/P75/P90 energy exceedance plot",
+      "Uncertainty contributions tornado plot"
+    ],
+    "inputs": [
+      "uncertainty sources"
+    ],
+    "outputs": [
+      "exceedance yield distribution",
+      "assumptions"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C28 — P50/P75/P90 yield and uncertainty  _(domain: energy)_\n\n- **Mandatory inputs:**\n  - uncertainty sources\n- **Expected results:**\n  - exceedance yield distribution\n  - assumptions\n- **Visualization:** probability density + quantiles\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A09"
+    ],
+    "dependencies": [
+      "C27"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C29",
+    "title": "Monthly production and hourly generation proxy",
+    "domain": "energy",
+    "charts": [
+      "Monthly energy production line",
+      "Hourly proxy heatmap with methodology label"
+    ],
+    "inputs": [
+      "wind hourly and turbine curve"
+    ],
+    "outputs": [
+      "8760/8784 hourly simulation",
+      "seasons"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C29 — Monthly production and hourly generation proxy  _(domain: energy)_\n\n- **Mandatory inputs:**\n  - wind hourly and turbine curve\n- **Expected results:**\n  - 8760/8784 hourly simulation\n  - seasons\n- **Visualization:** hourly heatmap\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A09"
+    ],
+    "dependencies": [
+      "C27"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C30",
+    "title": "Energy price capture and curtailment exposure",
+    "domain": "energy",
+    "charts": [
+      "Price capture vs output plot",
+      "Curtailment scenario bars"
+    ],
+    "inputs": [
+      "production",
+      "market data",
+      "grid restrictions"
+    ],
+    "outputs": [
+      "captured price proxy",
+      "curtailment cases"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C30 — Energy price capture and curtailment exposure  _(domain: energy)_\n\n- **Mandatory inputs:**\n  - production\n  - market data\n  - grid restrictions\n- **Expected results:**\n  - captured price proxy\n  - curtailment cases\n- **Visualization:** time-series scenario fan\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A09"
+    ],
+    "dependencies": [
+      "C29"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C31",
+    "title": "Inter-array cables and string topology",
+    "domain": "electrical",
+    "charts": [
+      "Array cable network map",
+      "Electrical loading per string chart"
+    ],
+    "inputs": [
+      "layout",
+      "WTG current/cable ratings"
+    ],
+    "outputs": [
+      "topology",
+      "kV",
+      "length",
+      "N-1 rationale"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C31 — Inter-array cables and string topology  _(domain: electrical)_\n\n- **Mandatory inputs:**\n  - layout\n  - WTG current/cable ratings\n- **Expected results:**\n  - topology\n  - kV\n  - length\n  - N-1 rationale\n- **Visualization:** network schematic\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A10"
+    ],
+    "dependencies": [
+      "C23"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C32",
+    "title": "Offshore substation and protection design",
+    "domain": "electrical",
+    "charts": [
+      "Offshore one-line electrical schematic",
+      "Fault/protection decision matrix"
+    ],
+    "inputs": [
+      "capacity",
+      "voltage",
+      "export options"
+    ],
+    "outputs": [
+      "AC/DC selection",
+      "conversion losses",
+      "single-line"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C32 — Offshore substation and protection design  _(domain: electrical)_\n\n- **Mandatory inputs:**\n  - capacity\n  - voltage\n  - export options\n- **Expected results:**\n  - AC/DC selection\n  - conversion losses\n  - single-line\n- **Visualization:** single-line diagram\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A10"
+    ],
+    "dependencies": [
+      "C31"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C33",
+    "title": "Export route and onshore landfall",
+    "domain": "electrical",
+    "charts": [
+      "Export corridor and landing GIS map",
+      "Distance and cable-risk sensitivity"
+    ],
+    "inputs": [
+      "seabed exclusions",
+      "onshore corridors"
+    ],
+    "outputs": [
+      "route GeoJSON",
+      "route length",
+      "crossings"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C33 — Export route and onshore landfall  _(domain: electrical)_\n\n- **Mandatory inputs:**\n  - seabed exclusions\n  - onshore corridors\n- **Expected results:**\n  - route GeoJSON\n  - route length\n  - crossings\n- **Visualization:** cable route map\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A10"
+    ],
+    "dependencies": [
+      "C01",
+      "C31"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C34",
+    "title": "Candidate grid substations and connection status",
+    "domain": "grid",
+    "charts": [
+      "Verified substation location map",
+      "Connection-status evidence timeline"
+    ],
+    "inputs": [
+      "operator geography",
+      "TEC",
+      "network data"
+    ],
+    "outputs": [
+      "candidate nodes",
+      "voltage",
+      "contracted status"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C34 — Candidate grid substations and connection status  _(domain: grid)_\n\n- **Mandatory inputs:**\n  - operator geography\n  - TEC\n  - network data\n- **Expected results:**\n  - candidate nodes\n  - voltage\n  - contracted status\n- **Visualization:** map + connection table\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A10"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C35",
+    "title": "Transmission boundaries and constraint risk",
+    "domain": "grid",
+    "charts": [
+      "Transmission boundary GIS map",
+      "Constraint and curtailment scenario time series"
+    ],
+    "inputs": [
+      "NESO boundaries",
+      "limits",
+      "costs"
+    ],
+    "outputs": [
+      "boundary overlap",
+      "published limits",
+      "congestion risk"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C35 — Transmission boundaries and constraint risk  _(domain: grid)_\n\n- **Mandatory inputs:**\n  - NESO boundaries\n  - limits\n  - costs\n- **Expected results:**\n  - boundary overlap\n  - published limits\n  - congestion risk\n- **Visualization:** boundary map + time series\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A10"
+    ],
+    "dependencies": [
+      "C34"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C36",
+    "title": "Grid reinforcement costs/timeline uncertainty",
+    "domain": "grid",
+    "charts": [
+      "Reinforcement milestone Gantt",
+      "Cost range waterfall plot"
+    ],
+    "inputs": [
+      "connection quotes",
+      "planning documents"
+    ],
+    "outputs": [
+      "cost/connection date as known or unknown",
+      "sensitivity"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C36 — Grid reinforcement costs/timeline uncertainty  _(domain: grid)_\n\n- **Mandatory inputs:**\n  - connection quotes\n  - planning documents\n- **Expected results:**\n  - cost/connection date as known or unknown\n  - sensitivity\n- **Visualization:** Gantt + tornado\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A10"
+    ],
+    "dependencies": [
+      "C35"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C37",
+    "title": "Existing, consented and planned wind farms",
+    "domain": "nearby",
+    "charts": [
+      "Nearby offshore wind farms geospatial map",
+      "Project lifecycle-status timeline"
+    ],
+    "inputs": [
+      "leases",
+      "project databases"
+    ],
+    "outputs": [
+      "names",
+      "polygons",
+      "status",
+      "MW",
+      "distance",
+      "citations"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C37 — Existing, consented and planned wind farms  _(domain: nearby)_\n\n- **Mandatory inputs:**\n  - leases\n  - project databases\n- **Expected results:**\n  - names\n  - polygons\n  - status\n  - MW\n  - distance\n  - citations\n- **Visualization:** interactive neighbour map\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A11"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C38",
+    "title": "Cumulative wake and seabird impacts",
+    "domain": "nearby",
+    "charts": [
+      "Cumulative wake interaction matrix",
+      "Ecological cumulative-impact heatmap"
+    ],
+    "inputs": [
+      "neighbour footprints",
+      "wind",
+      "habitats"
+    ],
+    "outputs": [
+      "shared impacts, cumulative study scope"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C38 — Cumulative wake and seabird impacts  _(domain: nearby)_\n\n- **Mandatory inputs:**\n  - neighbour footprints\n  - wind\n  - habitats\n- **Expected results:**\n  - shared impacts, cumulative study scope\n- **Visualization:** overlap chart + map\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A11"
+    ],
+    "dependencies": [
+      "C24",
+      "C37"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C39",
+    "title": "Oil/gas field and depleted reservoir discovery",
+    "domain": "oilgas",
+    "charts": [
+      "Oil and gas fields plus wells map",
+      "Asset/depletion evidence status matrix"
+    ],
+    "inputs": [
+      "NSTA fields",
+      "wells",
+      "cessation status"
+    ],
+    "outputs": [
+      "fields within radius",
+      "status",
+      "geology evidence gaps"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C39 — Oil/gas field and depleted reservoir discovery  _(domain: oilgas)_\n\n- **Mandatory inputs:**\n  - NSTA fields\n  - wells\n  - cessation status\n- **Expected results:**\n  - fields within radius\n  - status\n  - geology evidence gaps\n- **Visualization:** oil-and-gas overlay map\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A12"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C40",
+    "title": "CO2 storage reservoir suitability screening",
+    "domain": "ccs",
+    "charts": [
+      "Reservoir candidates GIS map",
+      "Geological screening comparison plot"
+    ],
+    "inputs": [
+      "field geophysics",
+      "pressure",
+      "seal/wells"
+    ],
+    "outputs": [
+      "capacity uncertainty",
+      "containment",
+      "injectivity",
+      "ranking"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C40 — CO2 storage reservoir suitability screening  _(domain: ccs)_\n\n- **Mandatory inputs:**\n  - field geophysics\n  - pressure\n  - seal/wells\n- **Expected results:**\n  - capacity uncertainty\n  - containment\n  - injectivity\n  - ranking\n- **Visualization:** screening matrix + depth profile\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A12"
+    ],
+    "dependencies": [
+      "C39"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C41",
+    "title": "Carbon licence, ownership and permitted rights",
+    "domain": "ccs",
+    "charts": [
+      "CO2 license boundaries overlay",
+      "Regulatory rights and gates timeline"
+    ],
+    "inputs": [
+      "storage licences",
+      "marine leases"
+    ],
+    "outputs": [
+      "licence boundaries/status",
+      "permissions pathway"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C41 — Carbon licence, ownership and permitted rights  _(domain: ccs)_\n\n- **Mandatory inputs:**\n  - storage licences\n  - marine leases\n- **Expected results:**\n  - licence boundaries/status\n  - permissions pathway\n- **Visualization:** licence overlap map\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A12"
+    ],
+    "dependencies": [
+      "C40"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C42",
+    "title": "CO2 transport infrastructure and emission sources",
+    "domain": "ccs",
+    "charts": [
+      "CO2 transport network map",
+      "Source-to-storage distance/cost scenario plot"
+    ],
+    "inputs": [
+      "sources",
+      "pipelines",
+      "shipping",
+      "storage candidates"
+    ],
+    "outputs": [
+      "distance from emitter",
+      "route/cost scenarios"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C42 — CO2 transport infrastructure and emission sources  _(domain: ccs)_\n\n- **Mandatory inputs:**\n  - sources\n  - pipelines\n  - shipping\n  - storage candidates\n- **Expected results:**\n  - distance from emitter\n  - route/cost scenarios\n- **Visualization:** CO2 logistics network map\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A12"
+    ],
+    "dependencies": [
+      "C41"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C43",
+    "title": "Storage operation, monitoring, liabilities",
+    "domain": "ccs",
+    "charts": [
+      "Storage monitoring workflow diagram",
+      "Storage safety/liability risk matrix"
+    ],
+    "inputs": [
+      "MMV",
+      "well integrity",
+      "regulatory"
+    ],
+    "outputs": [
+      "MMV plan",
+      "monitoring costs and risk register"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C43 — Storage operation, monitoring, liabilities  _(domain: ccs)_\n\n- **Mandatory inputs:**\n  - MMV\n  - well integrity\n  - regulatory\n- **Expected results:**\n  - MMV plan\n  - monitoring costs and risk register\n- **Visualization:** risk bow-tie diagram\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A12"
+    ],
+    "dependencies": [
+      "C42"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C44",
+    "title": "Offshore platform and rig inventory",
+    "domain": "oilgas",
+    "charts": [
+      "Offshore platforms and rigs map",
+      "Asset status / decommissioning timeline"
+    ],
+    "inputs": [
+      "platform status",
+      "ownership",
+      "locations"
+    ],
+    "outputs": [
+      "name/type,owner,operation/decommission status,distances"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C44 — Offshore platform and rig inventory  _(domain: oilgas)_\n\n- **Mandatory inputs:**\n  - platform status\n  - ownership\n  - locations\n- **Expected results:**\n  - name/type,owner,operation/decommission status,distances\n- **Visualization:** nearby-platform map\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A13"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "source_screening_with_workspace"
+  },
+  {
+    "id": "C45",
+    "title": "Reuse of offshore platform O&M facilities",
+    "domain": "oilgas",
+    "charts": [
+      "Reuse site map and logistics links",
+      "Structural/legal/commercial reuse feasibility matrix"
+    ],
+    "inputs": [
+      "platform equipment",
+      "people",
+      "access"
+    ],
+    "outputs": [
+      "technical/safety/logistics compatibility score"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C45 — Reuse of offshore platform O&M facilities  _(domain: oilgas)_\n\n- **Mandatory inputs:**\n  - platform equipment\n  - people\n  - access\n- **Expected results:**\n  - technical/safety/logistics compatibility score\n- **Visualization:** reuse feasibility matrix\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A13"
+    ],
+    "dependencies": [
+      "C44"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C46",
+    "title": "Shared helicopters, vessels, ports and spares",
+    "domain": "oilgas",
+    "charts": [
+      "Shared logistics network map",
+      "Travel time and service cost comparison"
+    ],
+    "inputs": [
+      "access windows",
+      "contractors"
+    ],
+    "outputs": [
+      "asset sharing calendar",
+      "time/cost savings scenario"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C46 — Shared helicopters, vessels, ports and spares  _(domain: oilgas)_\n\n- **Mandatory inputs:**\n  - access windows\n  - contractors\n- **Expected results:**\n  - asset sharing calendar\n  - time/cost savings scenario\n- **Visualization:** Sankey + schedule\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A13"
+    ],
+    "dependencies": [
+      "C45"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C47",
+    "title": "Oil/gas electrification or shared energy hub",
+    "domain": "oilgas",
+    "charts": [
+      "Oil/gas electrification topology diagram",
+      "Energy exchange and constraints scenario plot"
+    ],
+    "inputs": [
+      "electric demand",
+      "platform consent"
+    ],
+    "outputs": [
+      "electrification pathways and constraints"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C47 — Oil/gas electrification or shared energy hub  _(domain: oilgas)_\n\n- **Mandatory inputs:**\n  - electric demand\n  - platform consent\n- **Expected results:**\n  - electrification pathways and constraints\n- **Visualization:** energy flow schematic\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A13"
+    ],
+    "dependencies": [
+      "C46",
+      "C34"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C48",
+    "title": "Protected areas, habitats and ecology baselines",
+    "domain": "environment",
+    "charts": [
+      "Protected area habitat map",
+      "Habitat sensitivity by location chart"
+    ],
+    "inputs": [
+      "Natura/MPA",
+      "EMODnet",
+      "local data"
+    ],
+    "outputs": [
+      "constraints and gaps",
+      "impact register"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C48 — Protected areas, habitats and ecology baselines  _(domain: environment)_\n\n- **Mandatory inputs:**\n  - Natura/MPA\n  - EMODnet\n  - local data\n- **Expected results:**\n  - constraints and gaps\n  - impact register\n- **Visualization:** environment sensitivity map\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A14"
+    ],
+    "dependencies": [
+      "C01"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C49",
+    "title": "Birds, bats and marine mammals",
+    "domain": "environment",
+    "charts": [
+      "Species observation and migration overlay",
+      "Seasonal collision/disturbance risk heatmap"
+    ],
+    "inputs": [
+      "survey/track data"
+    ],
+    "outputs": [
+      "collision/displacement/underwater noise plan"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C49 — Birds, bats and marine mammals  _(domain: environment)_\n\n- **Mandatory inputs:**\n  - survey/track data\n- **Expected results:**\n  - collision/displacement/underwater noise plan\n- **Visualization:** impact matrices\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A14"
+    ],
+    "dependencies": [
+      "C48"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C50",
+    "title": "Cumulative impact and mitigation plan",
+    "domain": "environment",
+    "charts": [
+      "EIA impact-mitigation matrix",
+      "Residual versus baseline impact bars"
+    ],
+    "inputs": [
+      "local projects",
+      "EIA plans"
+    ],
+    "outputs": [
+      "monitoring actions, owners and schedule"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C50 — Cumulative impact and mitigation plan  _(domain: environment)_\n\n- **Mandatory inputs:**\n  - local projects\n  - EIA plans\n- **Expected results:**\n  - monitoring actions, owners and schedule\n- **Visualization:** impact mitigation matrix\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A14"
+    ],
+    "dependencies": [
+      "C49",
+      "C38"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C51",
+    "title": "Emissions, materials and lifecycle carbon",
+    "domain": "environment",
+    "charts": [
+      "Lifecycle carbon waterfall",
+      "Material sourcing/recovery stacked bars"
+    ],
+    "inputs": [
+      "materials",
+      "construction/O&M fuel"
+    ],
+    "outputs": [
+      "lifecycle carbon inventory and uncertainty"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C51 — Emissions, materials and lifecycle carbon  _(domain: environment)_\n\n- **Mandatory inputs:**\n  - materials\n  - construction/O&M fuel\n- **Expected results:**\n  - lifecycle carbon inventory and uncertainty\n- **Visualization:** waterfall lifecycle CO2e\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A14"
+    ],
+    "dependencies": [
+      "C20",
+      "C22",
+      "C31"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C52",
+    "title": "Construction port, staging and vessel choices",
+    "domain": "construction",
+    "charts": [
+      "Construction ports and vessel routes map",
+      "Port selection score plot"
+    ],
+    "inputs": [
+      "port constraints",
+      "WTG dimensions"
+    ],
+    "outputs": [
+      "port ranking",
+      "equipment and mobilisation"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C52 — Construction port, staging and vessel choices  _(domain: construction)_\n\n- **Mandatory inputs:**\n  - port constraints\n  - WTG dimensions\n- **Expected results:**\n  - port ranking\n  - equipment and mobilisation\n- **Visualization:** port capability matrix\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A15"
+    ],
+    "dependencies": [
+      "C04",
+      "C20"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C53",
+    "title": "Foundation, cable, turbine installation sequence",
+    "domain": "construction",
+    "charts": [
+      "Installation sequencing Gantt",
+      "Marine weather-delay risk chart"
+    ],
+    "inputs": [
+      "design and weather windows"
+    ],
+    "outputs": [
+      "installation method statement and sequencing"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C53 — Foundation, cable, turbine installation sequence  _(domain: construction)_\n\n- **Mandatory inputs:**\n  - design and weather windows\n- **Expected results:**\n  - installation method statement and sequencing\n- **Visualization:** Gantt with weather risk\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A15"
+    ],
+    "dependencies": [
+      "C52",
+      "C13"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C54",
+    "title": "Supply chain, lead times and procurement",
+    "domain": "construction",
+    "charts": [
+      "Supplier lead-time schedule",
+      "Procurement risk matrix"
+    ],
+    "inputs": [
+      "vendors",
+      "durations"
+    ],
+    "outputs": [
+      "procurement critical items and cost ranges"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C54 — Supply chain, lead times and procurement  _(domain: construction)_\n\n- **Mandatory inputs:**\n  - vendors\n  - durations\n- **Expected results:**\n  - procurement critical items and cost ranges\n- **Visualization:** dependency graph\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A15"
+    ],
+    "dependencies": [
+      "C53"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C55",
+    "title": "Availability, reliability, maintenance strategy",
+    "domain": "om",
+    "charts": [
+      "Availability and reliability time series",
+      "Failure modes / O&M strategy comparison"
+    ],
+    "inputs": [
+      "failure rates",
+      "repairs",
+      "access"
+    ],
+    "outputs": [
+      "annual availability",
+      "scheduled/unscheduled repairs"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C55 — Availability, reliability, maintenance strategy  _(domain: om)_\n\n- **Mandatory inputs:**\n  - failure rates\n  - repairs\n  - access\n- **Expected results:**\n  - annual availability\n  - scheduled/unscheduled repairs\n- **Visualization:** reliability and downtime chart\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A16"
+    ],
+    "dependencies": [
+      "C20",
+      "C13"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C56",
+    "title": "Wind turbine accessibility",
+    "domain": "om",
+    "charts": [
+      "Monthly wave distributions and joint wind-wave frequency",
+      "Monthly eligibility, daily calendar and continuous access windows"
+    ],
+    "inputs": [
+      "distance",
+      "weather windows",
+      "ports"
+    ],
+    "outputs": [
+      "strategy cost and feasible transfer days"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C56 \u2014 Operations port, CTV/SOV and crew access  _(domain: om)_\n\n- **Mandatory inputs:**\n  - distance\n  - weather windows\n  - ports\n- **Expected results:**\n  - strategy cost and feasible transfer days\n- **Visualization:** accessibility calendar\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A16"
+    ],
+    "dependencies": [
+      "C55",
+      "C04"
+    ],
+    "implementation": "regional_accessibility_screening"
+  },
+  {
+    "id": "C57",
+    "title": "Condition monitoring and digital operation",
+    "domain": "om",
+    "charts": [
+      "Condition monitoring KPI timeline",
+      "Alarm severity and root-cause matrix"
+    ],
+    "inputs": [
+      "SCADA/proxy",
+      "condition signals"
+    ],
+    "outputs": [
+      "monitoring concept and trigger thresholds"
+    ],
+    "classification": "extension",
+    "catalog_spec": "### C57 — Condition monitoring and digital operation  _(domain: om)_\n\n- **Mandatory inputs:**\n  - SCADA/proxy\n  - condition signals\n- **Expected results:**\n  - monitoring concept and trigger thresholds\n- **Visualization:** health trend + alarms\n- **Classification:** extension\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A16"
+    ],
+    "dependencies": [
+      "C55"
+    ],
+    "implementation": "evidence_register"
+  },
+  {
+    "id": "C58",
+    "title": "CAPEX and financing assumptions",
+    "domain": "finance",
+    "charts": [
+      "CAPEX stacked breakdown",
+      "Financing sensitivity heatmap"
+    ],
+    "inputs": [
+      "BoM",
+      "installation",
+      "finance rates"
+    ],
+    "outputs": [
+      "breakdown,real/nominal cost,source ranges"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C58 — CAPEX and financing assumptions  _(domain: finance)_\n\n- **Mandatory inputs:**\n  - BoM\n  - installation\n  - finance rates\n- **Expected results:**\n  - breakdown,real/nominal cost,source ranges\n- **Visualization:** CAPEX treemap\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A17"
+    ],
+    "dependencies": [
+      "C22",
+      "C31",
+      "C36",
+      "C54"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C59",
+    "title": "OPEX, insurance, tax and decommissioning",
+    "domain": "finance",
+    "charts": [
+      "OPEX and decommissioning lifecycle line",
+      "Cost uncertainty ranges"
+    ],
+    "inputs": [
+      "O&M strategy",
+      "finance assumptions"
+    ],
+    "outputs": [
+      "annual cash flow input table"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C59 — OPEX, insurance, tax and decommissioning  _(domain: finance)_\n\n- **Mandatory inputs:**\n  - O&M strategy\n  - finance assumptions\n- **Expected results:**\n  - annual cash flow input table\n- **Visualization:** stacked lifecycle cost\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A17"
+    ],
+    "dependencies": [
+      "C55",
+      "C56"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C60",
+    "title": "LCOE, NPV, IRR and payback",
+    "domain": "finance",
+    "charts": [
+      "LCOE/NPV/IRR scenario comparison",
+      "Cashflow and payback cumulative line"
+    ],
+    "inputs": [
+      "energy scenarios",
+      "dated cash flows"
+    ],
+    "outputs": [
+      "discounted LCOE with units",
+      "NPV",
+      "IRR",
+      "payback"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C60 — LCOE, NPV, IRR and payback  _(domain: finance)_\n\n- **Mandatory inputs:**\n  - energy scenarios\n  - dated cash flows\n- **Expected results:**\n  - discounted LCOE with units\n  - NPV\n  - IRR\n  - payback\n- **Visualization:** tornado sensitivity\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A17"
+    ],
+    "dependencies": [
+      "C27",
+      "C58",
+      "C59"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C61",
+    "title": "Price, discount, wake and schedule sensitivity",
+    "domain": "finance",
+    "charts": [
+      "Financial sensitivity tornado",
+      "Scenario response surface / heatmap"
+    ],
+    "inputs": [
+      "probability/ranges"
+    ],
+    "outputs": [
+      "scenario results",
+      "Monte Carlo if justified"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C61 — Price, discount, wake and schedule sensitivity  _(domain: finance)_\n\n- **Mandatory inputs:**\n  - probability/ranges\n- **Expected results:**\n  - scenario results\n  - Monte Carlo if justified\n- **Visualization:** tornado + spider lines\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A17"
+    ],
+    "dependencies": [
+      "C60"
+    ],
+    "implementation": "financial_sensitivity"
+  },
+  {
+    "id": "C62",
+    "title": "Construction/operations HSE and emergency response",
+    "domain": "hse",
+    "charts": [
+      "Risk probability vs consequence matrix",
+      "Safety controls and readiness timeline"
+    ],
+    "inputs": [
+      "HAZID",
+      "activities",
+      "operators"
+    ],
+    "outputs": [
+      "risk log",
+      "ALARP decisions",
+      "emergency plan"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C62 — Construction/operations HSE and emergency response  _(domain: hse)_\n\n- **Mandatory inputs:**\n  - HAZID\n  - activities\n  - operators\n- **Expected results:**\n  - risk log\n  - ALARP decisions\n  - emergency plan\n- **Visualization:** risk matrix + bow-tie\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A18"
+    ],
+    "dependencies": [
+      "C53",
+      "C56"
+    ],
+    "implementation": "risk_register"
+  },
+  {
+    "id": "C63",
+    "title": "Staffing, labour demand and skills",
+    "domain": "people",
+    "charts": [
+      "Workforce demand timeline",
+      "Role and skills gap bars"
+    ],
+    "inputs": [
+      "schedule and scope"
+    ],
+    "outputs": [
+      "phase FTE profile and skills shortages"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C63 — Staffing, labour demand and skills  _(domain: people)_\n\n- **Mandatory inputs:**\n  - schedule and scope\n- **Expected results:**\n  - phase FTE profile and skills shortages\n- **Visualization:** workforce area chart\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A18"
+    ],
+    "dependencies": [
+      "C62"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C64",
+    "title": "Stakeholders and community engagement",
+    "domain": "people",
+    "charts": [
+      "Stakeholder influence-interest matrix",
+      "Engagement milestones timeline"
+    ],
+    "inputs": [
+      "local actors",
+      "authorities"
+    ],
+    "outputs": [
+      "stakeholder map",
+      "consultation plan"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C64 — Stakeholders and community engagement  _(domain: people)_\n\n- **Mandatory inputs:**\n  - local actors\n  - authorities\n- **Expected results:**\n  - stakeholder map\n  - consultation plan\n- **Visualization:** power-interest matrix\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A18"
+    ],
+    "dependencies": [
+      "C50"
+    ],
+    "implementation": "stakeholder_register"
+  },
+  {
+    "id": "C65",
+    "title": "Life cycle, consents and critical path",
+    "domain": "schedule",
+    "charts": [
+      "Dependencies and critical-path Gantt",
+      "Milestone confidence / delay-risk waterfall"
+    ],
+    "inputs": [
+      "all agent durations"
+    ],
+    "outputs": [
+      "milestone and dependency graph"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C65 — Life cycle, consents and critical path  _(domain: schedule)_\n\n- **Mandatory inputs:**\n  - all agent durations\n- **Expected results:**\n  - milestone and dependency graph\n- **Visualization:** Gantt + critical path\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A19"
+    ],
+    "dependencies": [
+      "C54",
+      "C36",
+      "C64"
+    ],
+    "implementation": "programme"
+  },
+  {
+    "id": "C66",
+    "title": "Repowering, reuse and decommissioning",
+    "domain": "endoflife",
+    "charts": [
+      "End-of-life scenario decision tree",
+      "Extension/repowering/decommissioning cost plots"
+    ],
+    "inputs": [
+      "asset inventory",
+      "permit conditions"
+    ],
+    "outputs": [
+      "end-of-life options and restoration plan"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C66 — Repowering, reuse and decommissioning  _(domain: endoflife)_\n\n- **Mandatory inputs:**\n  - asset inventory\n  - permit conditions\n- **Expected results:**\n  - end-of-life options and restoration plan\n- **Visualization:** scenario decision tree\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A19"
+    ],
+    "dependencies": [
+      "C59",
+      "C65"
+    ],
+    "implementation": "screening_calculation"
+  },
+  {
+    "id": "C67",
+    "title": "Cross-agent consistency and auditability",
+    "domain": "quality",
+    "charts": [
+      "Cross-agent dependency graph",
+      "Data validation and inconsistency issue queue"
+    ],
+    "inputs": [
+      "all agent outputs"
+    ],
+    "outputs": [
+      "hard error report and traceable corrections"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C67 — Cross-agent consistency and auditability  _(domain: quality)_\n\n- **Mandatory inputs:**\n  - all agent outputs\n- **Expected results:**\n  - hard error report and traceable corrections\n- **Visualization:** QA status heatmap\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A02",
+      "A03",
+      "A21"
+    ],
+    "dependencies": [
+      "C28",
+      "C60",
+      "C50",
+      "C66"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C68",
+    "title": "AI disclosure, authorship, evidence and learning",
+    "domain": "quality",
+    "charts": [
+      "Per-section AI disclosure matrix",
+      "Human contributions and source traceability chart"
+    ],
+    "inputs": [
+      "agent logs",
+      "student input"
+    ],
+    "outputs": [
+      "AI per section",
+      "original contribution",
+      "critique records"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C68 — AI disclosure, authorship, evidence and learning  _(domain: quality)_\n\n- **Mandatory inputs:**\n  - agent logs\n  - student input\n- **Expected results:**\n  - AI per section\n  - original contribution\n  - critique records\n- **Visualization:** learning audit table\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A01",
+      "A02",
+      "A21"
+    ],
+    "dependencies": [],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C69",
+    "title": "Management dashboard and interactive geospatial layers",
+    "domain": "dashboard",
+    "charts": [
+      "Radial, interactive 70-criterion dependency and importance explorer",
+      "GIS layer coverage, provenance, and cross-category KPI scorecards"
+    ],
+    "inputs": [
+      "validated data",
+      "scenarios"
+    ],
+    "outputs": [
+      "live filters",
+      "KPI tiles",
+      "maps",
+      "reproducible views"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C69 — Management dashboard and interactive geospatial layers  _(domain: dashboard)_\n\n- **Mandatory inputs:**\n  - validated data\n  - scenarios\n- **Expected results:**\n  - live filters\n  - KPI tiles\n  - maps\n  - reproducible views\n- **Visualization:** dashboard panels\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A20"
+    ],
+    "dependencies": [
+      "C67",
+      "C68"
+    ],
+    "implementation": "calculation"
+  },
+  {
+    "id": "C70",
+    "title": "Investor report and technical annexes",
+    "domain": "reporting",
+    "charts": [
+      "Investor KPI summary with scenario comparison",
+      "Report annex completeness tracker"
+    ],
+    "inputs": [
+      "approved outputs",
+      "figures"
+    ],
+    "outputs": [
+      "integrated proposal",
+      "citations",
+      "limitations",
+      "reproducibility"
+    ],
+    "classification": "core",
+    "catalog_spec": "### C70 — Investor report and technical annexes  _(domain: reporting)_\n\n- **Mandatory inputs:**\n  - approved outputs\n  - figures\n- **Expected results:**\n  - integrated proposal\n  - citations\n  - limitations\n  - reproducibility\n- **Visualization:** report + evidence appendix\n- **Classification:** core\n- **Acceptance criteria:**\n  - Units and method explicit\n  - At least one primary source or clear data-gap statement\n  - Confidence and uncertainty stated\n  - Machine-readable output\n  - Engineering and regulatory caveats\n",
+    "owners": [
+      "A22"
+    ],
+    "dependencies": [
+      "C69"
+    ],
+    "implementation": "calculation"
+  }
+]

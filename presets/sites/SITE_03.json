@@ -1,0 +1,11 @@
+{
+  "id": "SITE_03",
+  "name": "Norfolk / East Anglia",
+  "jurisdiction": "UK — England",
+  "search_area_description": "East Anglia offshore regional search",
+  "screening_geometry": null,
+  "status": "screening_only",
+  "geometry_unverified": true,
+  "no_feasibility_claim": true,
+  "revision": 1
+}

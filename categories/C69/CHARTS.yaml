@@ -1,0 +1,27 @@
+{
+  "category_id": "C69",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C69-1",
+      "required_title": "Radial, interactive 70-criterion dependency and importance explorer",
+      "data_paths": [
+        "catalog.categories",
+        "results"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C69-2",
+      "required_title": "GIS layer coverage, provenance, and cross-category KPI scorecards",
+      "data_paths": [
+        "results"
+      ],
+      "status": "preliminary_data_bound",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

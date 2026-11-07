@@ -1,0 +1,22 @@
+{
+  "category_id": "C12",
+  "contract_version": "0.1.0",
+  "charts": [
+    {
+      "id": "C12-1",
+      "required_title": "Turbulence vs wind speed scatter",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    },
+    {
+      "id": "C12-2",
+      "required_title": "Design wind extremes plot",
+      "data_paths": [],
+      "status": "missing_data_or_method",
+      "empty_state": "Display required missing input and acquisition action; never substitute invented values.",
+      "note": "The first release may use preliminary bars/tables in place of the final specialist visualization; see docs/STATUS.md."
+    }
+  ]
+}

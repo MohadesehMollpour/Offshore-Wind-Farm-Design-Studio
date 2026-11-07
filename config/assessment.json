@@ -1,0 +1,187 @@
+{
+  "year": "2026/27",
+  "due": "2026-12-17T14:00:00+00:00",
+  "timezone": "Europe/London",
+  "topics": [
+    {
+      "name": "Location",
+      "categories": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Layout",
+      "categories": [
+        "C23",
+        "C24",
+        "C25"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Wind resource",
+      "categories": [
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Seabed and metocean",
+      "categories": [
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Turbine selection",
+      "categories": [
+        "C20",
+        "C21",
+        "C22"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Cables and grid",
+      "categories": [
+        "C31",
+        "C32",
+        "C33",
+        "C34",
+        "C35",
+        "C36"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Annual energy production",
+      "categories": [
+        "C26",
+        "C27",
+        "C28",
+        "C29",
+        "C30"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Levelised cost of electricity",
+      "categories": [
+        "C58",
+        "C59",
+        "C60",
+        "C61"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Construction and build-out port",
+      "categories": [
+        "C52",
+        "C53",
+        "C54"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Operations and maintenance",
+      "categories": [
+        "C55",
+        "C56",
+        "C57"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Decommissioning",
+      "categories": [
+        "C66"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "EIA plan",
+      "categories": [
+        "C48",
+        "C49",
+        "C50",
+        "C51"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Stakeholder engagement",
+      "categories": [
+        "C64"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Health and safety",
+      "categories": [
+        "C62"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Staffing",
+      "categories": [
+        "C63"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    },
+    {
+      "name": "Project timeline",
+      "categories": [
+        "C65"
+      ],
+      "source": "Assessment Brief.pdf, PDF page 1"
+    }
+  ],
+  "rubric": [
+    {
+      "name": "Quality of analysis",
+      "weight": 40,
+      "source": "Assessment Criteria.xlsx, Assessment Criteria!A4:K4"
+    },
+    {
+      "name": "Coherence",
+      "weight": 20,
+      "source": "Assessment Criteria.xlsx, Assessment Criteria!A5:K5"
+    },
+    {
+      "name": "Identification and use of data sources",
+      "weight": 20,
+      "source": "Assessment Criteria.xlsx, Assessment Criteria!A6:K6"
+    },
+    {
+      "name": "Organisation and presentation",
+      "weight": 20,
+      "source": "Assessment Criteria.xlsx, Assessment Criteria!A7:K7"
+    }
+  ],
+  "ai_disclosure": "Name the human lead and AI tools used in each report section (Assessment Brief.pdf, PDF page 2).",
+  "optional_extensions": [
+    "CCS",
+    "Oil/gas reuse",
+    "Detailed grid congestion",
+    "Interactive multi-agent platform"
+  ]
+}
